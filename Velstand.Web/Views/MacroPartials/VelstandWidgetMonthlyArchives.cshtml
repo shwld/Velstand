@@ -1,0 +1,35 @@
+﻿@using Velstand.Constants
+@using Velstand.Models
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    IPublishedContent content = CurrentPage.VBlogHolderOrRoot();
+    var contents = content.VHasContents();
+    var startdate = DateTime.Now;
+    if (contents.Count() != 0)
+    {
+        startdate = contents.OrderBy(x => x.GetPropertyValue(VelstandProperty.ReleaseDate))
+                                     .Where(y => y.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate).CompareTo(new DateTime()) != 0)
+                                     .First().GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate);
+    }
+    var idate = DateTime.Now;
+
+    <div class="Widget panel">
+        <h4 class="panel-title"><span class="glyphicon glyphicon-th"></span>@Umbraco.GetDictionaryValue("MonthlyArchives")</h4>
+        <ul class="list-group">
+            @while (new DateTime(startdate.Year, startdate.Month, 1) <= new DateTime(idate.Year, idate.Month, 1))
+            {
+                var cnt = contents.Where(x => x.GetPropertyValue<DateTime>("releaseDate").ToString("yyyyMM") == idate.ToString("yyyyMM")).Count();
+                var currentMonth = new DateTime(idate.Year, idate.Month, 1);
+                var url = content.Url + "?date=" + idate.ToString("yyyyMM");
+                idate = idate.AddMonths(-1);
+                //if (idate.AddMonths(12) < DateTime.Now) { break; }
+                if (cnt == 0) { continue; }
+
+                <li class="list-group-item">
+                    <a href="@url">@string.Format(Umbraco.GetDictionaryValue("MonthlyArchivesDateFormat"), currentMonth)</a>
+                    <span class="badge">@cnt</span>
+                </li>
+            }
+        </ul>
+    </div>
+}

@@ -1,0 +1,23 @@
+﻿@using Velstand.Models
+@using Velstand.Helpers
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    IPublishedContent holder = CurrentPage.VBlogHolderOrRoot();
+}
+
+<div class="Widget panel">
+    <h4><span class="glyphicon glyphicon-asterisk"></span>@Umbraco.GetDictionaryValue("NewPosts")</h4>
+    <ul class="list-group">
+        @foreach (var post in holder.VHasContents().Take(10))
+        {
+            <li class="list-group-item">
+                <a href="@post.Url">
+                    @Html.Crop(post, "eyecatch", "blogThumbnail", isLazyLoad: false)
+                </a>
+                <a href="@post.Url">
+                    @Umbraco.Field(post, "title")
+                </a>
+            </li>
+        }
+    </ul>
+</div>

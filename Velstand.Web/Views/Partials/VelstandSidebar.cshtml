@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    IPublishedContent content = CurrentPage.HasValue("selectWidgets") ? CurrentPage : CurrentPage.VHolderTop();
+}
+
+@Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectWidgets"), CurrentPage.Id))
+
+<div id="Fixed-Sidebar">
+    @Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectFixedWidgets"), CurrentPage.Id))
+</div>

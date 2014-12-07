@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "VelstandWrapper.cshtml";
+}
+@section VelstandHead
+{
+}
+@section VelstandBody
+{
+    <article class="Single-Post Post panel panel-default">
+        <div class="panel-body">
+            <h1 class="Post-Title">@Umbraco.Field("title")</h1>
+            <div class="Post-Body">
+                @Umbraco.Field("body")
+            </div>
+        </div>
+
+        <div class="panel-footer">
+        </div>
+    </article>
+}

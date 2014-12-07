@@ -1,0 +1,33 @@
+﻿@using Velstand.Constants
+@using Velstand.Helpers
+@using Velstand.Models
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+}
+
+<ul class="col-md-12 breadcrumb">
+    @foreach (var content in CurrentPage.VBreadCrumbs())
+    {
+        <li class="BreadCrumb-Item"><a href="@content.Url">@Umbraco.Field(content, "title", altText: content.Name)</a></li>
+    }
+    <li class="BreadCrumb-Item active">@Umbraco.Field("title", altText: CurrentPage.Name)</li>
+
+    @* Request Category *@
+    @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Category]))
+    {
+        var cat = Umbraco.TypedContent(Request.QueryString[VelstandRequest.Category]);
+        <li class="BreadCrumb-Item BreadCrumb-Category">&nbsp;[ @Umbraco.Field(cat, "title", insertAfter: Umbraco.GetDictionaryValue("BreadCrumbCategory")) ]</li>
+    }
+
+    @* Request Date *@
+    @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Date]))
+    {
+        <li class="BreadCrumb-Item BreadCrumb-Date">&nbsp;[ @Html.BreadCrumbDateFormat(Request.QueryString[VelstandRequest.Date]) ]</li>
+    }
+
+    @* Request Text *@
+    @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Text]))
+    {
+        <li class="BreadCrumb-Item BreadCrumb-Date">&nbsp;[ @Umbraco.GetDictionaryValue("BreadCrumbText") @Request.QueryString[VelstandRequest.Text] ]</li>
+    }
+</ul>

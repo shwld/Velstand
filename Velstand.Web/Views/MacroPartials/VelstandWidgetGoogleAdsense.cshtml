@@ -1,0 +1,17 @@
+﻿@using Velstand.Models
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+<div class="text-center" style="margin-bottom:20px;">
+@{
+    IPublishedContent current = CurrentPage;
+    var settings = current.VRoot().Descendant("VelstandPrivateSettings");
+    if (Request.Browser.IsMobileDevice)
+    {
+        @Umbraco.Field(settings, "googleAdsenseMobile")
+    }
+    else
+    {
+        @Umbraco.Field(settings, "googleAdsense")
+}
+}
+</div>

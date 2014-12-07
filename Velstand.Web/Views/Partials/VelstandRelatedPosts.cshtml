@@ -1,0 +1,30 @@
+﻿@using Velstand.Helpers
+@using Velstand.Models
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    IPublishedContent current = CurrentPage;
+    var contents = CurrentPage.VRoot().VHasContents().VWhereCategory(CurrentPage.GetPropertyValue<string>("category"), CurrentPage.Id).Take(4);
+}
+
+@foreach (IPublishedContent post in contents)
+{
+    <article class="col-md-12 panel panel-default clearfix">
+        <div class="col-md-3 pull-left">
+            <p class="Post-Eyecatch">
+                <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogEyecatch")</a>
+            </p>
+        </div>
+        <div class="Description panel-body col-md-9">
+            <h4 class="Font-Big"><a href="@post.Url">@Umbraco.Field(post, "title")</a></h4>
+            <p class="Post-Data">
+                <span class="Post-Date glyphicon glyphicon-calendar">@Html.DictionalyDateFormat(current, "releaseDate")</span>
+                <span class="glyphicon glyphicon-tag">@Html.CategoryWithLink(current, "category")</span>
+            </p>
+            <hr />
+            <p class="Post-Introduction">@Umbraco.Field(post, "introduction")</p>
+            <a class="Link-Btn" href="@post.Url">
+                <span class="glyphicon glyphicon-check"></span> @Umbraco.GetDictionaryValue("HolderpageMoreButton")
+            </a>
+        </div>
+    </article>
+}

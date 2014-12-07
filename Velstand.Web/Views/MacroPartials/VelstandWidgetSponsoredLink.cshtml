@@ -1,0 +1,11 @@
+﻿@using Velstand.Models
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+	
+<div class="text-center">
+@{
+    IPublishedContent current = CurrentPage;
+    var settings = current.VRoot().Descendant("VelstandPrivateSettings");
+    	
+	@Umbraco.Field(settings, "sponsoredLink")
+}
+</div>

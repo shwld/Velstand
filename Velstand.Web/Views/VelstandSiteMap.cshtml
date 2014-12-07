@@ -1,0 +1,42 @@
+﻿@using Velstand.Models
+@using Velstand.Constants
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "VelstandWrapper.cshtml";
+}
+@section VelstandHead
+{
+}
+@section VelstandBody
+{
+    @* Render the sitemap by passing the root node to the traverse helper *@
+
+    <article class="Single-Post Post panel panel-default">
+        <div class="panel-body">
+            <h1 class="Post-Title">@Umbraco.Field("title")</h1>
+            @Traverse(CurrentPage.VRoot())
+        </div>
+    </article>
+}
+@* Helper method to travers through all descendants *@
+@helper Traverse(IPublishedContent node)
+{
+    @* Select visible children *@
+    var items = node.Children.Where(x => !x.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem) 
+                                                          &&     !x.DocumentTypeAlias.StartsWith(VelstandPrefix.Error));
+                                                           
+    @* If any items are returned, render a list *@
+    if (items.Any())
+    {
+        <ul>
+            @foreach (var item in items)
+            {
+                <li class="level-@item.Level">
+                    <a href="@item.Url">@Umbraco.Field(item, "title", altText: item.Name)</a>
+                    @* Run the traverse helper again *@
+                    @Traverse(item)
+                </li>
+            }
+        </ul>
+    }
+}

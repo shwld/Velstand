@@ -1,0 +1,82 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-ve50fu');
+	src:url('fonts/icomoon.eot?#iefix-ve50fu') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-ve50fu') format('woff'),
+		url('fonts/icomoon.ttf?-ve50fu') format('truetype'),
+		url('fonts/icomoon.svg?-ve50fu#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-images:before {
+	content: "\e600";
+}
+.icon-screen:before {
+	content: "\e612";
+}
+.icon-undo:before {
+	content: "\e601";
+}
+.icon-redo:before {
+	content: "\e602";
+}
+.icon-quotes-left:before {
+	content: "\e606";
+}
+.icon-list:before {
+	content: "\e603";
+}
+.icon-numbered-list:before {
+	content: "\e604";
+}
+.icon-link:before {
+	content: "\e605";
+}
+.icon-bold:before {
+	content: "\e607";
+}
+.icon-underline:before {
+	content: "\e608";
+}
+.icon-italic:before {
+	content: "\e609";
+}
+.icon-strikethrough:before {
+	content: "\e60a";
+}
+.icon-table:before {
+	content: "\e60b";
+}
+.icon-insert-template:before {
+	content: "\e610";
+}
+.icon-paragraph-left:before {
+	content: "\e60c";
+}
+.icon-paragraph-center:before {
+	content: "\e60d";
+}
+.icon-paragraph-right:before {
+	content: "\e60e";
+}
+.icon-embed:before {
+	content: "\e60f";
+}
+.icon-console:before {
+	content: "\e611";
+}

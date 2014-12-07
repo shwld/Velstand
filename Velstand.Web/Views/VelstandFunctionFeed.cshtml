@@ -1,0 +1,57 @@
+﻿@using Velstand.Constants
+@using Velstand.Models
+@using Velstand.Utilities
+@using System.Xml
+@using System.Text
+@using System.ServiceModel.Syndication;
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    IPublishedContent current = CurrentPage;
+    var setting = current.VRoot().Descendant("VelstandPrivateSettings");
+    IPublishedContent selected = Umbraco.TypedContent(CurrentPage.GetPropertyValue<int>("selectContent"));
+    if (selected == null) { return; }
+
+    var baseUrl = UrlUtil.SchemeAndAuthority();
+    }
+
+@{
+    SyndicationFeed feed = new SyndicationFeed(
+        setting.GetPropertyValue<string>("siteTitle"),
+        setting.GetPropertyValue<string>("siteDescription"),
+        new Uri(baseUrl)
+    );
+
+    feed.Items = selected.VHasContents().Select(x => new SyndicationItem(
+        x.GetPropertyValue<string>("title"),
+        x.GetPropertyValue<string>("description"),
+        new Uri(baseUrl + x.Url)
+        ));
+        
+    Response.Clear();
+    Response.ContentType = "text/xml";
+    Response.ContentEncoding = Encoding.UTF8;
+    var output = new StringBuilder();
+    if (Request["format"] == "rss")
+    {
+        // RSS2.0
+        MemoryStream memoryStream = new MemoryStream();
+        var formatter = new Rss20FeedFormatter(feed, false);
+        using (var writer = XmlWriter.Create(output, new XmlWriterSettings { Indent = true }))
+        {
+            formatter.WriteTo(writer);
+            writer.Flush();
+        }
+    }
+    else
+    {
+        // Atom
+        var formatter = new Atom10FeedFormatter(feed);
+        using (var writer = XmlWriter.Create(output, new XmlWriterSettings { Indent = true }))
+        {
+            formatter.WriteTo(writer);
+            writer.Flush();
+        }
+    }
+
+    Response.Write(output);
+}

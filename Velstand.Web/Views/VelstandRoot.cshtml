@@ -1,0 +1,51 @@
+﻿@using Velstand.Helpers
+@using Velstand.Models
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "VelstandWrapper.cshtml";
+    IPublishedContent current = CurrentPage;
+    var search = new SearchEngineModel(CurrentPage, Request);
+    }
+
+@section VelstandHead
+{
+}
+
+
+@section VelstandBody
+{
+    <div class="col-xs-12">
+        <article class="clearfix">
+            @Umbraco.Field("body")
+        </article>
+    </div>
+
+    <div class="clearfix">
+        @foreach (var post in search.Contents())
+        {
+            <article class="List-Post col-xs-12 col-md-6 panel panel-default clearfix">
+                <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogThumbnail")</a>
+                <div class="Post-Title col-xs-12">
+                    <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
+                </div>
+                <div class="Post-Data col-xs-12">
+                    <p>
+                        <span class="glyphicon glyphicon-calendar">
+                            @string.Format(Umbraco.GetDictionaryValue("DateFormat"), Umbraco.Field(post, "releasedate", formatAsDate: true))
+                        </span>
+                    </p>
+                    <p>@string.Join(", ", post.VMultiNodes("category").Select(x => x.Name) )</p>
+                </div>
+            </article>
+        }
+    </div>
+
+    @*<a class="Link-Btn" href="@current.VPageUrl(2, Request)">
+        <span class="glyphicon glyphicon-check btn panel col-xs-12 text-center"> @Umbraco.GetDictionaryValue("ToppageMoreButton")</span>
+    </a>*@
+    <ul class="pagination">
+        @search.Html.Prev("<")
+        @search.Html.Pagination()
+        @search.Html.Next(">")
+    </ul>
+}

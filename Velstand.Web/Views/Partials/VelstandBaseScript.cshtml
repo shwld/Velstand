@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+
+<script src="~/scripts/jquery.lazyload.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var showFlag = false;
+        var topBtn = $('#Btns');
+        topBtn.css('bottom', '-100px');
+        var showFlag = false;
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 400) {
+                if (showFlag == false) {
+                    showFlag = true;
+                    topBtn.stop().animate({ 'bottom': '10px' }, 200);
+                }
+            } else {
+                if (showFlag) {
+                    showFlag = false;
+                    topBtn.stop().animate({ 'bottom': '-100px' }, 200);
+                }
+            }
+        });
+        $('#Top-Btn').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 500);
+            return false;
+        });
+
+        var navBtn = $('#Nav-Btn');
+        var snsBar = $('#Sns-Bar');
+        var showNavFlag = false;
+        snsBar.css('bottom', '-100px');
+        navBtn.click(function () {
+            if (showNavFlag == false) {
+                showNavFlag = true;
+                snsBar.stop().animate({ 'bottom': '50px' }, 200);
+            } else {
+                showNavFlag = false;
+                snsBar.stop().animate({ 'bottom': '-100px' }, 200);
+            }
+            return false;
+        });
+
+        $('.lazy-load').lazyload({
+            effect: 'fadeIn',
+            effectspeed: 1000
+        });
+    });
+    //$('.Post-Body img').addClass('img-responsive');
+</script>
+
+@if (!Request.Browser.IsMobileDevice)
+{
+    <script type="text/javascript">
+            $(function ($) {
+                var tab = $('#Fixed-Sidebar'), offset = tab.offset();
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() > offset.top) {
+                        tab.addClass('Fixed');
+                    } else {
+                        tab.removeClass('Fixed');
+                    }
+                });
+            });
+    </script>
+}

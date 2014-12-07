@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+
+<style type="text/css">
+html,
+body {
+  height: 100%;
+  background-color: #d3d6e0;
+}
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  background-color: #d3d6e0;
+  border:none;
+  /*background-color: #e4e5e9;*/
+}
+
+/* Fixed Sidebarの設定 */
+@@media (min-width: 1200px) {
+    .Fixed {
+        position: fixed;
+        top: 10px;
+        width:350px;
+    }
+}
+@@media (max-width: 1199px) {
+    .Fixed {
+        position: fixed;
+        top: 10px;
+        width:283px;
+    }
+}
+@@media (max-width: 991px) {
+    .Fixed {
+        position: static;
+        width:690px;
+    }
+}
+@@media (max-width: 480px) {
+    .Fixed {
+        position: static;
+        width:290px;
+    }
+}
+</style>

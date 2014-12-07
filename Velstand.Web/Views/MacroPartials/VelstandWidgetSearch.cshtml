@@ -1,0 +1,19 @@
+@using Velstand.Models
+@using Velstand.Constants
+@using Velstand.Helpers
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    IPublishedContent content = CurrentPage.VBlogHolderOrRoot();
+    }
+
+<div class="Widget panel">
+    <h4><span class="glyphicon glyphicon-search"></span>@Umbraco.GetDictionaryValue("Search")</h4>
+    <form action="@content.Url" method="get">
+        <div class="input-group Search">
+            <input type="text" name="@VelstandRequest.Text" placeholder="@Umbraco.GetDictionaryValue("SearchPlaceHolder")" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">@Umbraco.GetDictionaryValue("SearchSubmit")</button>
+            </span>
+        </div>
+    </form>
+</div>
