@@ -257,7 +257,6 @@
     <Content Include="masterpages\dummy.txt" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="ConnectionStrings.config" />
     <None Include="ConnectionStrings.config.Example" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
