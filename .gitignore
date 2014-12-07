@@ -10,7 +10,9 @@
 !/*/bin/jumoo.usync.ui.dll
 !/*/bin/jumps.umbraco.usync.dll
 */obj
-/*/media
+/*/media/*
+!/*/media/created-packages
+!/*/media/created-packages/*
 /*/masterpages
 /*/ConnectionStrings.config
 /*/Secrets.config

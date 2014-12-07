@@ -32,11 +32,14 @@ Please help us correct English grammar of the document
 cp Velstand.Web/ConnectionStrings.config.Example  Velstand.Web/ConnectionStrings.config
 ```
 
-Umbraco BackOffice Default User Account
+* login to Umbraco BackOffice
 
-(Velstand.Web/App_Data/Umbraco.sdf)
+Account (test@example.com/p@ssw0rd)
 
-test@example.com/p@ssw0rd
+* Contents Install
+
+Developer Section &gt; Packages &gt; Install local package
+Choose a file (Velstand.Web/media/created-packages/VelstandContent_X.X.X.zip)
 
 
 ## Licence
@@ -44,8 +47,6 @@ test@example.com/p@ssw0rd
 
 
 ## Author
-
-[shwld](https://github.com/shwld)
 
 
 [![alt text][1.1]][1]
