@@ -36,7 +36,7 @@ Umbraco BackOffice Default User Account
 
 (Velstand.Web/App_Data/Umbraco.sdf)
 
-testuser/p@ssw0rd
+test@example.com/p@ssw0rd
 
 
 ## Licence
