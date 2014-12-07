@@ -4,13 +4,15 @@ Velstand
 ======================
 It is All-in-One Blog System. build on Umbraco!
 
+[Our Umbraco](http://our.umbraco.org//projects/starter-kits/velstand)
+
 Please help us correct English grammar of the document
+
 
 ## Features
 * Bloging
 * Twitter Bootstrap
 * Markdown
-* Parmanent Page
 * RSS
 * 404 Page
 * Sitemap Page
