@@ -28,6 +28,15 @@ Please help us correct English grammar of the document
 * Umbraco7.1.x
 
 ## Install
+```
+cp Velstand.Web/ConnectionStrings.config.Example  Velstand.Web/ConnectionStrings.config
+```
+
+Umbraco BackOffice Default User Account
+
+(Velstand.Web/App_Data/Umbraco.sdf)
+
+testuser/p@ssw0rd
 
 
 ## Licence
