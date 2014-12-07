@@ -39,6 +39,7 @@ Account (test@example.com/p@ssw0rd)
 * Contents Install
 
 Developer Section &gt; Packages &gt; Install local package
+
 Choose a file (Velstand.Web/media/created-packages/VelstandContent_X.X.X.zip)
 
 
