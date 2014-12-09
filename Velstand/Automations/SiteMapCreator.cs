@@ -46,7 +46,6 @@ namespace Velstand.Automations
 
         private static void Traverse(XmlTextWriter writer, IPublishedContent node)
         {
-            var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
             var baseUrl = UrlUtil.SchemeAndAuthority();
             var items = node.Children.Where(w => !w.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem));
             if (items.Any())
@@ -56,7 +55,7 @@ namespace Velstand.Automations
                     writer.WriteStartElement("url");
                     writer.WriteElementString("loc", baseUrl + item.Url);
                     // FIXME: 多言語化
-                    writer.WriteElementString("lastmod", string.Format("{0:yyyy-MM-dd}", umbracoHelper.Field(item, "releaseDate", formatAsDate: true)) );
+                    writer.WriteElementString("lastmod", string.Format("{0:yyyy-MM-dd}", item.GetPropertyValue<DateTime>("releaseDate")) );
                     writer.WriteElementString("changefreq", "weekly");
                     writer.WriteElementString("priority", "0.50");
                     writer.WriteEndElement();

@@ -29,7 +29,7 @@
             <div class="Description panel-body col-md-9">
                 <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
                 <p class="Post-Data">
-                    <span class="glyphicon glyphicon-calendar">@string.Format(Umbraco.GetDictionaryValue("DateFormat"), Umbraco.Field(post, "releaseDate", formatAsDate: true))</span>
+                    <span class="glyphicon glyphicon-calendar">@string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
                     @string.Join(", ", post.VMultiNodes("category").Select(x => x.Name))
                 </p>
                 <hr />
