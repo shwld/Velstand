@@ -16,7 +16,7 @@
 
                 if (count == 0) { continue; }
                 <li class="list-group-item">
-                    <a href="@holder.VCategoryUrl(category.Id)">@Umbraco.Field(category, "title")</a>
+                    <a href="@holder.VCategoryUrl(category.Id)">@category.Name</a>
                     <span class="badge">@count</span>
                 </li>
             }

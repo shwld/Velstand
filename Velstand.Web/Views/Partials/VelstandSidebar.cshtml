@@ -1,7 +1,10 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Velstand.Constants
+@using Velstand.Models
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-    IPublishedContent content = CurrentPage.HasValue("selectWidgets") ? CurrentPage : CurrentPage.VHolderTop();
-}
+    IPublishedContent current = CurrentPage;
+    IPublishedContent content = current.HasValue("selectWidgets") ? current : current.VRoot().Descendant(VelstandDocumentType.BlogHolderTop);
+    }
 
 @Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectWidgets"), CurrentPage.Id))
 
