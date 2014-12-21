@@ -255,8 +255,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="masterpages\dummy.txt" />
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
     <None Include="ConnectionStrings.config.Example" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -280,10 +278,7 @@
     <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\fonts\icomoon.eot" />
     <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\fonts\icomoon.ttf" />
     <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\fonts\icomoon.woff" />
-    <None Include="scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="scripts\dummy.txt" />
-    <Content Include="scripts\jquery-1.9.0.js" />
-    <Content Include="scripts\jquery-1.9.0.min.js" />
     <Content Include="scripts\jquery.lazyload.min.js" />
     <Content Include="scripts\script.js" />
     <Content Include="usercontrols\dummy.txt" />
@@ -324,7 +319,6 @@
     <Content Include="Views\MacroPartials\VelstandWidgetSponsoredLink.cshtml" />
     <Content Include="Views\Partials\VelstandBaseStyle.cshtml" />
     <Content Include="Views\Partials\VelstandBaseScript.cshtml" />
-    <Content Include="scripts\jquery-1.9.0.min.map" />
     <Content Include="uSync\DataTypeDefinition\Approved Color.config" />
     <Content Include="uSync\DataTypeDefinition\Checkbox list.config" />
     <Content Include="uSync\DataTypeDefinition\Content Picker.config" />
