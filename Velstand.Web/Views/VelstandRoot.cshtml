@@ -14,13 +14,9 @@
 
 @section VelstandBody
 {
-    <div class="col-xs-12">
-        <article class="clearfix">
-            @Umbraco.Field("body")
-        </article>
-    </div>
-
     <div class="clearfix">
+        @Umbraco.Field("body")
+
         @foreach (var post in search.Contents())
         {
             <article class="List-Post col-xs-12 col-md-6 panel panel-default clearfix">

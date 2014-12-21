@@ -12,11 +12,7 @@
 
 @section VelstandBody
 {
-    <div class="col-md-12">
-        <article class="clearfix">
-            @Umbraco.Field("body")
-        </article>
-    </div>
+    @Umbraco.Field("body")
 
     @foreach (var post in search.Contents())
     {
