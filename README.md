@@ -4,6 +4,8 @@ Velstand
 ======================
 It is Simple and Wonderful Blog System. build on Umbraco!
 
+[Project Site](http://velstand.info/)
+
 [Our Umbraco](http://our.umbraco.org//projects/starter-kits/velstand)
 
 Please help us correct English grammar of the document
