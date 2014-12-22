@@ -28,9 +28,7 @@
                 <p class="Post-Data">
                     <span class="glyphicon glyphicon-calendar">@string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
                     &nbsp;&nbsp;
-                    <span class="glyphicon glyphicon-tag">
-                        @Html.Raw(string.Join(", ", post.VMultiNodes("category").Select(x => string.Format("<a href=\"{0}\" title=\"{1}\">{1}</a>", current.VCategoryUrl(x.Id), x.Name))))
-                    </span>
+                    <span class="glyphicon glyphicon-tag">@Html.CategoryWithLink(post, "category")</span>
                 </p>
                 <hr />
                 <p class="Post-Introduction">@Umbraco.Field(post, "introduction")</p>
