@@ -3,8 +3,9 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "VelstandWrapper.cshtml";
-    var search = new SearchEngineModel(CurrentPage, Request);
-}
+    IPublishedContent current = CurrentPage;
+    var search = new SearchEngineModel(current, Request);
+    }
 
 @section VelstandHead
 {
@@ -26,7 +27,10 @@
                 <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
                 <p class="Post-Data">
                     <span class="glyphicon glyphicon-calendar">@string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
-                    @string.Join(", ", post.VMultiNodes("category").Select(x => x.Name))
+                    &nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-tag">
+                        @Html.Raw(string.Join(", ", post.VMultiNodes("category").Select(x => string.Format("<a href=\"{0}\" title=\"{1}\">{1}</a>", current.VCategoryUrl(x.Id), x.Name))))
+                    </span>
                 </p>
                 <hr />
                 <p class="Post-Introduction">@Umbraco.Field(post, "introduction")</p>
