@@ -1,0 +1,38 @@
+﻿@using Velstand.Constants
+@using Velstand.Models
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    IPublishedContent holder = CurrentPage.VBlogHolderOrRoot();
+}
+<div class="Widget panel">
+    <h4 class="panel-title"><span class="glyphicon glyphicon-tags"></span>@Umbraco.GetDictionaryValue("ContentMap")</h4>
+    <div class="ContentMap">
+        <ul class="list-group list-inlin">
+            @Traverse(holder)
+        </ul>
+    </div>
+</div>
+
+@* Helper method to travers through all descendants *@
+@helper Traverse(IPublishedContent node)
+{
+    @* Select visible children *@
+    var items = node.Children.Where(x => !x.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem) 
+                                                          &&     !x.DocumentTypeAlias.StartsWith(VelstandPrefix.Error));
+                                                           
+    @* If any items are returned, render a list *@
+    if (items.Any())
+    {
+        foreach (var item in items)
+        {
+            <div class="accordion-heading level-@item.Level">
+                <a class="accordion-toggle glyphicon glyphicon-chevron-right" data-toggle="collapse" href="#collapse-@item.Id">
+                    @Umbraco.Field(item, "title", altText: item.Name)
+                </a>
+            </div>
+            <div id="collapse-@item.Id" class="collapse">
+                @Traverse(item)
+            </div>
+        }
+    }
+}
