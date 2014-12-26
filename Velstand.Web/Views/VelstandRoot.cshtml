@@ -4,7 +4,7 @@
 @{
     Layout = "VelstandWrapper.cshtml";
     IPublishedContent current = CurrentPage;
-    var search = new SearchEngineModel(CurrentPage, Request);
+    var search = new SearchEngineModel(current, Request);
     }
 
 @section VelstandHead
@@ -30,7 +30,7 @@
                             @string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releasedate"))
                         </span>
                     </p>
-                    <p>@string.Join(", ", post.VMultiNodes("category").Select(x => x.Name) )</p>
+                    <span class="glyphicon glyphicon-tag">&nbsp;@Html.CategoryWithLink(post, "category")</span>
                 </div>
             </article>
         }

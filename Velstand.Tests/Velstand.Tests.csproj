@@ -87,6 +87,7 @@
     <Reference Include="Microsoft.ApplicationBlocks.Data">
       <HintPath>..\packages\UmbracoCms.Core.7.1.8\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Helpers">
       <HintPath>..\packages\UmbracoCms.Core.7.1.8\lib\Microsoft.Web.Helpers.dll</HintPath>
     </Reference>
@@ -202,7 +203,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestHelper.cs" />
+    <Compile Include="ChainingAssertion.MSTest.cs" />
     <Compile Include="Automations\ContentUpdatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

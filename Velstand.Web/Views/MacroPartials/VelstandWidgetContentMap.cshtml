@@ -1,0 +1,47 @@
+﻿@using Velstand.Constants
+@using Velstand.Models
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    IPublishedContent holder = CurrentPage.VBlogHolderOrRoot();
+}
+<div class="Widget panel">
+    <h4 class="panel-title"><span class="glyphicon glyphicon-tags"></span>@Umbraco.GetDictionaryValue("ContentMap")</h4>
+    <div class="Content-Map Level-List">
+        @Traverse(holder)
+    </div>
+    <br />
+</div>
+
+@* Helper method to travers through all descendants *@
+@helper Traverse(IPublishedContent node)
+{
+    @* Select visible children *@
+    var items = node.Children.Where(x => !x.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem) 
+                                                          &&     !x.DocumentTypeAlias.StartsWith(VelstandPrefix.Error));
+                                                           
+    @* If any items are returned, render a list *@
+    if (items.Any())
+    {
+        foreach (var item in items)
+        {
+            <div class="accordion-heading Level-@item.Level">
+                @if (item.DocumentTypeAlias.StartsWith(VelstandPrefix.Content))
+                {
+                    <span class="accordion-toggle collapsed" data-toggle="collapse" href="#collapse-@item.Id">
+                        &nbsp;<a href="@item.Url" title="@item.GetPropertyValue("title")">@Umbraco.Field(item, "title", altText: item.Name)</a>
+                    </span>
+                }
+                else
+                {
+                    <span class="accordion-toggle collapsed" data-toggle="collapse" href="#collapse-@item.Id">
+                        @Umbraco.Field(item, "title", altText: item.Name)
+                    </span>
+                    <a href="@item.Url" title="@item.GetPropertyValue("title")" class="glyphicon glyphicon-folder-open"></a>
+                }
+            </div>
+            <div id="collapse-@item.Id" class="collapse">
+                @Traverse(item)
+            </div>
+        }
+    }
+}
