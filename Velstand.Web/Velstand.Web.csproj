@@ -317,7 +317,6 @@
     <Content Include="Views\Partials\VelstandSidebar.cshtml" />
     <Content Include="Views\MacroPartials\VelstandWidgetGoogleAdsense.cshtml" />
     <Content Include="Views\MacroPartials\VelstandWidgetSponsoredLink.cshtml" />
-    <Content Include="Views\Partials\VelstandBaseStyle.cshtml" />
     <Content Include="Views\Partials\VelstandBaseScript.cshtml" />
     <Content Include="uSync\DataTypeDefinition\Approved Color.config" />
     <Content Include="uSync\DataTypeDefinition\Checkbox list.config" />
@@ -394,6 +393,7 @@
     <Content Include="uSync\Template\Velstand\VelstandMaster\VelstandWrapper\VelstandSiteMap\VelstandSiteMap.config" />
     <Content Include="uSync\Template\Velstand\VelstandMaster\VelstandWrapper\VelstandWrapper.config" />
     <Content Include="Views\MacroPartials\VelstandWidgetSearch.cshtml" />
+    <Content Include="Views\MacroPartials\VelstandWidgetContentMap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
