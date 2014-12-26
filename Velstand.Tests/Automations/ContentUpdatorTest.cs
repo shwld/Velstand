@@ -10,56 +10,59 @@ namespace Velstand.Tests.Automations
     [TestClass]
     public class ContentUpdatorTest
     {
-        [TestMethod]
-        public void ReleaseDateTest_Normal()
-        {
-            var actual = DateTime.Now.AddDays(10);
-            IContent expect = TestHelper.IContentMock(
-                                               releaseDate: actual, 
-                                               createDate: DateTime.Now.AddDays(-10), 
-                                               releaseDateProperty: DateTime.Now.AddDays(-20).ToString()
-                                           );
+        /*public TestContext TestContext { get; set; }
+        [TestCase(null, new DateTime(2000, 1, 1).Date, new DateTime(2100, 1, 10).Date.ToString())]
+        [TestCase(null, new DateTime(), new DateTime(2000, 1, 1).Date.ToString())]
+        [TestCase(new DateTime(2000, 1, 1).Date, new DateTime(1990, 12, 1).Date, new DateTime(2000, 1, 10).Date.ToString())]*/
 
-            Assert.AreEqual(ContentCreator.ReleaseDate(expect), actual);
+        [TestMethod]
+        [TestCategory("#ReleaseDate")]
+        public void ArgumentReleaseDateIsNull()
+        {
+            var result = new DateTime(2000, 1, 1).Date;
+            var mock = this.mock(null, result, new DateTime(2100, 1, 10).Date.ToString());
+            ContentCreator.ReleaseDate(mock.Object).Is(result);
         }
 
         [TestMethod]
-        public void ReleaseDateTest_IsNull()
+        [TestCategory("#ReleaseDate")]
+        public void ArgumentCreateDateIsDefault()
         {
-            var actual = DateTime.Now.AddDays(10);
-            IContent expect = TestHelper.IContentMock(
-                                               releaseDate: null,
-                                               createDate: actual,
-                                               releaseDateProperty: DateTime.Now.AddDays(-20).ToString()
-                                           );
-
-            Assert.AreEqual(ContentCreator.ReleaseDate(expect), actual);
+            var result = new DateTime(2000, 1, 1).Date;
+            var mock = this.mock(result, new DateTime(1990, 1, 1) ,new DateTime(2100, 1, 10).Date.ToString());
+            ContentCreator.ReleaseDate(mock.Object).Is(result);
         }
 
         [TestMethod]
-        public void ReleaseDateTest_IsDefaultDate()
+        [TestCategory("#ReleaseDate")]
+        public void ArgumentNormal()
         {
-            var actual = DateTime.Now.AddDays(10);
-            IContent expect = TestHelper.IContentMock(
-                                               releaseDate: null,
-                                               createDate: new DateTime(),
-                                               releaseDateProperty: actual.ToString()
-                                           );
-
-            Assert.AreEqual(ContentCreator.ReleaseDate(expect).Day, actual.Day);
+            var result = new DateTime(2000, 1, 1).Date;
+            var mock = this.mock(null, new DateTime() ,result.ToString());
+            ContentCreator.ReleaseDate(mock.Object).Is(result);
         }
 
         [TestMethod]
-        public void ReleaseDateTest_IsDefaultDate2()
+        [TestCategory("#ReleaseDate")]
+        public void ArgumentAllBlankOrDefault()
         {
-            var actual = DateTime.Now;
-            IContent expect = TestHelper.IContentMock(
-                                               releaseDate: null,
-                                               createDate: new DateTime(),
-                                               releaseDateProperty: string.Empty
-                                           );
+            DateTime? releaseDate = null;
+            var mock = new Mock<IContent>();
+            mock.Setup(m => m.ReleaseDate).Returns(releaseDate);
+            mock.Setup(m => m.CreateDate).Returns(new DateTime());
+            mock.Setup(m => m.GetValue<string>(VelstandProperty.ReleaseDate)).Returns(string.Empty);
 
-            Assert.AreEqual(ContentCreator.ReleaseDate(expect).Day, actual.Day);
+            ContentCreator.ReleaseDate(mock.Object).Date.Is(DateTime.Now.Date);
+        }
+
+        private Mock<IContent> mock(DateTime? releaseDate, DateTime createDate, string releaseDateProperty)
+        {
+                var mock = new Mock<IContent>();
+                mock.Setup(m => m.ReleaseDate).Returns(releaseDate);
+                mock.Setup(m => m.CreateDate).Returns(createDate);
+                mock.Setup(m => m.GetValue<string>(VelstandProperty.ReleaseDate)).Returns(releaseDateProperty);
+
+                return mock;
         }
     }
 }
