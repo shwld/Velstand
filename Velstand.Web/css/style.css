@@ -126,27 +126,27 @@ body {
 }
 
  /* Fixed Sidebar */
-@@media (min-width: 1200px) {
+@media (min-width: 1200px) {
     .Fixed {
         position: fixed;
         top: 10px;
         width:350px;
     }
 }
-@@media (max-width: 1199px) {
+@media (max-width: 1199px) {
     .Fixed {
         position: fixed;
         top: 10px;
         width:283px;
     }
 }
-@@media (max-width: 991px) {
+@media (max-width: 991px) {
     .Fixed {
         position: static;
         width:690px;
     }
 }
-@@media (max-width: 480px) {
+@media (max-width: 480px) {
     .Fixed {
         position: static;
         width:290px;
