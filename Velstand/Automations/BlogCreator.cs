@@ -41,7 +41,6 @@ namespace Velstand.Automations
         /// <summary>
         /// ブログフォルダを自動作成する
         /// </summary>
-        /// <param name="node"></param>
         public void CreateHolder()
         {
             if (!this.IsValid()) { return; }
@@ -55,7 +54,7 @@ namespace Velstand.Automations
                 this.folderNameSetting == VelstandConstant.BlogHolderNameYMD2 )
             {
                 parentNode = DocumentUtil.PublishOnNotExist(
-                                            BlogHolder(this.releaseDate.Year.ToString(), parentNode.Id, node.WriterId), 
+                                            BlogHolder(this.releaseDate.Year.ToString(), parentNode.Id, this.node.WriterId), 
                                             parentNode);
 
                 string mm = "MMMM";
@@ -65,8 +64,9 @@ namespace Velstand.Automations
                     mm = "MM";
                 }
                 parentNode = DocumentUtil.PublishOnNotExist(
-                                            BlogHolder(this.releaseDate.ToString(mm), parentNode.Id, node.WriterId), 
+                                            BlogHolder(this.releaseDate.ToString(mm), parentNode.Id, this.node.WriterId), 
                                             parentNode);
+                this.node.ParentId = parentNode.Id;
             }
 
             // 日フォルダを作成する
@@ -74,29 +74,31 @@ namespace Velstand.Automations
                 this.folderNameSetting == VelstandConstant.BlogHolderNameYMD2)
             {
                 parentNode = DocumentUtil.PublishOnNotExist(
-                                            BlogHolder(this.releaseDate.Day.ToString("00"), parentNode.Id, node.WriterId), 
+                                            BlogHolder(this.releaseDate.Day.ToString("00"), parentNode.Id, this.node.WriterId), 
                                             parentNode);
+                this.node.ParentId = parentNode.Id;
             }
 
             // 年月フォルダを作成する
             if (this.folderNameSetting == VelstandConstant.BlogHolderNameYM3)
             {
                 parentNode = DocumentUtil.PublishOnNotExist(
-                                            BlogHolder(this.releaseDate.ToString("yyyyMM"), parentNode.Id, node.WriterId), 
+                                            BlogHolder(this.releaseDate.ToString("yyyyMM"), parentNode.Id, this.node.WriterId), 
                                             parentNode);
+                this.node.ParentId = parentNode.Id;
             }
 
             // ドキュメントを公開する
-            node.ParentId = parentNode.Id;
             if (node.Published)
             {
-                contentService.SaveAndPublishWithStatus(node, node.WriterId, false);
-                return;
+                contentService.SaveAndPublishWithStatus(this.node, this.node.WriterId, false);
             }
             else
             {
-                contentService.Save(node, node.WriterId, false);
+                contentService.Save(this.node, this.node.WriterId, false);
             }
+
+            return;
         }
 
         /// <summary>
@@ -132,7 +134,7 @@ namespace Velstand.Automations
         private Boolean IsValid()
         {
             if (this.node.ContentType.Alias != VelstandDocumentType.BlogPost ||
-                this.holderTop == null || this.node.Published)
+                this.holderTop == null || this.umbracoHelper.TypedContent(this.node.Id) != null)
             {
                 return false;
             }
