@@ -84,7 +84,7 @@ namespace Velstand.Models
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
-        public static IPublishedContent VBlogHolderOrRoot(this IPublishedContent content)
+        public static IPublishedContent VBlogHolderTopOrRoot(this IPublishedContent content)
         {
             if (content.DocumentTypeAlias.EndsWith(VelstandSuffix.Blog) ||
                 content.DocumentTypeAlias == VelstandDocumentType.BlogHolderTop)
