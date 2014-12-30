@@ -34,7 +34,6 @@
         '~/App_Plugins/VelstandMDEditor/dialogs/controller.js',
     ],
 	css: [
-		'~/App_Plugins/VelstandMDEditor/assets/icomoon/style.css',
 		'~/App_Plugins/VelstandMDEditor/style.css',
 		'~/css/style_mobile.css',
 	]

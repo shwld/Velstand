@@ -51,15 +51,15 @@
         return {
             restrict: 'A',
             link: function (scope, element, $event) {
-                // undo
-                if ($event.keyCode == 122 && $event.ctrlKey) {
-                    scope.velstandMd.undo;
-                    return;
-                }
-
-                var textAreaElement = element.context;
-                element.on("keyup", function () { scope.on_action(textAreaElement); });
-                element.on("mouseup", function () { scope.on_action(textAreaElement); });
+                /* undo
+                element.bind("keyup", function ($event) {
+                    if ($event.keyCode == 122 && $event.ctrlKey) {
+                        scope.velstandMd.undo();
+                        return;
+                    }
+                })*/
+                element.bind("keyup", function () { scope.on_action(element.context); });
+                element.bind("mouseup", function () { scope.on_action(element.context); });
             }
         }
     });
