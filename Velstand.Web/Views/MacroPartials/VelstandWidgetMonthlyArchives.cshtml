@@ -2,7 +2,7 @@
 @using Velstand.Models
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 @{
-    IPublishedContent content = CurrentPage.VBlogHolderOrRoot();
+    IPublishedContent content = CurrentPage.VBlogHolderTopOrRoot();
     var contents = content.VHasContents();
     var startdate = DateTime.Now;
     if (contents.Count() != 0)
