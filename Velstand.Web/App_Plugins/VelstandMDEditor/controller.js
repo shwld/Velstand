@@ -1,6 +1,6 @@
 ﻿angular.module("umbraco")
     .controller("Velstand.MDEditor.Controller",
-    function ($scope, $log, assetsService, dialogService, imageHelper, contentResource) {
+    function ($scope, $log, assetsService, dialogService, imageHelper, contentResource, $http) {
         $scope.model.config.editor_height = !!$scope.model.config.editor_height ? $scope.model.config.editor_height : 400;
 
         // markup
@@ -47,6 +47,17 @@
                 $scope.model.value = marked($scope.velstandMd.getValue());
             }
         }
+
+        $scope.insertImageFile = function (item) {
+            var formData = new FormData();
+            formData.append('file', item.getAsFile());
+            console.dir(formData);
+            $http.get("backoffice/Velstand/ImageFile/Get", {
+                params: { file: formData }
+            }).success(function (data) {
+                scope.insert(data);
+            });
+        }
     }).directive('velstandHundler', function () {
         return {
             restrict: 'A',
@@ -60,6 +71,15 @@
                 })*/
                 element.bind("keyup", function () { scope.on_action(element.context); });
                 element.bind("mouseup", function () { scope.on_action(element.context); });
+                element.bind("paste", function (e) {
+                    var items = e.originalEvent.clipboardData.items; // ここがミソ
+                    for (var i = 0 ; i < items.length ; i++) {
+                        var item = items[i];
+                        if (item.type.indexOf("image") != -1) {
+                            scope.insertImageFile(item);
+                        }
+                    }
+                });
             }
         }
     });

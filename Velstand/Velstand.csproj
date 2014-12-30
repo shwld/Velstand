@@ -198,6 +198,7 @@
     <Compile Include="Automations\SiteMapCreator.cs" />
     <Compile Include="Automations\Automation.cs" />
     <Compile Include="Automations\VelstandEventHandler.cs" />
+    <Compile Include="Plugins\Controllers\ImageFileController.cs" />
     <Compile Include="Utilities\DocumentUtil.cs" />
     <Compile Include="Utilities\UrlUtil.cs" />
     <Compile Include="Utilities\StringExtension.cs" />
