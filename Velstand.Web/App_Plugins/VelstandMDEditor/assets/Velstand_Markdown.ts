@@ -19,7 +19,7 @@ class VelstandMarkdown extends VelstandTextArea {
     }
     
     /*
-     * リンクをを挿入する
+     * リンクを挿入する
      * @param {String} url 挿入するURL
      * @param {String} title リンクのタイトル
      */

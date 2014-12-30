@@ -146,7 +146,8 @@ var VelstandTextArea = (function () {
     * @param {String} textString 挿入するテキスト
     */
     VelstandTextArea.prototype.insert = function (textString) {
-        this.setValue(this.prefix()[0] + textString + this.prefix()[1]);
+        var setCalet = this.textArea.selectionStart + textString.length;
+        this.setValue(this.prefix()[0] + textString + this.prefix()[1], setCalet);
     };
 
     /*
@@ -185,7 +186,8 @@ var VelstandTextArea = (function () {
             }
             result += prefixString + lines[i] + suffixString + "\n";
         }
-        this.setValue(this.prefix()[0] + result + this.suffix()[1]);
+        var setCalet = this.textArea.selectionStart + result.length;
+        this.setValue(this.prefix()[0] + result + this.suffix()[1], setCalet);
     };
     return VelstandTextArea;
 })();
