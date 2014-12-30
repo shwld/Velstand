@@ -25,7 +25,7 @@ var VelstandMarkdown = (function (_super) {
     };
 
     /*
-    * リンクをを挿入する
+    * リンクを挿入する
     * @param {String} url 挿入するURL
     * @param {String} title リンクのタイトル
     */

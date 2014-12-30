@@ -145,7 +145,8 @@ class VelstandTextArea {
      * @param {String} textString 挿入するテキスト
      */
     insert(textString: string) {
-        this.setValue(this.prefix()[0] + textString + this.prefix()[1]);
+        var setCalet = this.textArea.selectionStart + textString.length;
+        this.setValue(this.prefix()[0] + textString + this.prefix()[1], setCalet);
     }
     
     /*
@@ -184,7 +185,8 @@ class VelstandTextArea {
             }
             result += prefixString + lines[i] + suffixString + "\n";
         }
-        this.setValue(this.prefix()[0] + result + this.suffix()[1]);
+        var setCalet = this.textArea.selectionStart + result.length;
+        this.setValue(this.prefix()[0] + result + this.suffix()[1], setCalet);
     }
 }
  
