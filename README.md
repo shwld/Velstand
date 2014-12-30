@@ -27,7 +27,7 @@ Please help us correct English grammar of the document
 
 
 ## Requirement
-* Umbraco7.1.x
+* Umbraco7.1 or later
 
 ## Install
 ```
