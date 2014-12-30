@@ -27,8 +27,14 @@
 		'~/App_Plugins/VelstandMDEditor/assets/jquery.selection.js',
 		'~/App_Plugins/VelstandMDEditor/assets/marked.js',
 		'~/App_Plugins/VelstandMDEditor/assets/reMarked.js',
+		'~/App_Plugins/VelstandMDEditor/assets/markedOptions.js',
 		'~/App_Plugins/VelstandMDEditor/assets/Velstand_TextArea.js',
 		'~/App_Plugins/VelstandMDEditor/assets/Velstand_Markdown.js',
         '~/App_Plugins/VelstandMDEditor/controller.js',
-    ]
+        '~/App_Plugins/VelstandMDEditor/dialogs/controller.js',
+    ],
+	css: [
+		'~/App_Plugins/VelstandMDEditor/style.css',
+		'~/css/style_mobile.css',
+	]
 }
