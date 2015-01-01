@@ -51,11 +51,15 @@
         $scope.insertImageFile = function (item) {
             var formData = new FormData();
             formData.append('file', item.getAsFile());
-            console.dir(formData);
-            $http.get("backoffice/Velstand/ImageFile/Get", {
-                params: { file: formData }
-            }).success(function (data) {
-                scope.insert(data);
+            $http.post("backoffice/Velstand/ImageFile/Post",
+                formData,
+                {
+                    transformRequest: false,
+                    headers: { 'Content-Type': undefined }
+                }
+            ).success(function (data) {
+                // HACK:remove replace
+                $scope.velstandMd.sandwich("\n![", "](" + data.replace(/"/g, "") + " \"\")\n");
             });
         }
     }).directive('velstandHundler', function () {
