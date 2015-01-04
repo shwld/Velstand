@@ -199,7 +199,9 @@
     <Compile Include="Automations\Automation.cs" />
     <Compile Include="Automations\VelstandEventHandler.cs" />
     <Compile Include="Plugins\Controllers\ImageFileController.cs" />
+    <Compile Include="Plugins\Models\ImageFileModel.cs" />
     <Compile Include="Utilities\DocumentUtil.cs" />
+    <Compile Include="Utilities\Generator.cs" />
     <Compile Include="Utilities\UrlUtil.cs" />
     <Compile Include="Utilities\StringExtension.cs" />
     <Compile Include="Constants\Alias.cs" />
