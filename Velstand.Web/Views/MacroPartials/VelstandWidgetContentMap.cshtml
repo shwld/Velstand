@@ -31,7 +31,7 @@
                         &nbsp;<a href="@item.Url" title="@item.GetPropertyValue("title")">@Umbraco.Field(item, "title", altText: item.Name)</a>
                     </span>
                 }
-                else if (item.Children.FirstOrDefault() != null)
+                else if (item.Children.Count() != 0)
                 {
                     <span class="accordion-toggle collapsed" data-toggle="collapse" href="#collapse-@item.Id">
                         @Umbraco.Field(item, "title", altText: item.Name)
