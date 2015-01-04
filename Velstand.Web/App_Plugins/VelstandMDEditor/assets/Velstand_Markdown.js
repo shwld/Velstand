@@ -11,7 +11,6 @@ var VelstandMarkdown = (function (_super) {
     __extends(VelstandMarkdown, _super);
     /*
     * コンストラクタ
-    * テキストエリアのmouse_up時などに使うこと
     */
     function VelstandMarkdown(item, callbackEvent) {
         if (typeof callbackEvent === "undefined") { callbackEvent = function () {
@@ -39,6 +38,7 @@ var VelstandMarkdown = (function (_super) {
         } else {
             this.sandwich("[", "](" + url + " \"" + title + "\")\n");
         }
+        this.callback();
     };
 
     /*
@@ -68,6 +68,7 @@ var VelstandMarkdown = (function (_super) {
                 var niceUrl = contentResource.getNiceUrl(link.id);
                 if (niceUrl) {
                     this.markdownLink(href, link.name);
+                    this.callback();
                     return true;
                 }
             }
@@ -81,12 +82,14 @@ var VelstandMarkdown = (function (_super) {
             if (href.indexOf('@') > 0 && href.indexOf('//') == -1 && href.indexOf('mailto:') == -1) {
                 href = 'mailto:' + href;
                 this.markdownLink(href, link.name);
+                this.callback();
                 return true;
             }
 
             if (/^\s*www\./i.test(href)) {
                 href = 'http://' + href;
                 this.markdownLink(href, link.name);
+                this.callback();
                 return true;
             }
 

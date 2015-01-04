@@ -6,7 +6,6 @@ class VelstandMarkdown extends VelstandTextArea {
 
     /*
      * コンストラクタ
-     * テキストエリアのmouse_up時などに使うこと
      */
     constructor(item, callbackEvent = function () { }) {
         super(item);
@@ -32,6 +31,7 @@ class VelstandMarkdown extends VelstandTextArea {
         } else {
             this.sandwich("[", "](" + url + " \"" + title + "\")\n");
         }
+        this.callback();
     }
     
     /*
@@ -61,6 +61,7 @@ class VelstandMarkdown extends VelstandTextArea {
                 var niceUrl = contentResource.getNiceUrl(link.id);
                 if (niceUrl) {
                     this.markdownLink(href, link.name);
+                    this.callback();
                     return true;
                 }
             }
@@ -74,12 +75,14 @@ class VelstandMarkdown extends VelstandTextArea {
             if (href.indexOf('@') > 0 && href.indexOf('//') == -1 && href.indexOf('mailto:') == -1) {
                 href = 'mailto:' + href;
                 this.markdownLink(href, link.name);
+                this.callback();
                 return true;
             }
 
             if (/^\s*www\./i.test(href)) {
                 href = 'http://' + href;
                 this.markdownLink(href, link.name);
+                this.callback();
                 return true;
             }
 
