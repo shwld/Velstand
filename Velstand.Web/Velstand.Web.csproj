@@ -232,10 +232,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Velstand.mdf" />
-    <Content Include="App_Data\Velstand_log.ldf">
-      <DependentUpon>Velstand.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\fonts\icomoon.svg" />
     <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\style.css" />
     <Content Include="App_Plugins\VelstandMDEditor\assets\jquery.selection.js" />
@@ -417,7 +413,9 @@
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\marked\marked.d.ts" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Velstand\Velstand.csproj">
       <Project>{a16d3103-9ac7-4794-b5aa-4c7753021655}</Project>
