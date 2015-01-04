@@ -72,7 +72,7 @@
                 element.bind("keyup", function () { scope.on_action(element.context); });
                 element.bind("mouseup", function () { scope.on_action(element.context); });
                 element.bind("paste", function (e) {
-                    var items = e.originalEvent.clipboardData.items; // ここがミソ
+                    var items = e.originalEvent.clipboardData.items;
                     for (var i = 0 ; i < items.length ; i++) {
                         var item = items[i];
                         if (item.type.indexOf("image") != -1) {
