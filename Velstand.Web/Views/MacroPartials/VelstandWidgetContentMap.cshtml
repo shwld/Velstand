@@ -27,7 +27,7 @@
             <div class="accordion-heading Level-@item.Level">
                 @if (item.DocumentTypeAlias.StartsWith(VelstandPrefix.Content))
                 {
-                    <span class="accordion-toggle collapsed" data-toggle="collapse" href="#collapse-@item.Id">
+                    <span class="accordion-toggle collapsed">
                         &nbsp;<a href="@item.Url" title="@item.GetPropertyValue("title")">@Umbraco.Field(item, "title", altText: item.Name)</a>
                     </span>
                 }
