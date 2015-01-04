@@ -3,8 +3,9 @@
 @using Velstand.Helpers
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 @{
-    IPublishedContent content = CurrentPage.VBlogHolderTopOrRoot();
-    }
+    IPublishedContent current = CurrentPage;
+    IPublishedContent content = current.VBlogHolderTopOrRoot();
+}
 
 <div class="Widget panel">
     <h4><span class="glyphicon glyphicon-search"></span>@Umbraco.GetDictionaryValue("Search")</h4>

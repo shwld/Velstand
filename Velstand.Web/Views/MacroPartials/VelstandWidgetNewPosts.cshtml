@@ -2,7 +2,8 @@
 @using Velstand.Helpers
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 @{
-    IPublishedContent holder = CurrentPage.VBlogHolderTopOrRoot();
+    IPublishedContent current = CurrentPage;
+    IPublishedContent holder = current.VBlogHolderTopOrRoot();
 }
 
 <div class="Widget panel">
