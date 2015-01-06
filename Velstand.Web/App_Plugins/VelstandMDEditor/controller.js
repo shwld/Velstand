@@ -50,7 +50,12 @@
 
         $scope.insertImageFile = function (item) {
             var formData = new FormData();
+            var folder = "/media/velstand/";
+            var file = (+new Date()) + ".png";
             formData.append('file', item.getAsFile());
+            formData.append('folderPath', folder);
+            formData.append('fileName', file);
+            $scope.velstandMd.sandwich("\n![", "](" + folder + file + " \"\")\n");
             $http.post("backoffice/Velstand/ImageFile/Post",
                 formData,
                 {
@@ -59,8 +64,9 @@
                 }
             ).success(function (data) {
                 // HACK:remove replace
-                $scope.velstandMd.sandwich("\n![", "](" + data.replace(/"/g, "") + " \"\")\n");
+                //$scope.velstandMd.sandwich("\n![", "](" + data.replace(/"/g, "") + " \"\")\n");
             });
+            // TODO:function error
         }
     }).directive('velstandHundler', function () {
         return {
@@ -76,6 +82,7 @@
                 element.bind("keyup", function () { scope.on_action(element.context); });
                 element.bind("mouseup", function () { scope.on_action(element.context); });
                 element.bind("paste", function (e) {
+                    // HACK:run firefox on
                     var items = e.originalEvent.clipboardData.items;
                     for (var i = 0 ; i < items.length ; i++) {
                         var item = items[i];

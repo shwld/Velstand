@@ -12,15 +12,12 @@ namespace Velstand.Plugins.Models
         private HttpPostedFile postedFile;
         private string saveFolder = "/media/Images";
         public string FilePath;
-        public ImageFileModel(HttpPostedFile file, string folderPath = "/media/images", string extention = "png")
+        public ImageFileModel(HttpPostedFile file, string folderPath, string fileName)
         {
             this.postedFile = file;
 
-            this.saveFolder = folderPath + "/" + Generator.CurrentTimeStamp();
-            this.FilePath = string.Format("{0}/{1}.{2}",
-                                    this.saveFolder,
-                                    Path.GetFileName(file.FileName),
-                                    extention);
+            this.saveFolder = folderPath;
+            this.FilePath = this.saveFolder + fileName;
         }
 
         public Boolean IsValid()

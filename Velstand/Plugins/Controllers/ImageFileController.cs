@@ -17,25 +17,15 @@ namespace Velstand.Plugins.Controllers
         [HttpPost]
         public string Post()
         {
-            var files = HttpContext.Current.Request.Files;
+            var request = HttpContext.Current.Request;
+            var files = request.Files;
             if(files.Count > 0)
             {
-                var imageModel = new ImageFileModel((HttpPostedFile)files[0], "/media/velstand");
+                var imageModel = new ImageFileModel((HttpPostedFile)files[0], request["folderPath"], request["fileName"]);
                 imageModel.Save();
                 return imageModel.FilePath;
             }
             return string.Empty;
-        }
-
-        public string Get(HttpPostedFile file)
-        {
-            var imageModel = new ImageFileModel(file, "/media/velstand");
-            //if (!imageModel.Save())
-            //{
-                throw new Exception("error please lookup logfile");
-            //}
-
-            return imageModel.FilePath;
         }
     }
 }
