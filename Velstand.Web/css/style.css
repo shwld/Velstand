@@ -91,8 +91,6 @@ body {
     position: fixed;
     font-size: 1.3em;
     right: 30px;}
-#Top-Btn {
-    font-size: 1.6em;}
 
 /* Level List */
 .Level-List .Level-1 { padding-left: 5px; }
