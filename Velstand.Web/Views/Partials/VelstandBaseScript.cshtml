@@ -6,19 +6,19 @@
 <script type="text/javascript">
     $(function () {
         var showFlag = false;
-        var topBtn = $('#Btns');
-        topBtn.css('bottom', '-100px');
+        var btns = $('#Btns');
+        btns.css('bottom', '-100px');
         var showFlag = false;
         $(window).scroll(function () {
             if ($(this).scrollTop() > 400) {
                 if (showFlag == false) {
                     showFlag = true;
-                    topBtn.stop().animate({ 'bottom': '10px' }, 200);
+                    btns.stop().animate({ 'bottom': '10px' }, 200);
                 }
             } else {
                 if (showFlag) {
                     showFlag = false;
-                    topBtn.stop().animate({ 'bottom': '-100px' }, 200);
+                    btns.stop().animate({ 'bottom': '-100px' }, 200);
                 }
             }
         });
