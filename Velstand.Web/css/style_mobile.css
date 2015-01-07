@@ -28,31 +28,30 @@
 .Post-Body h2 {
     font-weight:bold;
     color: #313698;
-    background-color: #d1eaff;
     margin-top: 20px;
     font-size:1.3em;
-    padding:5px;
-    border: double 3px #313698;}
+    padding:3px;
+    border-bottom: solid 1px #313698;}
 .Post-Body h2:before {
     font-family: 'Glyphicons Halflings';
     padding-right: 10px;
     content:"\e067";}
 .Post-Body h3 {
     font-weight:bold;
-    color: #313698;
+    color: #5a6c94;
     font-size:1.2em;
     padding:15px 5px 5px 5px;
-    border-bottom: solid 2px #313698;}
+    border-bottom: solid 2px #5a6c94;}
 .Post-Body h3:before {
     font-family: 'Glyphicons Halflings';
     padding-right: 10px;
     content: "\e146";}
 .Post-Body h4 {
     font-weight:bold;
-    color: #313698;
+    color: #5a6c94;
     margin-top: 10px;
     padding-left: 15px;
-    border-left: solid 6px #313698;}
+    border-left: solid 6px #5a6c94;}
 .Single-Post h1 {
     color: #313698;}
 .Single-Post .Post-Eyecatch img{
