@@ -2,7 +2,8 @@
 @using Velstand.Models
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 @{
-    IPublishedContent holder = CurrentPage.VBlogHolderTopOrRoot();
+    IPublishedContent current = CurrentPage;
+    IPublishedContent holder = current.VBlogHolderTopOrRoot();
 }
 <div class="Widget panel">
     <h4 class="panel-title"><span class="glyphicon glyphicon-tags"></span>@Umbraco.GetDictionaryValue("ContentMap")</h4>
