@@ -87,7 +87,7 @@
                         var items = e.originalEvent.clipboardData.items;
                         for (var i = 0 ; i < items.length ; i++) {
                             var item = items[i];
-                            if (item.type.indexOf("image") != -1) {
+                            if (item.type.indexOf("image/png") != -1) {
                                 scope.insertImageFile(item);
                             }
                         }
