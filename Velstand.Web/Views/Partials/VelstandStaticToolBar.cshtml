@@ -20,6 +20,11 @@
                     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
                     <g:plusone size="tall" href="@(pageUrl)"></g:plusone>
                 </td>
+                <td>
+                    <a href='http://cloud.feedly.com/#subscription%2Ffeed%2F@(HttpUtility.UrlEncode(pageUrl))' target='blank'>
+                        <img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-square-volume_2x.png' alt='follow us in feedly' width='28' height='28'>
+                    </a>
+                </td>
                 @*<td>
                     <a href="http://b.hatena.ne.jp/entry/@(pageUrl)" class="hatena-bookmark-button" data-hatena-bookmark-title="@(Umbraco.Field("title"))" data-hatena-bookmark-layout="vertical" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
                     <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
@@ -27,8 +32,8 @@
             </tr>
         </table>
     </div>
-    <div id="Btns">
-        <span id="Nav-Btn"><a href="#"><span class="glyphicon glyphicon-star"></span></a></span>
-        <span id="Top-Btn"><a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a></span>
+    <div id="Btns" class="btn-group" role="group">
+        <button id="Nav-Btn" class="btn btn-default"><span class="glyphicon glyphicon-star"></span></button>
+        <button id="Top-Btn" class="btn btn-default"><span class="glyphicon glyphicon-arrow-up"></span></button>
     </div>
 </div>
