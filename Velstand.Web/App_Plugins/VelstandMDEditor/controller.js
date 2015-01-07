@@ -63,10 +63,9 @@
                     headers: { 'Content-Type': undefined }
                 }
             ).success(function (data) {
-                // HACK:remove replace
-                //$scope.velstandMd.sandwich("\n![", "](" + data.replace(/"/g, "") + " \"\")\n");
+            }).error(function() {
+                //$scope.velstandMd.undo();
             });
-            // TODO:function error
         }
     }).directive('velstandHundler', function () {
         return {
@@ -82,12 +81,15 @@
                 element.bind("keyup", function () { scope.on_action(element.context); });
                 element.bind("mouseup", function () { scope.on_action(element.context); });
                 element.bind("paste", function (e) {
+                    console.dir(e.originalEvent.clipboardData);
                     // HACK:run firefox on
-                    var items = e.originalEvent.clipboardData.items;
-                    for (var i = 0 ; i < items.length ; i++) {
-                        var item = items[i];
-                        if (item.type.indexOf("image") != -1) {
-                            scope.insertImageFile(item);
+                    if (e.originalEvent.clipboardData.items) {
+                        var items = e.originalEvent.clipboardData.items;
+                        for (var i = 0 ; i < items.length ; i++) {
+                            var item = items[i];
+                            if (item.type.indexOf("image") != -1) {
+                                scope.insertImageFile(item);
+                            }
                         }
                     }
                 });
