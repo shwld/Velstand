@@ -1,6 +1,6 @@
 ﻿angular.module("umbraco")
     .controller("Velstand.MDEditor.Controller",
-    function ($scope, $log, assetsService, dialogService, imageHelper, contentResource) {
+    function ($scope, $log, assetsService, dialogService, imageHelper, contentResource, $http) {
         $scope.model.config.editor_height = !!$scope.model.config.editor_height ? $scope.model.config.editor_height : 400;
 
         // markup
@@ -47,6 +47,26 @@
                 $scope.model.value = marked($scope.velstandMd.getValue());
             }
         }
+
+        $scope.insertImageFile = function (item) {
+            var formData = new FormData();
+            var folder = "/media/velstand/";
+            var file = (+new Date()) + ".png";
+            formData.append('file', item.getAsFile());
+            formData.append('folderPath', folder);
+            formData.append('fileName', file);
+            $scope.velstandMd.sandwich("\n![", "](" + folder + file + " \"\")\n");
+            $http.post("backoffice/Velstand/ImageFile/Post",
+                formData,
+                {
+                    transformRequest: false,
+                    headers: { 'Content-Type': undefined }
+                }
+            ).success(function (data) {
+            }).error(function() {
+                //$scope.velstandMd.undo();
+            });
+        }
     }).directive('velstandHundler', function () {
         return {
             restrict: 'A',
@@ -60,6 +80,19 @@
                 })*/
                 element.bind("keyup", function () { scope.on_action(element.context); });
                 element.bind("mouseup", function () { scope.on_action(element.context); });
+                element.bind("paste", function (e) {
+                    console.dir(e.originalEvent.clipboardData);
+                    // HACK:run firefox on
+                    if (e.originalEvent.clipboardData.items) {
+                        var items = e.originalEvent.clipboardData.items;
+                        for (var i = 0 ; i < items.length ; i++) {
+                            var item = items[i];
+                            if (item.type.indexOf("image/png") != -1) {
+                                scope.insertImageFile(item);
+                            }
+                        }
+                    }
+                });
             }
         }
     });

@@ -32,6 +32,7 @@ Please help us correct English grammar of the document
 ## Install
 ```
 cp Velstand.Web/ConnectionStrings.config.Example  Velstand.Web/ConnectionStrings.config
+cp Velstand.Web/App_Data/Umbraco.sdf.example  Velstand.Web/App_Data/Umbraco.sdf
 ```
 
 * login to Umbraco BackOffice
