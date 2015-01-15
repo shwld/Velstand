@@ -1,9 +1,11 @@
 ﻿@using Velstand.Utilities
+@using Velstand.Models
 @using Velstand.Constants
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@{    
-    var pageUrl = UrlUtil.SchemeAndAuthority() + CurrentPage.Url;
-    }
+@{
+    var feed = ((IPublishedContent)CurrentPage).VRoot().Descendants("VelstandFunctionFeed").First();
+    var pageUrl = UrlUtil.SchemeAndAuthority() + feed.Url;
+}
 
 <div id="Static-Toolbar">
     <div id="Sns-Bar">
