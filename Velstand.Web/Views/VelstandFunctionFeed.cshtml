@@ -9,7 +9,7 @@
     IPublishedContent current = CurrentPage;
     var setting = current.VRoot().Descendant("VelstandPrivateSettings");
     IPublishedContent selected = Umbraco.TypedContent(CurrentPage.GetPropertyValue<int>("selectContent"));
-    if (selected == null) { return; }
+    if (selected == null) { selected = current.VRoot(); }
 
     var baseUrl = UrlUtil.SchemeAndAuthority();
     }
