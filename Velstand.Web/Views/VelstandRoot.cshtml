@@ -11,11 +11,14 @@
 {
 }
 
+@section VelstandLanding
+{
+    @CurrentPage.GetGridHtml("body")
+}
 
 @section VelstandBody
 {
     <div class="clearfix">
-        @Umbraco.Field("body")
 
         @foreach (var post in search.Contents())
         {
