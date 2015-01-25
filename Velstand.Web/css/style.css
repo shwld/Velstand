@@ -6,6 +6,10 @@ html,
 body .Body {
   height: 100%;
   background-color: #d3d6e0;
+}
+#Background-Img {
+  position:fixed;
+  z-index:-999;
   background-position:top center;
   background-repeat:no-repeat;
 }
@@ -14,7 +18,7 @@ body .Body {
   height: auto !important;
   height: 100%;
   border:none;
-  padding-top:100px;
+  padding-top:50px;
 }
 .Navbar-Design {
     background-color: rgba(30,30,30,0.5);}
@@ -37,8 +41,8 @@ body .Body {
 
 .Text-Shadow {
     color:white;
-    text-shadow: black 1px 1px 0px, black -1px 1px 0px,
-             black 1px -1px 0px, black -1px -1px 0px;}
+    text-shadow: black 1px 1px 0, black -1px 1px 0,
+             black 1px -1px 0, black -1px -1px 0;}
 .Post-Body p{
     font-size:1.2em;
 	line-height: 170%;}
@@ -155,4 +159,5 @@ body .Body {
     width:25.4%;
     top:50px;
 }
+
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
