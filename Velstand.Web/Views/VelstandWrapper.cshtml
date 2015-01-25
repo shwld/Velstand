@@ -5,22 +5,18 @@
     Layout = "VelstandMaster.cshtml";
     IPublishedContent current = CurrentPage;
     var setting = current.VRoot().Descendant("VelstandPrivateSettings");
-    }
-
+}
 @section VelstandHead
 {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     @* LEGACY IE *@
     <!--[if lt IE 9]>
       <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
     @* StyleSheet *@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
-
     @if (Request.Browser.IsMobileDevice)
     {
         <link href="~/css/style_mobile.css" rel="stylesheet" />
@@ -29,93 +25,91 @@
     {
         <link href="~/css/style.css" rel="stylesheet" />
     }
-
     @RenderSection("VelstandHead")
 }
 
-
 @section VelstandBody
 {
-    @if (setting.HasValue("coverImage"))
-    {
-        <div style="position:absolute;top:0;width:100%;overflow:hidden;" class="center-block text-center">
-            @Html.Crop(setting, "coverImage", "cover", isLazyLoad: false)
-        </div>
-    }
-    <div id="wrap" class="container">
-        <header class="row Header">
-            <div class="Site-Infomations">
-                <p class="Site-Title"><a href="@current.VRoot().Url"><span class="Text-Shadow">@Umbraco.Field(setting, "siteTitle")</span></a></p>
-                <p class="Site-Description"><span class="Text-Shadow">@Umbraco.Field(setting, "siteDescription")</span></p>
-            </div>
-            <nav class="Navbar col-xs-12 col-md-12" style="margin-top:63px;">
-                <div class="container-fluid">
-                    <div class="col-md-12 navbar-header">
-                        <button class="navbar-toggle" data-toggle="collapse" data-target="#collapse-target">
+    <body class="Body" style="background-image:url(@setting.GetCropUrl("coverImage", "cover"));">
+        <nav class="Navbar-Design navbar navbar-fixed-top" role="navigation">
+            <div class="container-fluid col-xs-12 col-md-10 col-md-offset-1">
+                <div class="col-xs-12">
+                    <div class="navbar-header">
+
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-menu-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="collapse-target">
-                            <ul class="nav navbar-nav">
-                                @foreach (var nav in setting.VMultiNodes("navigations"))
-                                {
-                                    <li><a href="@nav.Url" class="btn"><span class="Text-Shadow">@Umbraco.Field(nav, "title")</span></a></li>
-                                }
-                            </ul>
-                        </div>
+
+                        <a class="navbar-brand" href="@current.VRoot().Url"><span class="Text-Shadow">@Umbraco.Field(setting, "siteTitle")</span></a>
+
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="nav-menu-1">
+
+                        <ul class="nav navbar-nav">
+                            @foreach (var nav in setting.VMultiNodes("navigations"))
+                            {
+                                <li><a href="@nav.Url">@Umbraco.Field(nav, "title")</a></li>
+                            }
+                        </ul>
+
                     </div>
                 </div>
-            </nav>
-        </header>
-		
-		<div class="row panel-landing">
-            <section class="LandingContent col-xs-12">
-            	@RenderSection("VelstandLanding", false)
-			</section>
-		</div>
-        
-        <div class="row panel-body">
-            <div class="col-xs-12">
-                @Html.Partial("VelstandBreadCrumb")
+
             </div>
-            <section class="MainContent col-xs-12 col-md-8">
-                @RenderSection("VelstandBody")
-            </section>
-            <section class="col-xs-12 col-md-4">
-				@Html.Partial("VelstandSidebar")
-            </section>
-        </div>
-        <div id="push"></div>
-    </div>
-    <section id="footer" class="Footer">
-        <footer class="row panel-footer col-xs-12 col-md-12">
-            <section class="col-xs-12 col-md-4">
-                @Html.Raw(umbraco.library.RenderMacroContent(setting.GetPropertyValue<string>("footerMacro1"), CurrentPage.Id))
-            </section>
-            <section class="col-xs-12 col-md-4">
-                @Html.Raw(umbraco.library.RenderMacroContent(setting.GetPropertyValue<string>("footerMacro2"), CurrentPage.Id))
-            </section>
-            <section class="col-xs-12 col-md-4">
-                @Html.Raw(umbraco.library.RenderMacroContent(setting.GetPropertyValue<string>("footerMacro3"), CurrentPage.Id))
-            </section>
-            <section class="col-xs-12">
-                <h2><small>@Umbraco.Field(setting, "siteTitle") - @Umbraco.Field("title")</small></h2>
-                <p>@Umbraco.Field(setting, "siteDescription")</p><br />
-                <p>Powered by <a href="http://velstand.info/" title="OurVelstand">Velstand</a> (<a href="http://umbraco.com/" title=" velstand">Umbraco CMS</a>)</p>
-            </section>
-        </footer>
-    </section>
-    @Html.Partial("VelstandStaticToolBar")
 
-    @* Jquery *@
-    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+        </nav>
 
-    @* Bootstrap *@
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	    <div id="wrap" class="col-xs-12 col-md-10 col-md-offset-1">
 
-    @* Script *@
-    @Html.CachedPartial("VelstandBaseScript", null, 86400)
-    <script src="~/scripts/script.js"></script>
+
+	        <div class="row panel-landing">
+	            <section class="LandingContent col-xs-12">
+	                @RenderSection("VelstandLanding", false)
+	            </section>
+	        </div>
+
+	        <div class="row panel-body">
+	            <div class="col-xs-12">
+	                @Html.Partial("VelstandBreadCrumb")
+	            </div>
+	            <section class="MainContent col-xs-12 col-md-8">
+	                @RenderSection("VelstandBody")
+	            </section>
+	            <section class="col-xs-12 col-md-4">
+	                @Html.Partial("VelstandSidebar")
+	            </section>
+	        </div>
+	        <div id="push"></div>
+	    </div>
+	    <section id="footer" class="Footer">
+	        <footer class="row panel-footer col-xs-12 col-md-12">
+	            <section class="col-xs-12 col-md-4">
+	                @Html.Raw(umbraco.library.RenderMacroContent(setting.GetPropertyValue<string>("footerMacro1"), CurrentPage.Id))
+	            </section>
+	            <section class="col-xs-12 col-md-4">
+	                @Html.Raw(umbraco.library.RenderMacroContent(setting.GetPropertyValue<string>("footerMacro2"), CurrentPage.Id))
+	            </section>
+	            <section class="col-xs-12 col-md-4">
+	                @Html.Raw(umbraco.library.RenderMacroContent(setting.GetPropertyValue<string>("footerMacro3"), CurrentPage.Id))
+	            </section>
+	            <section class="col-xs-12">
+	                <h2><small>@Umbraco.Field(setting, "siteTitle") - @Umbraco.Field("title")</small></h2>
+	                <p>@Umbraco.Field(setting, "siteDescription")</p><br />
+	                <p>Powered by <a href="http://velstand.info/" title="OurVelstand">Velstand</a> (<a href="http://umbraco.com/" title=" velstand">Umbraco CMS</a>)</p>
+	            </section>
+	        </footer>
+	    </section>
+	    @Html.Partial("VelstandStaticToolBar")
+	    @* Jquery *@
+	    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+	    @* Bootstrap *@
+	    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	    @* Script *@
+	    @Html.CachedPartial("VelstandBaseScript", null, 86400)
+	    <script src="~/scripts/script.js"></script>
+	</body>
 }

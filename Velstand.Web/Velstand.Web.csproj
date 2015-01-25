@@ -470,12 +470,9 @@
     <PropertyGroup>
       <ErrorText>このプロジェクトは、このコンピューターにはない NuGet パッケージを参照しています。これらをダウンロードするには、NuGet パッケージの復元を有効にしてください。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。不足しているファイルは {0} です。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\UmbracoCms.7.1.8\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.1.8\build\UmbracoCms.props'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.7.1.8\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.1.8\build\UmbracoCms.targets'))" />
     <Error Condition="!Exists('..\packages\UmbracoCms.7.2.1\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.2.1\build\UmbracoCms.props'))" />
     <Error Condition="!Exists('..\packages\UmbracoCms.7.2.1\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.2.1\build\UmbracoCms.targets'))" />
   </Target>
-  <Import Project="..\packages\UmbracoCms.7.1.8\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.1.8\build\UmbracoCms.targets')" />
   <Import Project="..\packages\UmbracoCms.7.2.1\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.2.1\build\UmbracoCms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

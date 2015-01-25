@@ -1,6 +1,12 @@
 *{ font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; }
-.Navbar {
-    /*background-color: rgba(212, 212, 212, 0.4);*/}
+body .Body {
+    background-position:top center;
+    background-repeat:no-repeat;
+    padding-top:100px;}
+.Navbar-Design {
+    background-color: rgba(30,30,30,0.5);}
+.Navbar-Design *{
+    color:white;}
 .Header img{
     margin-bottom:-50px;
 }
