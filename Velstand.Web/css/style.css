@@ -3,20 +3,27 @@
     width: auto;
 }*/
 html,
-body {
+body .Body {
   height: 100%;
   background-color: #d3d6e0;
+}
+#Background-Img {
+  position:fixed;
+  z-index:-999;
+  background-position:top center;
+  background-repeat:no-repeat;
 }
 #wrap {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  background-color: #d3d6e0;
   border:none;
-  /*background-color: #e4e5e9;*/
+  padding-top:50px;
 }
-.Navbar {
-    /*background-color: rgba(212, 212, 212, 0.4);*/}
+.Navbar-Design {
+    background-color: rgba(30,30,30,0.5);}
+.Navbar-Design *{
+    color:white;}
 .Header img{
     margin-bottom:-50px;
 }
@@ -34,8 +41,8 @@ body {
 
 .Text-Shadow {
     color:white;
-    text-shadow: black 1px 1px 0px, black -1px 1px 0px,
-             black 1px -1px 0px, black -1px -1px 0px;}
+    text-shadow: black 1px 1px 0, black -1px 1px 0,
+             black 1px -1px 0, black -1px -1px 0;}
 .Post-Body p{
     font-size:1.2em;
 	line-height: 170%;}
@@ -146,31 +153,11 @@ body {
     display:inline-block;
 }
 
- /* Fixed Sidebar */
-@media (min-width: 1200px) {
-    .Fixed {
-        position: fixed;
-        top: 10px;
-        width:350px;
-    }
+.Fixed {
+    position: fixed;
+    /* HACK:Off by */
+    width:25.4%;
+    top:50px;
 }
-@media (max-width: 1199px) {
-    .Fixed {
-        position: fixed;
-        top: 10px;
-        width:283px;
-    }
-}
-@media (max-width: 991px) {
-    .Fixed {
-        position: static;
-        width:690px;
-    }
-}
-@media (max-width: 480px) {
-    .Fixed {
-        position: static;
-        width:290px;
-    }
-}
+
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
