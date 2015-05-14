@@ -58,7 +58,7 @@
             $(function ($) {
                 var tab = $('#Fixed-Sidebar'), offset = tab.offset();
                 $(window).scroll(function () {
-                    if ($(window).scrollTop() > offset.top + 50) {
+                    if ($(window).scrollTop() > offset.top) {
                         tab.addClass('Fixed');
                     } else {
                         tab.removeClass('Fixed');

@@ -1,5 +1,4 @@
-﻿@using Velstand.Models
-@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Velstand.cshtml";
 }
@@ -12,8 +11,10 @@
         <meta http-equiv="Expires" content="86400" />
         <link rel="edituri" type="application/rsd+xml" href="/umbraco/channels/rsd.aspx" />
         <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/umbraco/channels/wlwmanifest.aspx" />
+
         @* Seo Settings *@
         @Html.Partial("VelstandSeoHead")
+
         @RenderSection("VelstandHead")
     </head>
     <body>

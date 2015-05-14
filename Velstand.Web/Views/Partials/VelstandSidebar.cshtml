@@ -4,7 +4,7 @@
 @{
     IPublishedContent current = CurrentPage;
     IPublishedContent content = current.HasValue("selectWidgets") ? current : current.VBlogHolderTopOrRoot().DescendantOrSelf(VelstandDocumentType.BlogHolderTop);
-}
+    }
 
 @Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectWidgets"), CurrentPage.Id))
 
