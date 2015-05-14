@@ -68,16 +68,16 @@
         </div>
 
     </nav>
+    
+	<div class="col-xs-12 col-md-10 col-md-offset-1 panel-landing">
+		<section class="LandingContent">
+			@RenderSection("VelstandLanding", false)
+		</section>
+	</div>
+			
+	<div id="wrap" class="col-xs-12 col-md-10 col-md-offset-1">
 
-    <div id="wrap" class="col-xs-12 col-md-10 col-md-offset-1">
-
-
-        <div class="row panel-landing">
-            <section class="LandingContent col-xs-12">
-                @RenderSection("VelstandLanding", false)
-            </section>
-        </div>
-
+				
         <div class="row panel-body">
             <div class="col-xs-12">
                 @Html.Partial("VelstandBreadCrumb")

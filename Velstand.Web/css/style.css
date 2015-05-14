@@ -160,4 +160,10 @@ body .Body {
     top:50px;
 }
 
-/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+.umb-grid img {
+	width:100%;
+}
+
+.panel-landing {
+	margin-top:60px;
+}/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
