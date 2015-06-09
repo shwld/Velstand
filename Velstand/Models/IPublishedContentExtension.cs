@@ -225,6 +225,18 @@ namespace Velstand.Models
         }
 
         /// <summary>
+        /// マークアップ
+        /// </summary>
+        /// <param name="self">IPublishedContent</param>
+        /// <param name="markdownAlias">マークダウンエディタのエイリアス</param>
+        /// <returns></returns>
+        public static IHtmlString VMarkUp(this IPublishedContent self, string markdownAlias)
+        {
+            var md = new MarkdownDeep.Markdown();
+            return new HtmlString(md.Transform(self.GetPropertyValue<string>(markdownAlias)));
+        }
+
+        /// <summary>
         /// カテゴリー検索結果一覧ページのURLを取得
         /// </summary>
         /// <param name="catId"></param>

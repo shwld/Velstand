@@ -6,15 +6,19 @@
     IPublishedContent current = CurrentPage;
     IPublishedContent content = current.VBlogHolderTopOrRoot();
 }
-
-<div class="Widget panel">
-    <h4><span class="glyphicon glyphicon-search"></span>@Umbraco.GetDictionaryValue("Search")</h4>
-    <form action="@content.Url" method="get">
-        <div class="input-group Search">
-            <input type="text" name="@VelstandRequest.Text" placeholder="@Umbraco.GetDictionaryValue("SearchPlaceHolder")" class="form-control" />
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">@Umbraco.GetDictionaryValue("SearchSubmit")</button>
-            </span>
-        </div>
-    </form>
-</div>
+<ul class="Widget collection">
+    <li class="collection-item">
+        <form action="@content.Url" method="get">
+            <div class="input-field Search row">
+                <div class="col s2">
+                    <button type="submit" class="btn blue lighten-3 btn-floating waves-effect waves-light">
+                        <i class="mdi-action-search right"></i>
+                    </button>
+                </div>
+                <div class="col s10">
+                    <input id="search" type="text" name="@VelstandRequest.Text" placeholder="@Umbraco.GetDictionaryValue("SearchPlaceHolder")" class="form-control" />
+                </div>
+            </div>
+        </form>
+    </li>
+</ul>
