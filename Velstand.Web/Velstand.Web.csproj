@@ -245,17 +245,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\fonts\icomoon.svg" />
-    <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\style.css" />
-    <Content Include="App_Plugins\VelstandMDEditor\assets\jquery.selection.js" />
-    <Content Include="App_Plugins\VelstandMDEditor\assets\marked.js" />
-    <Content Include="App_Plugins\VelstandMDEditor\assets\reMarked.js" />
-    <Content Include="App_Plugins\VelstandMDEditor\assets\markedOptions.js" />
-    <Content Include="App_Plugins\VelstandMDEditor\controller.js" />
-    <Content Include="App_Plugins\VelstandMDEditor\dialogs\controller.js" />
-    <Content Include="App_Plugins\VelstandMDEditor\dialogs\view.html" />
-    <Content Include="App_Plugins\VelstandMDEditor\style.css" />
-    <Content Include="App_Plugins\VelstandMDEditor\view.html" />
     <Content Include="Content\dummy.txt" />
     <Content Include="css\style_mobile.css" />
     <Content Include="css\style.css" />
@@ -283,10 +272,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="App_Plugins\VelstandMDEditorMini\package.manifest" />
-    <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\fonts\icomoon.eot" />
-    <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\fonts\icomoon.ttf" />
-    <Content Include="App_Plugins\VelstandMDEditor\assets\icomoon\fonts\icomoon.woff" />
     <Content Include="scripts\jquery.lazyload.min.js" />
     <Content Include="scripts\script.js" />
     <Content Include="Web.config">
@@ -315,7 +300,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="macroScripts\Web.config" />
     <Content Include="config\ClientDependency.config" />
-    <Content Include="App_Plugins\VelstandMDEditor\package.manifest" />
     <Content Include="Views\Partials\VelstandStaticToolBar.cshtml" />
     <Content Include="Views\VelstandInfomation.cshtml" />
     <Content Include="Views\VelstandSiteMap.cshtml" />
@@ -409,9 +393,6 @@
     <Content Include="xslt\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="App_Plugins\VelstandMDEditor\assets\Velstand_Markdown.ts" />
-    <TypeScriptCompile Include="App_Plugins\VelstandMDEditor\assets\Velstand_TextArea.ts" />
-    <TypeScriptCompile Include="App_Plugins\VelstandMDEditor\assets\reMarked.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-mocks.d.ts" />
@@ -425,6 +406,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_Plugins\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Velstand\Velstand.csproj">
