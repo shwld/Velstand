@@ -192,6 +192,16 @@ namespace Velstand.Models
         }
 
         /// <summary>
+        /// タグ検索結果一覧ページのURLを取得
+        /// </summary>
+        /// <param name="tagName"></param>
+        /// <returns></returns>
+        public static string VTagUrl(this IPublishedContent content, string tagName, HttpRequestBase request = null)
+        {
+            return string.Format("{0}?{1}", content.Url, SubstitutedQueryString(request, VelstandRequest.Tag, tagName));
+        }
+
+        /// <summary>
         /// 日付検索結果一覧ページのURLを取得
         /// </summary>
         /// <param name="catId"></param>

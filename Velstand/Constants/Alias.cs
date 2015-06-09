@@ -117,6 +117,11 @@ namespace Velstand.Constants
         public const string Category = "category";
 
         /// <summary>
+        /// タグ
+        /// </summary>
+        public const string Tag = "tag";
+
+        /// <summary>
         /// パンくずリストに表示しないフラグ
         /// </summary>
         public const string IsHiddenBreadCrumb = "pankuzuFlg";
@@ -177,6 +182,11 @@ namespace Velstand.Constants
         /// カテゴリーによる絞り込み
         /// </summary>
         public const string Category = "cat";
+
+        /// <summary>
+        /// タグによる絞り込み
+        /// </summary>
+        public const string Tag = "tag";
 
         /// <summary>
         /// テキストサーチ
