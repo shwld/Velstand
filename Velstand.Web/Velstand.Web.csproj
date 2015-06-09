@@ -384,6 +384,7 @@
     <Content Include="Views\MacroPartials\VelstandWidgetSearch.cshtml" />
     <Content Include="Views\MacroPartials\VelstandWidgetContentMap.cshtml" />
     <Content Include="packages.config" />
+    <Content Include="Views\VelstandContentGrid.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

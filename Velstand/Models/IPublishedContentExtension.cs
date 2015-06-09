@@ -182,6 +182,49 @@ namespace Velstand.Models
         }
 
         /// <summary>
+        /// 画像を取得する
+        /// </summary>
+        /// <param name="node">IPublishedContent</param>
+        /// <param name="imageAlias">画像プロパティのエイリアス</param>
+        /// <returns>画像の名前</returns>
+        public static MediaModel VMedia(this IPublishedContent self, string imageAlias)
+        {
+            var imageId = self.GetPropertyValue<int>(imageAlias);
+            var umbHelper = new UmbracoHelper(UmbracoContext.Current);
+            var media = umbHelper.TypedMedia(imageId);
+            if (media == null) { return new MediaModel(); }
+            return new MediaModel() { Name = media.Name, Url = media.Url };
+        }
+
+        /// <summary>
+        /// MultipleMediaPickerから画像を取得する
+        /// </summary>
+        /// <param name="node">IPublishedContent</param>
+        /// <param name="imageAlias">画像プロパティのエイリアス</param>
+        /// <returns>画像のパスリスト</returns>
+        public static List<MediaModel> VMedias(this IPublishedContent self, string imageAlias)
+        {
+            string imageIds = self.GetPropertyValue<string>(imageAlias);
+
+            var results = new List<MediaModel>();
+            if (string.IsNullOrEmpty(imageIds)) { return results; }
+            var umbHelper = new UmbracoHelper(UmbracoContext.Current);
+            foreach (var imageId in imageIds.Split(','))
+            {
+                int intId = 0;
+                if (!int.TryParse(imageId, out intId))
+                    continue;
+
+                var media = umbHelper.TypedMedia(intId);
+                if (media == null)
+                    continue;
+
+                results.Add(new MediaModel() { Name = media.Name, Url = media.Url });
+            }
+            return results;
+        }
+
+        /// <summary>
         /// カテゴリー検索結果一覧ページのURLを取得
         /// </summary>
         /// <param name="catId"></param>
