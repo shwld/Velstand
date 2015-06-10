@@ -417,6 +417,9 @@
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\VelstandGrid.cshtml" />
+    <Content Include="Views\Partials\VelstandRedirect.cshtml" />
+    <Content Include="Views\VelstandHolderPages.cshtml" />
+    <Content Include="Views\VelstandContentPages.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
