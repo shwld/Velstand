@@ -68,7 +68,7 @@ namespace Velstand.Models
                         case(VelstandRequest.Text):
                             // FIXME:2つ目以降のリクエストパラメータで渡された場合、それ以前のパラメータが無効化されてしまう
                             var searchCriteria = ExamineManager.Instance.CreateSearchCriteria();
-                            var query = searchCriteria.GroupedOr(new[] { "name", "title", "introduction", "body" }, this.request[key]).Compile();
+                            var query = searchCriteria.GroupedOr(new[] { "name", "title", "body" }, this.request[key]).Compile();
                             posts = this.umbraco.TypedSearch(query).Where(x => x.DocumentTypeAlias.StartsWith(VelstandPrefix.Content));
                             break;
                         default:

@@ -27,7 +27,14 @@ Please help us correct English grammar of the document
 
 
 ## Requirement
-* Umbraco7.1 or later
+* Umbraco7.2 or later
+
+## Duplicated
+* introduction (property)
+* cover image (property)
+* velstand markdown (data type)
+* velstand markdown mini (data type)
+
 
 ## Install
 ```
