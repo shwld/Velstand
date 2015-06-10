@@ -94,6 +94,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Lucene.Net.2.9.4.1\lib\net40\Lucene.Net.dll</HintPath>
     </Reference>
+    <Reference Include="MarkdownDeep, Version=1.5.4615.26275, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownDeep.NET.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1559.20655, Culture=neutral">
       <HintPath>..\packages\UmbracoCms.Core.7.2.5\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
       <Private>True</Private>
@@ -228,6 +232,7 @@
     <Compile Include="Automations\SiteMapCreator.cs" />
     <Compile Include="Automations\Automation.cs" />
     <Compile Include="Automations\VelstandEventHandler.cs" />
+    <Compile Include="Models\MediaModel.cs" />
     <Compile Include="Plugins\Controllers\ImageFileController.cs" />
     <Compile Include="Plugins\Models\ImageFileModel.cs" />
     <Compile Include="Utilities\DocumentUtil.cs" />

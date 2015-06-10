@@ -5,44 +5,50 @@
     IPublishedContent current = CurrentPage;
     IPublishedContent holder = current.VBlogHolderTopOrRoot();
 }
-<div class="Widget panel">
-    <h4 class="panel-title"><span class="glyphicon glyphicon-tags"></span>@Umbraco.GetDictionaryValue("ContentMap")</h4>
-    <div class="Content-Map Level-List">
+
+<ul class="Widget collection white">
+    <li class="collection-header"><h4><span class="mdi-file-folder-open"></span> @Umbraco.GetDictionaryValue("ContentMap")</h4></li>
+    <li class="collection-item Level-List">
         @Traverse(holder)
-    </div>
-    <br />
-</div>
+    </li>
+</ul>
 
 @* Helper method to travers through all descendants *@
 @helper Traverse(IPublishedContent node)
 {
     @* Select visible children *@
-    var items = node.Children.Where(x => !x.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem) 
-                                                          &&     !x.DocumentTypeAlias.StartsWith(VelstandPrefix.Error));
-                                                           
-    @* If any items are returned, render a list *@
+    var items = node.Children.Where(x => !x.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem)
+                                                          && !x.DocumentTypeAlias.StartsWith(VelstandPrefix.Error));
+
+                                                        @* If any items are returned, render a list *@
     if (items.Any())
     {
         foreach (var item in items)
         {
-            <div class="accordion-heading Level-@item.Level">
-                @if (item.DocumentTypeAlias.StartsWith(VelstandPrefix.Content))
-                {
-                    <span class="accordion-toggle collapsed">
-                        &nbsp;<a href="@item.Url" title="@item.GetPropertyValue("title")">@Umbraco.Field(item, "title", altText: item.Name)</a>
-                    </span>
-                }
-                else if (item.Children.Count() != 0)
-                {
-                    <span class="accordion-toggle collapsed" data-toggle="collapse" href="#collapse-@item.Id">
-                        @Umbraco.Field(item, "title", altText: item.Name)
-                    </span>
-                    <a href="@item.Url" title="@item.GetPropertyValue("title")" class="glyphicon glyphicon-folder-open"></a>
-                }
-            </div>
-            <div id="collapse-@item.Id" class="collapse">
-                @Traverse(item)
-            </div>
+            <ul class="Level-@(item.Level) collapsible popout" data-collapsible="accordion">
+                <li>
+                    @if (item.DocumentTypeAlias.StartsWith(VelstandPrefix.Content))
+                    {
+                        <div class="collection-item">
+                            <a href="@item.Url" title="@item.GetPropertyValue("title")">
+                                <i class="mdi-editor-insert-drive-file"></i>
+                                @Umbraco.Field(item, "title", altText: item.Name)
+                            </a>
+                        </div>
+                    }
+                    else if (item.Children.Count() != 0)
+                    {
+                        <div class="collapsible-header">
+                            <i class="mdi-file-folder-open"></i>
+                            @Umbraco.Field(item, "title", altText: item.Name)
+                            <a href="#" class="right"><i class="mdi-content-send"></i></a>
+                        </div>
+                    }
+                    <div class="collapsible-body">
+                        @Traverse(item)
+                    </div>
+                </li>
+            </ul>
         }
     }
 }

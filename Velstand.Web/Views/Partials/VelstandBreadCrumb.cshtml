@@ -5,29 +5,31 @@
 @{
 }
 
-<ul class="col-md-12 breadcrumb">
-    @foreach (var content in CurrentPage.VBreadCrumbs())
-    {
-        <li class="BreadCrumb-Item"><a href="@content.Url">@Umbraco.Field(content, "title", altText: content.Name)</a></li>
-    }
-    <li class="BreadCrumb-Item active">@Umbraco.Field("title", altText: CurrentPage.Name)</li>
+<ul class="breadcrumb collection">
+    <li class="collection-item">
+        @foreach (var content in CurrentPage.VBreadCrumbs())
+        {
+            <span class="BreadCrumb-Item mdi-navigation-chevron-right"><a href="@content.Url">@Umbraco.Field(content, "title", altText: content.Name)</a></span>
+        }
+        <span class="BreadCrumb-Item active mdi-navigation-chevron-right">@Umbraco.Field("title", altText: CurrentPage.Name)</span>
 
-    @* Request Category *@
-    @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Category]))
-    {
-        var cat = Umbraco.TypedContent(Request.QueryString[VelstandRequest.Category]);
-        <li class="BreadCrumb-Item BreadCrumb-Category">&nbsp;[ @Umbraco.Field(cat, "title", insertAfter: Umbraco.GetDictionaryValue("BreadCrumbCategory")) ]</li>
-    }
+        @* Request Category *@
+        @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Category]))
+        {
+            var cat = Umbraco.TypedContent(Request.QueryString[VelstandRequest.Category]);
+            <span class="BreadCrumb-Item BreadCrumb-Category mdi-navigation-chevron-right">&nbsp;[ @Umbraco.Field(cat, "title", insertAfter: Umbraco.GetDictionaryValue("BreadCrumbCategory")) ]</span>
+        }
 
-    @* Request Date *@
-    @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Date]))
-    {
-        <li class="BreadCrumb-Item BreadCrumb-Date">&nbsp;[ @Html.BreadCrumbDateFormat(Request.QueryString[VelstandRequest.Date]) ]</li>
-    }
+        @* Request Date *@
+        @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Date]))
+        {
+            <span class="BreadCrumb-Item BreadCrumb-Date mdi-navigation-chevron-right">&nbsp;[ @Html.BreadCrumbDateFormat(Request.QueryString[VelstandRequest.Date]) ]</span>
+        }
 
-    @* Request Text *@
-    @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Text]))
-    {
-        <li class="BreadCrumb-Item BreadCrumb-Date">&nbsp;[ @Umbraco.GetDictionaryValue("BreadCrumbText") @Request.QueryString[VelstandRequest.Text] ]</li>
-    }
+        @* Request Text *@
+        @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Text]))
+        {
+            <span class="BreadCrumb-Item BreadCrumb-Date mdi-navigation-chevron-right">&nbsp;[ @Umbraco.GetDictionaryValue("BreadCrumbText") @Request.QueryString[VelstandRequest.Text] ]</span>
+        }
+    </li>
 </ul>

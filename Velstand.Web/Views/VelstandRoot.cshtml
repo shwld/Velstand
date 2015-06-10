@@ -4,47 +4,52 @@
 @{
     Layout = "VelstandWrapper.cshtml";
     IPublishedContent current = CurrentPage;
-    var search = new SearchEngineModel(current, Request);
-    }
-
+    var search = new SearchEngineModel(current, null, 6);
+}
 @section VelstandHead
 {
 }
-
 @section VelstandLanding
 {
-    @CurrentPage.GetGridHtml("body")
+    @CurrentPage.GetGridHtml("grid", "velstandgrid")
 }
-
 @section VelstandBody
 {
-    <div class="clearfix">
 
-        @foreach (var post in search.Contents())
-        {
-            <article class="List-Post col-xs-12 col-md-6 panel panel-default clearfix">
-                <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogThumbnail")</a>
-                <div class="Post-Title col-xs-12">
-                    <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
+    <section class="MainContent col s12">
+        <div class="row">
+            @foreach (var post in search.Contents())
+            {
+                <div class="col s12 m6">
+                    <div class="card small">
+                        <div class="card-content">
+                            <a href="@post.Url">
+                                <img src="@post.GetCropUrl("eyecatch", "blogThumbnail")" class="activator" />
+                                <h2 class="card-title activator black-text Text-Light">@Umbraco.Field(post, "title")</h2>
+                            </a>
+                        </div>
+                        <div class="card-action">
+                            <a href="@post.Url">@Umbraco.GetDictionaryValue("ToppageMoreButton")</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="Post-Data col-xs-12">
-                    <p>
-                        <span class="glyphicon glyphicon-calendar">
-                            @string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releasedate"))
-                        </span>
-                    </p>
-                    <span class="glyphicon glyphicon-tag">&nbsp;@Html.CategoryWithLink(post, "category")</span>
-                </div>
-            </article>
-        }
-    </div>
+            }
+        </div>
 
-    @*<a class="Link-Btn" href="@current.VPageUrl(2, Request)">
-        <span class="glyphicon glyphicon-check btn panel col-xs-12 text-center"> @Umbraco.GetDictionaryValue("ToppageMoreButton")</span>
-    </a>*@
-    <ul class="pagination">
-        @search.Html.Prev("&lt;")
-        @search.Html.Pagination()
-        @search.Html.Next("&gt;")
-    </ul>
+        <a class="Link-Btn" href="@current.VPageUrl(2, Request)">
+            <span class="mdi-navigation-check blue btn col s12 text-center"> @Umbraco.GetDictionaryValue("ToppageMoreButton")</span>
+        </a>
+    </section>
+
+
+
+
+
+
+    @*
+        <ul class="pagination">
+            @search.Html.Prev("<i class=\"mdi-navigation-chevron-left\"></i>")
+            @search.Html.Pagination()
+            @search.Html.Next("<i class=\"mdi-navigation-chevron-right\"></i>")
+        </ul>*@
 }

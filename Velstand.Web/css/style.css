@@ -5,8 +5,13 @@
 html,
 body .Body {
   height: 100%;
-  background-color: #d3d6e0;
 }
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
 #Background-Img {
   position:fixed;
   z-index:-999;
@@ -18,10 +23,12 @@ body .Body {
   height: auto !important;
   height: 100%;
   border:none;
-  padding-top:50px;
+  padding-top:20px;
 }
-.Navbar-Design {
-    background-color: rgba(30,30,30,0.5);}
+.Navbar-Design nav{
+    //background-color: rgba(38,50,56,0.5) !important;
+    //background-color: rgba(255,255,255,0.0) !important;
+}
 .Navbar-Design *{
     color:white;}
 .Header img{
@@ -41,8 +48,12 @@ body .Body {
 
 .Text-Shadow {
     color:white;
-    text-shadow: black 1px 1px 0, black -1px 1px 0,
-             black 1px -1px 0, black -1px -1px 0;}
+    text-shadow: gray 1px 1px 0, gray -1px 1px 0,
+             gray 1px -1px 0, gray -1px -1px 0;}
+.Text-Light {
+    color:black;
+    text-shadow: white 1px 1px 0, white -1px 1px 0,
+             white 1px -1px 0, white -1px -1px 0;}
 .Post-Body p{
     font-size:1.2em;
 	line-height: 170%;}
@@ -52,29 +63,19 @@ body .Body {
     margin-top: 40px;
     padding: 5px;
     border-bottom: solid 1px #313698;}
-.Post-Body h2:before {
-    font-family: 'Glyphicons Halflings';
-    padding-right: 15px;
-    content:"\e067";}
 .Post-Body h3 {
     font-weight:bold;
     color: #5a6c94;
-    padding:30px 5px 5px 5px;
-    border-bottom: solid 2px #5a6c94;}
-.Post-Body h3:before {
-    font-family: 'Glyphicons Halflings';
-    padding-right: 10px;
-    content: "\e146";}
+    padding:2px 5px 2px 15px;
+    border-left: solid 6px #5a6c94;}
 .Post-Body h4 {
-    font-weight:bold;
+    font-weight: bold;
     color: #5a6c94;
     margin-top: 30px;
     padding-left: 15px;
-    border-left: solid 6px #5a6c94;}
+}
 .Single-Post h1{
     color: #313698;}
-.Single-Post .Post-Eyecatch img{
-    border: solid 1px #e4e8fb;}
 .List-Post h2{
     font-size:1.7em;}
 .List-Post .Post-Title {
@@ -164,6 +165,4 @@ body .Body {
 	width:100%;
 }
 
-.panel-landing {
-	margin-top:60px;
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

@@ -5,48 +5,49 @@
     Layout = "VelstandWrapper.cshtml";
     IPublishedContent current = CurrentPage;
     var search = new SearchEngineModel(current, Request);
-    }
-
+}
 @section VelstandHead
 {
 }
-
 @section VelstandLanding
 {
-    @CurrentPage.GetGridHtml("body")
+    @CurrentPage.GetGridHtml("grid")
 }
-
 
 @section VelstandBody
 {
-    @foreach (var post in search.Contents())
-    {
-        <article class="col-md-12 panel panel-default clearfix">
-            <div class="col-md-3 pull-left">
-                <p class="Post-Eyecatch">
-                    <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogEyecatch")</a>
-                </p>
-            </div>
-            <div class="Description panel-body col-md-9">
-                <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
-                <p class="Post-Data">
-                    <span class="glyphicon glyphicon-calendar">@string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
-                    &nbsp;&nbsp;
-                    <span class="glyphicon glyphicon-tag">@Html.CategoryWithLink(post, "category")</span>
-                </p>
-                <hr />
-                <p class="Post-Introduction">@Umbraco.Field(post, "introduction")</p>
-                <a class="Link-Btn" href="@post.Url">
-                    <span class="glyphicon glyphicon-check"></span> @Umbraco.GetDictionaryValue("HolderpageMoreButton")
-                </a>
-            </div>
-        </article>
-    }
-
-    @* Pagination *@
-    <ul class="pagination">
-        @search.Html.Prev("<")
-        @search.Html.Pagination()
-        @search.Html.Next(">")
-    </ul>
+    <section class="MainContent col s12 m8">
+        @foreach (var post in search.Contents())
+        {
+            <article class="collection">
+                <div class="col s3 pull-left">
+                    <p class="Post-Eyecatch">
+                        <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogEyecatch")</a>
+                    </p>
+                </div>
+                <div class="Description col s9">
+                    <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
+                    <hr />
+                    <p class="Post-Data">
+                        <span class="mdi-notification-event-note"> @string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
+                        &nbsp;&nbsp;
+                        <span class="mdi-action-label"> @Html.CategoryWithLink(post, "category")</span>
+                    </p>
+                    <p class="Post-Introduction">@Umbraco.Field(post, "introduction")</p>
+                    <a class="Link-Btn" href="@post.Url">
+                        <span class="glyphicon glyphicon-check"></span> @Umbraco.GetDictionaryValue("HolderpageMoreButton")
+                    </a>
+                </div>
+            </article>
+        }
+        @* Pagination *@
+        <ul class="pagination">
+            @search.Html.Prev("<i class=\"mdi-navigation-chevron-left\"></i>")
+            @search.Html.Pagination()
+            @search.Html.Next("<i class=\"mdi-navigation-chevron-right\"></i>")
+        </ul>
+    </section>
+    <section class="SubContent col s12 m4">
+        @Html.Partial("VelstandSidebar")
+    </section>
 }

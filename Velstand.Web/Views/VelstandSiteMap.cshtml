@@ -10,33 +10,42 @@
 @section VelstandBody
 {
     @* Render the sitemap by passing the root node to the traverse helper *@
-
-    <article class="Single-Post Post panel panel-default">
-        <div class="panel-body">
-            <h1 class="Post-Title">@Umbraco.Field("title")</h1>
-            @Traverse(CurrentPage.VRoot())
-        </div>
-    </article>
+    <section class="MainContent col s12">
+        <article class="Single-Post Post collection">
+            <div class="collection-item">
+                <h1 class="Post-Title">@Umbraco.Field("title")</h1>
+                <ul class="Level-List">
+                    @Traverse(CurrentPage.VRoot())
+                </ul>
+            </div>
+        </article>
+    </section>
 }
 @* Helper method to travers through all descendants *@
 @helper Traverse(IPublishedContent node)
 {
     @* Select visible children *@
-    var items = node.Children.Where(x => !x.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem) 
-                                                          &&     !x.DocumentTypeAlias.StartsWith(VelstandPrefix.Error));
-                                                           
-    @* If any items are returned, render a list *@
+    var items = node.Children.Where(x => !x.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem)
+                                                          && !x.DocumentTypeAlias.StartsWith(VelstandPrefix.Error));
+
+                                                        @* If any items are returned, render a list *@
     if (items.Any())
     {
-        <ul>
-            @foreach (var item in items)
-            {
-                <li class="level-@item.Level">
-                    <a href="@item.Url">@Umbraco.Field(item, "title", altText: item.Name)</a>
-                    @* Run the traverse helper again *@
-                    @Traverse(item)
-                </li>
-            }
-        </ul>
+        foreach (var item in items)
+        {
+            <li class="Level-@item.Level">
+                @if (item.DocumentTypeAlias.StartsWith(VelstandPrefix.Content))
+                {
+                    <i class="mdi-editor-insert-drive-file"></i>
+                    }
+                    else
+                    {
+                    <i class="mdi-file-folder-open"></i>
+                }
+                <a href="@item.Url">@Umbraco.Field(item, "title", altText: item.Name)</a>
+                @* Run the traverse helper again *@
+                @Traverse(item)
+            </li>
+        }
     }
 }

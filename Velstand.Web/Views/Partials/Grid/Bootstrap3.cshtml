@@ -21,19 +21,17 @@
                 </div>
             }   
         }else { 
-            <div class="row clearfix">
-                <div class="col-xs-12">
-                    @foreach (var s in Model.sections) {
-                        <div class="grid-section">
-                            <div class="col-md-@s.grid col-xs-12 column">
-                                @foreach (var row in s.rows) {
-                                    @renderRow(row, false);
-                                }
-                            </div>
-                        </div>
+        <div class="row clearfix">
+            @foreach (var s in Model.sections) {
+            <div class="grid-section">
+                <div class="col-md-@s.grid col-xs-12 column">
+                    @foreach (var row in s.rows) {
+                    @renderRow(row, false);
                     }
                 </div>
-            </div>   
+            </div>
+            }
+        </div>   
         }
     </div>
 }

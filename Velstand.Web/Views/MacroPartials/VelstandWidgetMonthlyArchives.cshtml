@@ -14,23 +14,24 @@
     }
     var idate = DateTime.Now;
 
-    <div class="Widget panel">
-        <h4 class="panel-title"><span class="glyphicon glyphicon-th"></span>@Umbraco.GetDictionaryValue("MonthlyArchives")</h4>
-        <ul class="list-group">
-            @while (new DateTime(startdate.Year, startdate.Month, 1) <= new DateTime(idate.Year, idate.Month, 1))
-            {
-                var cnt = contents.Where(x => x.GetPropertyValue<DateTime>("releaseDate").ToString("yyyyMM") == idate.ToString("yyyyMM")).Count();
-                var currentMonth = new DateTime(idate.Year, idate.Month, 1);
-                var url = content.Url + "?date=" + idate.ToString("yyyyMM");
-                idate = idate.AddMonths(-1);
-                //if (idate.AddMonths(12) < DateTime.Now) { break; }
-                if (cnt == 0) { continue; }
+    <ul class="Widget collection white">
+        <li class="collection-header"><h4><span class="mdi-notification-event-note"></span> @Umbraco.GetDictionaryValue("MonthlyArchives")</h4></li>
+        @while (new DateTime(startdate.Year, startdate.Month, 1) <= new DateTime(idate.Year, idate.Month, 1))
+        {
+            var cnt = contents.Where(x => x.GetPropertyValue<DateTime>("releaseDate").ToString("yyyyMM") == idate.ToString("yyyyMM")).Count();
+            var currentMonth = new DateTime(idate.Year, idate.Month, 1);
+            var url = content.Url + "?date=" + idate.ToString("yyyyMM");
+            idate = idate.AddMonths(-1);
+            //if (idate.AddMonths(12) < DateTime.Now) { break; }
+            if (cnt == 0) { continue; }
 
-                <li class="list-group-item">
-                    <a href="@url">@string.Format(Umbraco.GetDictionaryValue("MonthlyArchivesDateFormat"), currentMonth)</a>
+            <li>
+                <a href="@url" class="collection-item">
+                    @string.Format(Umbraco.GetDictionaryValue("MonthlyArchivesDateFormat"), currentMonth)
                     <span class="badge">@cnt</span>
-                </li>
-            }
-        </ul>
-    </div>
+                </a>
+            </li>
+        }
+    </ul>
+
 }
