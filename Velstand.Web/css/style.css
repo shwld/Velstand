@@ -47,11 +47,9 @@ h6 { font-size: 1em; }
     font-size: 30px;}
 
 .Text-Shadow {
-    color:white;
     text-shadow: gray 1px 1px 0, gray -1px 1px 0,
              gray 1px -1px 0, gray -1px -1px 0;}
 .Text-Light {
-    color:black;
     text-shadow: white 1px 1px 0, white -1px 1px 0,
              white 1px -1px 0, white -1px -1px 0;}
 .Post-Body p{
@@ -157,8 +155,9 @@ h6 { font-size: 1em; }
 .Fixed {
     position: fixed;
     /* HACK:Off by */
-    width:25.4%;
+    width:21.5%;
     top:50px;
+    z-index:-99;
 }
 
 .umb-grid img {

@@ -4,7 +4,7 @@
 @{
     Layout = "VelstandWrapper.cshtml";
     IPublishedContent current = CurrentPage;
-    var search = new SearchEngineModel(current, null, 6);
+    var search = new SearchEngineModel(current.VHolder(), null, 6);
 }
 @section VelstandHead
 {
@@ -31,22 +31,17 @@
                             </a>
                         </div>
                         <div class="card-action">
-                            <a href="@post.Url">@Umbraco.GetDictionaryValue("ToppageMoreButton")</a>
+                            <a href="@post.Url">@Umbraco.GetDictionaryValue("HolderpageMoreButton")</a>
                         </div>
                     </div>
                 </div>
             }
         </div>
 
-        <a class="Link-Btn" href="@current.VPageUrl(2, Request)">
+        <a class="Link-Btn" href="@current.VHolder().Url">
             <span class="mdi-navigation-check blue btn col s12 text-center"> @Umbraco.GetDictionaryValue("ToppageMoreButton")</span>
         </a>
     </section>
-
-
-
-
-
 
     @*
         <ul class="pagination">
