@@ -9,13 +9,12 @@
 @section VelstandHead
 {
 }
-@section VelstandLanding
-{
-    @CurrentPage.GetGridHtml("grid")
-}
 
 @section VelstandBody
 {
+    <div class="col s12">
+		@Html.Partial("VelstandBreadCrumb")
+	</div>
     <section class="MainContent col s12 m8">
         @foreach (var post in search.Contents())
         {

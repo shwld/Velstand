@@ -15,7 +15,9 @@
 }
 @section VelstandBody
 {
-
+    <div class="col s12">
+		@Html.Partial("VelstandBreadCrumb")
+	</div>
     <section class="MainContent col s12">
         <div class="row">
             @foreach (var post in search.Contents())
