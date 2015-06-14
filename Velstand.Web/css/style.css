@@ -40,6 +40,7 @@ h6 { font-size: 1em; }
     margin-bottom:-50px;
 }
 .Footer {
+	z-index:10;
     margin-left:30px;}
 .Widget h4{
     padding:10px;}
@@ -176,7 +177,6 @@ h6 { font-size: 1em; }
     /* HACK:Off by */
     width:21.5%;
     top:50px;
-    z-index:-99;
 }
 
 .umb-grid img {
