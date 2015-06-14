@@ -17,7 +17,7 @@
         @if (!string.IsNullOrWhiteSpace(Request.QueryString[VelstandRequest.Category]))
         {
             var cat = Umbraco.TypedContent(Request.QueryString[VelstandRequest.Category]);
-            <span class="BreadCrumb-Item BreadCrumb-Category mdi-navigation-chevron-right">&nbsp;[ @Umbraco.Field(cat, "title", insertAfter: Umbraco.GetDictionaryValue("BreadCrumbCategory")) ]</span>
+            <span class="BreadCrumb-Item BreadCrumb-Category mdi-navigation-chevron-right">&nbsp;[ @(cat.Name)@Umbraco.GetDictionaryValue("BreadCrumbCategory") ]</span>
         }
 
         @* Request Date *@
