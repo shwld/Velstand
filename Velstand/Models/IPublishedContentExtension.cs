@@ -84,7 +84,7 @@ namespace Velstand.Models
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
-        public static IPublishedContent VBlogHolderTopOrRoot(this IPublishedContent content)
+        public static IPublishedContent VBlogHolderTop(this IPublishedContent content)
         {
             if (content.DocumentTypeAlias.EndsWith(VelstandSuffix.Blog) ||
                 content.DocumentTypeAlias == VelstandDocumentType.BlogHolderTop)
@@ -93,7 +93,7 @@ namespace Velstand.Models
             }
             else
             {
-                return content.VRoot();
+                return content.VHolderTop();
             }
         }
 

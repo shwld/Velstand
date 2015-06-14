@@ -3,7 +3,7 @@
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 @{
     IPublishedContent current = CurrentPage;
-    IPublishedContent content = current.VBlogHolderTopOrRoot();
+    IPublishedContent content = current.VBlogHolderTop();
     var contents = content.VHasContents();
     var startdate = DateTime.Now;
     if (contents.Count() != 0)

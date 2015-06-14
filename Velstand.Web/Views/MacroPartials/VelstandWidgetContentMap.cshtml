@@ -3,7 +3,7 @@
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 @{
     IPublishedContent current = CurrentPage;
-    IPublishedContent holder = current.VBlogHolderTopOrRoot();
+    IPublishedContent holder = current.VBlogHolderTop();
 }
 
 <ul class="Widget collection white">
