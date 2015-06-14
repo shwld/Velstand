@@ -2,6 +2,12 @@
 body .Body {
     background-color: #d3d6e0;
 }
+.firstview {
+	margin-top:-64px;
+	padding-top:64px;
+	height: 100vh;}
+.fullscreen {
+	height: 100vh;}
 #Background-Img {
     position: absolute;
     z-index: -999;
@@ -64,6 +70,20 @@ body .Body {
     margin-top: 10px;
     padding-left: 15px;
     border-left: solid 6px #5a6c94;}
+.Post-Body ul{
+	padding-left: 40px !important;
+	font-weight: bold;
+}
+.Post-Body ul li{
+	list-style-type: circle !important;
+}
+.Post-Body ol{
+	list-style-type: decimal !important;
+	font-weight: bold;
+}
+.Post-Body blockquote {
+  background-color: #f5f5f5;
+}
 .Single-Post h1 {
     color: #313698;}
 .Single-Post .Post-Eyecatch img{

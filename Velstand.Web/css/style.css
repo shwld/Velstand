@@ -4,14 +4,19 @@
 }*/
 html,
 body .Body {
-  height: 100%;
-}
+  height: 100%;}
 h1 { font-size: 2.5em; }
 h2 { font-size: 2em; }
 h3 { font-size: 1.5em; }
 h4 { font-size: 1.3em; }
 h5 { font-size: 1.2em; }
 h6 { font-size: 1em; }
+.firstview {
+	margin-top:-64px;
+	padding-top:64px;
+	height: 100vh;}
+.fullscreen {
+	height: 100vh;}
 #Background-Img {
   position:fixed;
   z-index:-999;
@@ -70,7 +75,21 @@ h6 { font-size: 1em; }
     font-weight: bold;
     color: #5a6c94;
     margin-top: 30px;
-    padding-left: 15px;
+    margin-left: 15px;
+}
+.Post-Body ul{
+	padding-left: 40px !important;
+	font-weight: bold;
+}
+.Post-Body ul li{
+	list-style-type: circle !important;
+}
+.Post-Body ol{
+	list-style-type: decimal !important;
+	font-weight: bold;
+}
+.Post-Body blockquote {
+  background-color: #f5f5f5;
 }
 .Single-Post h1{
     color: #313698;}
