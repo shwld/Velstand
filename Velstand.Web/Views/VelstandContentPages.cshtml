@@ -15,7 +15,7 @@
 		@Html.Partial("VelstandBreadCrumb")
 	</div>
     <section class="SubContent col s12 m3">
-        <ul class="section table-of-contents">
+        <ul class="section table-of-contents collection">
             @foreach (var nav in current.VHolder().Children())
             {
                 <li><a href="@nav.Url" class="grey-text">@Umbraco.Field(nav, "title")</a></li>

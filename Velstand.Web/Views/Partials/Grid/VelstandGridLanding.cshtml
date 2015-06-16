@@ -1,0 +1,126 @@
+﻿@inherits UmbracoViewPage<dynamic>
+@using Umbraco.Web.Templates
+@using Newtonsoft.Json.Linq
+@*
+    Razor helpers located at the bottom of this file
+*@
+@if (Model != null && Model.sections != null)
+{
+    var oneColumn = ((System.Collections.ICollection)Model.sections).Count == 1;
+    var count = 0;
+
+    <div class="umb-grid">
+        @if (oneColumn)
+        {
+            foreach (var section in Model.sections)
+            {
+
+                <div class="grid-section">
+                    @foreach (var row in section.rows)
+                    {
+                        count++;
+                        @renderRow(row, true, count);
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            <div class="row clearfix">
+                @foreach (var s in Model.sections)
+                {
+                    <div class="grid-section">
+                        <div class="col m@(s.grid) s12">
+                            @foreach (var row in s.rows)
+                            {
+                                @renderRow(row, false);
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    if (count != 0)
+    {
+        <script type="text/javascript">
+    		$(function () {
+				function animateRow(selector) {
+					$(selector).addClass("animated slideInLeft");
+				}
+				
+            	@for(int i=2; i<=count; i++)
+            	{
+					<text>$(".grid-landing-@(i)").hide();</text>
+				}
+				
+        		var options = [
+            		@for(int i=2; i<=count; i++)
+            		{
+                		<text>{ selector: '.grid-wrapper-@(i)', offset: 50, callback: 'animateRow(".grid-landing-@(i)")' },</text>
+            		}
+	        	];
+    	    	Materialize.scrollFire(options);
+    		});
+			function animateRow(selector) {
+				$(selector).show();
+				$(selector).addClass("animated slideInLeft");
+			}
+        </script>
+    }
+}
+
+@helper renderRow(dynamic row, bool singleColumn, int count = 1)
+{
+    <div class="fullscreen grid-wrapper-@(count)">
+        <div @RenderElementAttributes(row)>
+            @*Umbraco.If(singleColumn, "<div class='container'>")*@
+            <div class="row clearfix grid-landing-@(count)">
+                @foreach (var area in row.areas)
+                {
+                    <div class="col m@(area.grid)">
+                        <div @RenderElementAttributes(area)>
+                            @foreach (var control in area.controls)
+                            {
+                                if (control != null && control.editor != null && control.editor.view != null)
+                                {
+                                    <div class="col s12">
+                                        <text>@Html.Partial("grid/editors/base", (object)control)</text>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>}
+            </div>
+            @Umbraco.If(singleColumn, "</div>")
+        </div>
+    </div>
+}
+
+@functions {
+    public static MvcHtmlString RenderElementAttributes(dynamic contentItem)
+    {
+        var attrs = new List<string>();
+        JObject cfg = contentItem.config;
+
+        if (cfg != null)
+            foreach (JProperty property in cfg.Properties())
+            {
+                attrs.Add(property.Name + "=\"" + property.Value.ToString() + "\"");
+            }
+
+        JObject style = contentItem.styles;
+
+        if (style != null)
+        {
+            var cssVals = new List<string>();
+            foreach (JProperty property in style.Properties())
+                cssVals.Add(property.Name + ":" + property.Value.ToString() + ";");
+
+            if (cssVals.Any())
+                attrs.Add("style=\"" + string.Join(" ", cssVals) + "\"");
+        }
+
+        return new MvcHtmlString(string.Join(" ", attrs));
+    }
+}

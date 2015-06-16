@@ -302,7 +302,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="macroScripts\Web.config" />
     <Content Include="config\ClientDependency.config" />
-    <Content Include="Views\Partials\VelstandStaticToolBar.cshtml" />
     <Content Include="Views\VelstandInfomation.cshtml" />
     <Content Include="Views\VelstandSiteMap.cshtml" />
     <Content Include="Views\Partials\VelstandSidebar.cshtml" />
@@ -420,6 +419,9 @@
     <Content Include="Views\Partials\VelstandRedirect.cshtml" />
     <Content Include="Views\VelstandHolderPages.cshtml" />
     <Content Include="Views\VelstandContentPages.cshtml" />
+    <Content Include="Views\Partials\VelstandFixedToolbar.cshtml" />
+    <Content Include="Views\VelstandContentLanding.cshtml" />
+    <Content Include="Views\Partials\Grid\VelstandGridLanding.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

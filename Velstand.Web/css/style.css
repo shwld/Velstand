@@ -11,11 +11,9 @@ h3 { font-size: 1.5em; }
 h4 { font-size: 1.3em; }
 h5 { font-size: 1.2em; }
 h6 { font-size: 1em; }
-.firstview {
+.fullscreen {
 	margin-top:-64px;
 	padding-top:64px;
-	height: 100vh;}
-.fullscreen {
 	height: 100vh;}
 #Background-Img {
   position:fixed;
@@ -126,17 +124,17 @@ h6 { font-size: 1em; }
 .Site-Infomations .Site-Description {
     }
 
-#Static-Toolbar {
+#Fixed-Toolbar {
     position: fixed;
     bottom: 10px;
     right: 50px;}
-#Static-Toolbar #Sns-Bar {
+#Fixed-Toolbar #Sns-Bar {
     position: fixed;
     right:53px;}
-#Static-Toolbar #Sns-Bar table td{
+#Fixed-Toolbar #Sns-Bar table td{
     vertical-align:top;
 	padding: 5px;}
-#Static-Toolbar #Btns {
+#Fixed-Toolbar #Btns {
     position: fixed;
     font-size: 1.3em;
     right: 30px;}
