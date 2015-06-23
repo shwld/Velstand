@@ -28,7 +28,7 @@
                     <h2><a href="@post.Url" class="Text-Light">@Umbraco.Field(post, "title")</a></h2>
                     <hr />
                     <p class="Post-Data">
-                        <span class="mdi-notification-event-note"> @string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
+                        <span class="mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>
                         &nbsp;&nbsp;
                         <span class="mdi-action-label"> @Html.CategoryWithLink(post, "category")</span>
                     </p>
