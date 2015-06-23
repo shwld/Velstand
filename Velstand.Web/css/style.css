@@ -170,12 +170,12 @@ h6 { font-size: 1em; }
     display:inline-block;
 }
 
-.Fixed {
-    position: fixed;
+.Blog-Sidebar .pinned {
     /* HACK:Off by */
     width:21.5%;
-    top:50px;
 }
+.pinned {
+		top:64px !important;}
 
 .umb-grid img {
 	width:100%;
