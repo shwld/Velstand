@@ -60,10 +60,15 @@ namespace Velstand.Models
                             string category = this.request[key];
                             posts = posts.Where(w => Array.IndexOf(w.GetPropertyValue<string>(VelstandProperty.Category).Split(','), category) != -1);
                             break;
+                        case (VelstandRequest.Tag):
+                            // リクエストパラメータ [tag]
+                            string tag = this.request[key];
+                            posts = posts.Where(w => w.HasValue(VelstandProperty.Tag) && Array.IndexOf(w.GetPropertyValue<string>(VelstandProperty.Tag).Split(','), tag) != -1);
+                            break;
                         case(VelstandRequest.Text):
                             // FIXME:2つ目以降のリクエストパラメータで渡された場合、それ以前のパラメータが無効化されてしまう
                             var searchCriteria = ExamineManager.Instance.CreateSearchCriteria();
-                            var query = searchCriteria.GroupedOr(new[] { "name", "title", "introduction", "body" }, this.request[key]).Compile();
+                            var query = searchCriteria.GroupedOr(new[] { "name", "title", "body" }, this.request[key]).Compile();
                             posts = this.umbraco.TypedSearch(query).Where(x => x.DocumentTypeAlias.StartsWith(VelstandPrefix.Content));
                             break;
                         default:

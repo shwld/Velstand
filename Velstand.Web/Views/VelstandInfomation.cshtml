@@ -7,15 +7,17 @@
 }
 @section VelstandBody
 {
-    <article class="Single-Post Post panel panel-default">
-        <div class="panel-body">
-            <h1 class="Post-Title">@Umbraco.Field("title")</h1>
-            <div class="Post-Body">
-                @Umbraco.Field("body")
+    <div class="col s12">
+		@Html.Partial("VelstandBreadCrumb")
+	</div>
+    <section class="MainContent col s12">
+        <article class="Single-Post Post collection">
+            <div class="collection-item">
+                <h1 class="Post-Title">@Umbraco.Field("title")</h1>
+                <div class="Post-Body">
+                    @Umbraco.Field("body")
+                </div>
             </div>
-        </div>
-
-        <div class="panel-footer">
-        </div>
-    </article>
+        </article>
+    </section>
 }

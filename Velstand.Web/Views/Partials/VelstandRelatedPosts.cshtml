@@ -8,20 +8,21 @@
 
 @foreach (IPublishedContent post in contents)
 {
-    <article class="col-md-12 panel panel-default clearfix">
-        <div class="col-md-3 pull-left">
+
+    <article class="collection">
+        <div class="col s3 pull-left">
             <p class="Post-Eyecatch">
                 <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogEyecatch")</a>
             </p>
         </div>
-        <div class="Description panel-body col-md-9">
-            <h4 class="Font-Big"><a href="@post.Url">@Umbraco.Field(post, "title")</a></h4>
-            <p class="Post-Data">
-                <span class="Post-Date glyphicon glyphicon-calendar">@Html.DictionalyDateFormat(current, "releaseDate")</span>
-                <span class="glyphicon glyphicon-tag">@Html.CategoryWithLink(current, "category")</span>
-            </p>
+        <div class="Description col s9">
+            <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
             <hr />
-            <p class="Post-Introduction">@Umbraco.Field(post, "introduction")</p>
+            <p class="Post-Data">
+                <span class="mdi-notification-event-note"> @string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
+                &nbsp;&nbsp;
+                <span class="mdi-action-label"> @Html.CategoryWithLink(post, "category")</span>
+            </p>
             <a class="Link-Btn" href="@post.Url">
                 <span class="glyphicon glyphicon-check"></span> @Umbraco.GetDictionaryValue("HolderpageMoreButton")
             </a>

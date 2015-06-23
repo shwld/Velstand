@@ -55,15 +55,8 @@
 @if (!Request.Browser.IsMobileDevice)
 {
     <script type="text/javascript">
-            $(function ($) {
-                var tab = $('#Fixed-Sidebar'), offset = tab.offset();
-                $(window).scroll(function () {
-                    if ($(window).scrollTop() > offset.top) {
-                        tab.addClass('Fixed');
-                    } else {
-                        tab.removeClass('Fixed');
-                    }
-                });
+            $(function () {
+				$('#Fixed-Sidebar .Fixed-Wrapper').pushpin({ top: $('#Fixed-Sidebar').offset().top - 64 });
             });
     </script>
 }

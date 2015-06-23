@@ -2,7 +2,8 @@
 
 Velstand
 ======================
-It is Simple and Wonderful Blog System. build on Umbraco!
+
+### You can use the Velstand you can make easily site or blog
 
 [Project Site](http://velstand.info/)
 
@@ -12,8 +13,11 @@ Please help us correct English grammar of the document
 
 
 ## Features
+* Building website
 * Bloging
-* Twitter Bootstrap
+* Grid layout
+* Rich landing page
+* Materialize
 * Markdown
 * Feed
 * 404 Page
@@ -27,7 +31,14 @@ Please help us correct English grammar of the document
 
 
 ## Requirement
-* Umbraco7.1 or later
+* Umbraco7.2 or later
+
+## Duplicated (from ver1.x)
+* introduction (property)
+* cover image (property)
+* velstand markdown (data type)
+* velstand markdown mini (data type)
+
 
 ## Install
 ```

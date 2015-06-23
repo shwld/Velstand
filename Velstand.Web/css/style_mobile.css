@@ -1,6 +1,22 @@
 *{ font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; }
-.Navbar {
-    /*background-color: rgba(212, 212, 212, 0.4);*/}
+body .Body {
+    background-color: #d3d6e0;
+}
+.fullscreen {
+	margin-top:-64px;
+	padding-top:64px;
+	height: 100vh;}
+#Background-Img {
+    position: absolute;
+    z-index: -999;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+#wrap {margin-top:50px;}
+.Navbar-Design {
+    background-color: rgba(30,30,30,0.5);}
+.Navbar-Design *{
+    color:white;}
 .Header img{
     margin-bottom:-50px;
 }
@@ -52,6 +68,20 @@
     margin-top: 10px;
     padding-left: 15px;
     border-left: solid 6px #5a6c94;}
+.Post-Body ul{
+	padding-left: 40px !important;
+	font-weight: bold;
+}
+.Post-Body ul li{
+	list-style-type: circle !important;
+}
+.Post-Body ol{
+	list-style-type: decimal !important;
+	font-weight: bold;
+}
+.Post-Body blockquote {
+  background-color: #f5f5f5;
+}
 .Single-Post h1 {
     color: #313698;}
 .Single-Post .Post-Eyecatch img{
@@ -91,17 +121,17 @@
 .Site-Infomations .Site-Description {
     }
 
-#Static-Toolbar {
+#Fixed-Toolbar {
     position: fixed;
     bottom: 10px;
     right: 50px;}
-#Static-Toolbar #Sns-Bar {
+#Fixed-Toolbar #Sns-Bar {
     position: fixed;
     right:53px;}
-#Static-Toolbar #Sns-Bar table td{
+#Fixed-Toolbar #Sns-Bar table td{
     vertical-align:top;
 	padding: 5px;}
-#Static-Toolbar #Btns {
+#Fixed-Toolbar #Btns {
     position: fixed;
     font-size: 1.3em;
     right: 30px;}

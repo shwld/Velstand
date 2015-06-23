@@ -7,6 +7,7 @@
     var setting = root.Descendant("VelstandPrivateSettings");
     var feeds = root.Descendants("VelstandFunctionFeed");
     var siteTitle = current.GetPropertyValue<string>("title") + " - " + setting.GetPropertyValue<string>("siteTitle");
+    var keywords = string.Join(", ", current.VMultiNodes("category").Select(x => x.Name));
 
     var gAnalytics = root.Descendant("VelstandPrivateSettings").GetPropertyValue<string>("googleAnalyticsId");
 }
@@ -15,10 +16,19 @@
 @if (current.DocumentTypeAlias.StartsWith(VelstandPrefix.Content) &&
         current.HasValue("category"))
 {
-    <meta name="keywords" content="@string.Join(", ", current.VMultiNodes("category").Select(x => x.Name))" />
+    <meta name="keywords" content="@keywords" />
 }
-<meta name="description" content="@Umbraco.Field("title")" />
+<meta name="description" content="@setting.GetPropertyValue("description")" />
 @*<link rel="canonical" href=""/> *@
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="@siteTitle" />
+<meta property="og:image" content="@setting.VMedia("eyecatch").Url" />
+<meta property="og:description" content="@setting.GetPropertyValue("siteDescription")" />
+<meta property="og:site_name" content="@setting.GetPropertyValue("siteTitle")" />
+<meta property="og:locale" content="" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
 
 @foreach (var feed in feeds)
 {

@@ -3,11 +3,13 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     IPublishedContent current = CurrentPage;
-    IPublishedContent content = current.HasValue("selectWidgets") ? current : current.VBlogHolderTopOrRoot().DescendantOrSelf(VelstandDocumentType.BlogHolderTop);
-    }
+    IPublishedContent content = current.HasValue("selectWidgets") ? current : current.VBlogHolderTop();
+}
 
 @Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectWidgets"), CurrentPage.Id))
 
-<div id="Fixed-Sidebar">
-    @Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectFixedWidgets"), CurrentPage.Id))
+<div id="Fixed-Sidebar" class="Blog-Sidebar">
+	<div class="Fixed-Wrapper">
+    	@Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectFixedWidgets"), CurrentPage.Id))
+	</div>
 </div>

@@ -6,7 +6,7 @@
     var disqusName = settings.GetPropertyValue<string>("disqusShortname");
 }
 
-@if (!string.IsNullOrWhiteSpace(disqusName))
+@if (!string.IsNullOrWhiteSpace(disqusName) && !current.GetPropertyValue<Boolean>("hideDisqus"))
 {
     <div class="Disqus">
         <div id="disqus_thread"></div>

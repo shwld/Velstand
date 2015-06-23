@@ -1,0 +1,6 @@
+﻿@model dynamic
+@using Umbraco.Web.Templates
+
+<div class="Post-Body">
+	@Html.Raw(TemplateUtilities.ParseInternalLinks(Model.value.ToString()))
+</div>
