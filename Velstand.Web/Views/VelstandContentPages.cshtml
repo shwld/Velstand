@@ -21,7 +21,10 @@
                 <li><a href="@nav.Url" class="grey-text">@Umbraco.Field(nav, "title")</a></li>
             }
         </ul>
-        @Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
+        <div class="row"><div class="col s12">
+			@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
+        </div></div>
+        
     </section>
 
 
@@ -36,8 +39,6 @@
             @Html.Crop(current, "eyecatch", "blogContentHead")
             <div class="collection-item">
                 <div class="Post-Body">
-                    @* Google Adsense *@
-                    @Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
 
                     @current.VMarkUp("body").ToLazyLoad()
                 </div>
@@ -47,7 +48,14 @@
 
         </article>
 
-        @* Google Adsense *@
-        @Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
+        @* Google Adsense x 2 *@
+		<div class="row">
+			<div class="col s12 m6">
+        		@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
+			</div>
+			<div class="col s12 m6">
+        		@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
+			</div>
+		</div>
     </section>
 }
