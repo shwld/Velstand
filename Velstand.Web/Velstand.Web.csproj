@@ -245,6 +245,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\VelstandGridCard\editor.html" />
     <Content Include="Content\dummy.txt" />
     <Content Include="css\style_mobile.css" />
     <Content Include="css\style.css" />
@@ -270,6 +271,7 @@
     <Content Include="config\BaseRestExtensions.config" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include="App_Plugins\VelstandGridCard\editor.cshtml" />
     <None Include="ConnectionStrings.config.Example" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -444,7 +446,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="App_Plugins\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Velstand\Velstand.csproj">
