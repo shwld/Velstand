@@ -1,3 +1,20 @@
-﻿<span>こここ</span>
-<textarea rows="1" ng-model="control.value.intro" ng-style="control.config"></textarea>
-<textarea rows="1" ng-model="control.value.body" ng-style="control.config"></textarea>
+﻿<div ng-controller="VelstandGridCard.Controller">
+    <div class="usky-editor-placeholder" ng-click="setImage()" ng-if="control.value.image === null">
+        <i class="icon icon-picture"></i>
+        <div ng-id="!control.$inserted" class="help-text"><localize key="grid_clickToInsertImage">Click to insert image</localize></div>
+    </div>
+
+    <div ng-if="control.value.image">
+        <img ng-if="url"
+             ng-click="setImage()"
+             ng-src="{{url}}"
+             class="fullSizeImage" />
+        <input type="text" class="caption" ng-model="control.value.image.caption" localize="placeholder" placeholder="@grid_placeholderImageCaption" />
+    </div>
+
+    <textarea rows="1" ng-model="control.value.title" ng-style="control.config" placeholder="Card title"></textarea>
+    <textarea rows="3" ng-model="control.value.intro" ng-style="control.config" placeholder="Card description"></textarea>
+    
+
+    <textarea rows="1" ng-model="control.value.link" ng-style="control.config" placeholder="link"></textarea>
+</div>

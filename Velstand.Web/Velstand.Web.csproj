@@ -245,6 +245,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\VelstandGridCard\editor.controller.js" />
     <Content Include="App_Plugins\VelstandGridCard\editor.html" />
     <Content Include="Content\dummy.txt" />
     <Content Include="css\style_mobile.css" />
@@ -272,6 +273,7 @@
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
     <Content Include="App_Plugins\VelstandGridCard\editor.cshtml" />
+    <Content Include="App_Plugins\VelstandGridCard\package.manifest" />
     <None Include="ConnectionStrings.config.Example" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -477,6 +479,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties App__Plugins_2gridtest_2package_1json__JSONSchema="http://json.schemastore.org/package.manifest" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

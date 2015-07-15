@@ -42,16 +42,5 @@
 	        "style": "border-left: 3px solid #ccc; padding: 10px; color: #ccc; font-family: serif; font-variant: italic; font-size: 18px",
 	        "markup": "<blockquote>#value#</blockquote>"
 	    }
-	},
-	{
-	    "name": "Card",
-	    "alias": "VelstandCard",
-	    "view": "/App_Plugins/VelstandGridCard/editor.html",
-	    "render": "/App_Plugins/VelstandGridCard/editor.cshtml",
-	    "icon": "icon-quote",
-	    "config": {
-	        "style": "border-left: 3px solid #ccc; padding: 10px; color: #ccc; font-family: serif; font-variant: italic; font-size: 18px",
-	        "markup": "<blockquote>#value#</blockquote>"
-	    }
 	}
 ]
