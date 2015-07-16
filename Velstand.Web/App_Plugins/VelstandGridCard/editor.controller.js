@@ -2,7 +2,8 @@ angular.module("umbraco").controller("VelstandGridCard.Controller",
     function ($scope, $rootScope, dialogService, userService) {
         if (!$scope.control.value) {
             $scope.control.value = {
-                image: null
+                image: null,
+                link: null,
             };
         }
 
@@ -41,6 +42,14 @@ angular.module("umbraco").controller("VelstandGridCard.Controller",
                 $scope.url = url;
             }
         };
+
+        $scope.setLink = function () {
+            dialogService.linkPicker({
+                callback: function (link) {
+                    $scope.control.value.link = link;
+                }
+            });
+        }
 
         if ($scope.control.value.image) {
             $scope.setUrl();

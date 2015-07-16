@@ -14,6 +14,9 @@
         </p>
     </div>
     <div class="card-action">
-        <a href="#">This is a link</a>
+        @if (Model.value.link != null)
+        {
+            <a href="@Model.value.link.url">@Model.value.link.name</a>
+        }
     </div>
 </div>

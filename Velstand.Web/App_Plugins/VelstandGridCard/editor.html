@@ -12,9 +12,13 @@
         <input type="text" class="caption" ng-model="control.value.image.caption" localize="placeholder" placeholder="@grid_placeholderImageCaption" />
     </div>
 
-    <textarea rows="1" ng-model="control.value.title" ng-style="control.config" placeholder="Card title"></textarea>
-    <textarea rows="3" ng-model="control.value.intro" ng-style="control.config" placeholder="Card description"></textarea>
-    
-
-    <textarea rows="1" ng-model="control.value.link" ng-style="control.config" placeholder="link"></textarea>
+    <div>
+        <textarea rows="1" ng-model="control.value.title" ng-style="control.config" placeholder="Card title"></textarea>
+    </div>
+    <div>
+        <textarea rows="3" ng-model="control.value.intro" ng-style="control.config" placeholder="Card description"></textarea>
+    </div>
+    <div>
+        <a ng-click="setLink()" style="color: dodgerblue;">{{(control.value.link) ? control.value.link.name : "Set link"}}</a>
+    </div>
 </div>
