@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<dynamic>
+
+<div class="slider">
+    <ul class="slides">
+        @foreach (var media in Model.value.images)
+        {
+            <li>
+                <img src="@media.url" alt="@media.caption"> <!-- random image -->
+                <div class="caption center-align">
+                    <h2 class="Text-Shadow white-text">@media.title</h2>
+                    <h3 class="Text-Shadow white-text"><pre>@media.description</pre></h3>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
