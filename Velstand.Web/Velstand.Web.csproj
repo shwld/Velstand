@@ -251,6 +251,16 @@
     <Content Include="App_Plugins\VelstandGridSlider\editor.html" />
     <Content Include="App_Plugins\VelstandGridCard\editor.controller.js" />
     <Content Include="App_Plugins\VelstandGridCard\editor.html" />
+    <Content Include="App_Plugins\MdEdit\assets\ace.js" />
+    <Content Include="App_Plugins\MdEdit\assets\marked.js" />
+    <Content Include="App_Plugins\MdEdit\assets\markedOptions.js" />
+    <Content Include="App_Plugins\MdEdit\assets\reMarked.js" />
+    <Content Include="App_Plugins\MdEdit\assets\ui-ace.min.js" />
+    <Content Include="App_Plugins\MdEdit\controller.js" />
+    <Content Include="App_Plugins\MdEdit\dialogs\controller.js" />
+    <Content Include="App_Plugins\MdEdit\dialogs\view.html" />
+    <Content Include="App_Plugins\MdEdit\style.css" />
+    <Content Include="App_Plugins\MdEdit\view.html" />
     <Content Include="Content\dummy.txt" />
     <Content Include="css\style_mobile.css" />
     <Content Include="css\style.css" />
@@ -280,6 +290,7 @@
     <Content Include="App_Plugins\VelstandGridCard\package.manifest" />
     <Content Include="App_Plugins\VelstandGridSlider\editor.cshtml" />
     <Content Include="App_Plugins\VelstandGridSlider\package.manifest" />
+    <Content Include="App_Plugins\MdEdit\package.manifest" />
     <None Include="ConnectionStrings.config.Example" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -441,6 +452,7 @@
     <Content Include="xslt\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="App_Plugins\MdEdit\assets\reMarked.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-mocks.d.ts" />

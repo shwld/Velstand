@@ -1,0 +1,39 @@
+﻿.MdEdit textarea{
+    width:95%;
+}
+.MdEdit button {
+}
+.Post-Body p{
+    font-size:1.2em;
+	line-height: 170%;}
+.Post-Body h2 {
+    font-weight:bold;
+    color: #313698;
+    margin-top: 40px;
+    padding: 5px;
+    border-bottom: solid 1px #313698;}
+.Post-Body h3 {
+    font-weight:bold;
+    color: #5a6c94;
+    padding:2px 5px 2px 15px;
+    border-left: solid 6px #5a6c94;}
+.Post-Body h4 {
+    font-weight: bold;
+    color: #5a6c94;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+.Post-Body ul{
+	padding-left: 40px !important;
+	font-weight: bold;
+}
+.Post-Body ul li{
+	list-style-type: circle !important;
+}
+.Post-Body ol{
+	list-style-type: decimal !important;
+	font-weight: bold;
+}
+.Post-Body blockquote {
+  background-color: #f5f5f5;
+}
