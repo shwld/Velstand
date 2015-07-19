@@ -245,6 +245,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\VelstandGridCard\editor.css" />
+    <Content Include="App_Plugins\VelstandGridSlider\editor.controller.js" />
+    <Content Include="App_Plugins\VelstandGridSlider\editor.css" />
+    <Content Include="App_Plugins\VelstandGridSlider\editor.html" />
     <Content Include="App_Plugins\VelstandGridCard\editor.controller.js" />
     <Content Include="App_Plugins\VelstandGridCard\editor.html" />
     <Content Include="Content\dummy.txt" />
@@ -274,6 +278,8 @@
     <Content Include="config\404handlers.config" />
     <Content Include="App_Plugins\VelstandGridCard\editor.cshtml" />
     <Content Include="App_Plugins\VelstandGridCard\package.manifest" />
+    <Content Include="App_Plugins\VelstandGridSlider\editor.cshtml" />
+    <Content Include="App_Plugins\VelstandGridSlider\package.manifest" />
     <None Include="ConnectionStrings.config.Example" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
