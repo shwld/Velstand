@@ -1,0 +1,40 @@
+﻿.card .usky-cell-media {
+    position: relative;
+    height:250px;
+    overflow: hidden;
+}
+.card .usky-cell-media img {
+    border-radius: 7px 7px 0 0;
+}
+.title-area {
+    position: absolute;
+    bottom: 50px;
+}
+.title {
+  font-size:1.6em;
+  font-weight:bold;
+  display: block;
+  width: 98%;
+  overflow: hidden;
+  background: #fff;
+  border: 0;
+  outline: 0;
+  resize: none;
+}
+.description {
+  width: 98%;
+  background: #fff;
+  border: 0;
+  outline: 0;
+  resize: none;
+}
+.link{
+  padding: 10px 15px;
+  color: dodgerblue;
+}
+
+.card {
+    border: solid 1px #ccc;
+    border-radius: 7px;
+    padding-bottom:10px;
+}

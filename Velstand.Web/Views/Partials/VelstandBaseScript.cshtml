@@ -3,6 +3,7 @@
 }
 
 <script src="~/scripts/jquery.lazyload.min.js"></script>
+<script src="~/scripts/highlight.pack.js"></script>
 <script type="text/javascript">
     $(function () {
         var showFlag = false;
@@ -47,6 +48,12 @@
         $('.lazy-load').lazyload({
             effect: 'fadeIn',
             effectspeed: 1000
+        });
+        hljs.initHighlightingOnLoad();
+
+        $('.slider').slider({
+            full_width: false,
+            height: 500,
         });
     });
     //$('.Post-Body img').addClass('img-responsive');

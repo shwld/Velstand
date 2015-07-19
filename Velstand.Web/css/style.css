@@ -90,6 +90,19 @@ h6 { font-size: 1em; }
 .Post-Body blockquote {
   background-color: #f5f5f5;
 }
+.Post-Body code {
+    background-color: gainsboro;
+    padding: 3px 6px;
+    border-radius:6px;
+}
+.Post-Body pre {
+    background-color: gainsboro;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: pre-wrap;
+    border-radius:6px;
+    padding:6px 6px 18px 6px;
+}
 .Single-Post h1{
     color: #313698;}
 .List-Post h2{

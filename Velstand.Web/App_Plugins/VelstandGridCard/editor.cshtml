@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<dynamic>
+
+<div class="card medium">
+    @if (Model.value.image != null)
+    {
+        <div class="card-image">
+            <img src="@Model.value.image.url" alt="@Model.value.image.caption">
+            <span class="card-title">@Model.value.title</span>
+        </div>
+    }
+    <div class="card-content">
+        <p>
+            @Model.value.intro
+        </p>
+    </div>
+    <div class="card-action">
+        @if (Model.value.link != null)
+        {
+            <a href="@Model.value.link.url">@Model.value.link.name</a>
+        }
+    </div>
+</div>

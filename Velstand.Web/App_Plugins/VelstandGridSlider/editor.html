@@ -1,0 +1,25 @@
+﻿<div ng-controller="VelstandGridSlider.Controller" class="slider">
+    <div class="usky-editor-placeholder" ng-click="setImages()" ng-if="control.value.images.length == 0">
+        <i class="icon icon-picture"></i>
+        <div ng-id="!control.$inserted" class="help-text"><localize key="grid_clickToInsertImage">Click to insert image</localize></div>
+    </div>
+
+    <div ng-if="control.value.images.length > 0" class="usky-cell-media">
+        <div ng-repeat="item in control.value.images">
+            <div ng-if="selection == item.id || (selection == null && $index == 0)">
+                <img ng-if="url"
+                     ng-click="setImages()"
+                     ng-src="{{item.url}}"
+                     class="fullSizeImage" />
+                <input type="text" class="caption" ng-model="item.caption" localize="placeholder" placeholder="@grid_placeholderImageCaption" />
+                <input type="text" class="title" ng-model="item.title" placeholder="Image title..." />
+                <textarea class="description" ng-model="item.description" placeholder="Image description..." rows="3"></textarea>
+            </div>
+        </div>
+        <div class="center">
+            <span ng-repeat="item in control.value.images">
+                <input type="radio" ng-model="$parent.selection" value="{{item.id}}" ng-checked="$index == 0" />
+            </span>
+        </div>
+    </div>
+</div>
