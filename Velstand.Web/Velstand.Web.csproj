@@ -262,6 +262,7 @@
     <Content Include="App_Plugins\MdEdit\style.css" />
     <Content Include="App_Plugins\MdEdit\view.html" />
     <Content Include="Content\dummy.txt" />
+    <Content Include="css\github.css" />
     <Content Include="css\style_mobile.css" />
     <Content Include="css\style.css" />
     <Content Include="default.aspx" />
@@ -295,6 +296,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\highlight.pack.js" />
     <Content Include="scripts\jquery.lazyload.min.js" />
     <Content Include="scripts\script.js" />
     <Content Include="Web.config">
