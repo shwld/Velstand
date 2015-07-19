@@ -1,6 +1,10 @@
 ﻿.slider .center {
     text-align: center;
 }
+.slide-image {
+    max-height: 500px;
+    overflow: hidden;
+}
 
 .slider .usky-cell-media {
     position: relative;

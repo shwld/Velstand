@@ -5,7 +5,7 @@
     </div>
 
     <div ng-if="control.value.images.length > 0" class="usky-cell-media">
-        <div ng-repeat="item in control.value.images">
+        <div ng-repeat="item in control.value.images" class="slide-image">
             <div ng-if="selection == item.id || (selection == null && $index == 0)">
                 <img ng-if="url"
                      ng-click="setImages()"
