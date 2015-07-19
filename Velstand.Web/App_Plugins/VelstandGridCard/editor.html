@@ -1,24 +1,26 @@
-﻿<div ng-controller="VelstandGridCard.Controller">
+﻿<div ng-controller="VelstandGridCard.Controller" class="card">
     <div class="usky-editor-placeholder" ng-click="setImage()" ng-if="control.value.image === null">
         <i class="icon icon-picture"></i>
         <div ng-id="!control.$inserted" class="help-text"><localize key="grid_clickToInsertImage">Click to insert image</localize></div>
     </div>
 
-    <div ng-if="control.value.image">
+    <div ng-if="control.value.image" class="usky-cell-media">
         <img ng-if="url"
              ng-click="setImage()"
              ng-src="{{url}}"
              class="fullSizeImage" />
+        <div class="title-area">
+            <input type="text" ng-model="control.value.title" ng-style="control.config" class="title" placeholder="Card title"></textarea>
+        </div>
         <input type="text" class="caption" ng-model="control.value.image.caption" localize="placeholder" placeholder="@grid_placeholderImageCaption" />
     </div>
+    <hr />
 
     <div>
-        <textarea rows="1" ng-model="control.value.title" ng-style="control.config" placeholder="Card title"></textarea>
+        <textarea rows="3" ng-model="control.value.intro" ng-style="control.config" class="description" placeholder="Card description"></textarea>
     </div>
-    <div>
-        <textarea rows="3" ng-model="control.value.intro" ng-style="control.config" placeholder="Card description"></textarea>
-    </div>
-    <div>
-        <a ng-click="setLink()" style="color: dodgerblue;">{{(control.value.link) ? control.value.link.name : "Set link"}}</a>
+    <hr />
+    <div class="link">
+        <a ng-click="setLink()">{{(control.value.link) ? control.value.link.name : "Set link"}}</a>
     </div>
 </div>

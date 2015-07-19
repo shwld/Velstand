@@ -5,14 +5,13 @@
             "alias": "VelstandGridCard",
             "view": "/App_Plugins/VelstandGridCard/editor.html",
             "render": "/App_Plugins/VelstandGridCard/editor.cshtml",
-            "icon": "icon-vcard",
-            "config": {
-                "color": "red",
-                "text-align": "right"
-            }
+            "icon": "icon-vcard"
         }
     ],
     "javascript":[
         "/App_Plugins/VelstandGridCard/editor.controller.js"
-    ]
+    ],
+	"css": [
+        "/App_Plugins/VelstandGridCard/editor.css"
+	]
 }
