@@ -1,0 +1,17 @@
+﻿{
+    "gridEditors": [
+        {
+            "name": "Slider",
+            "alias": "VelstandGridSlider",
+            "view": "/App_Plugins/VelstandGridSlider/editor.html",
+            "render": "/App_Plugins/VelstandGridSlider/editor.cshtml",
+            "icon": "icon-slideshow"
+        }
+    ],
+    "javascript":[
+        "/App_Plugins/VelstandGridSlider/editor.controller.js"
+    ],
+	"css": [
+        "/App_Plugins/VelstandGridSlider/editor.css"
+	]
+}

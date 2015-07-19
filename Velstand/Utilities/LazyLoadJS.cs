@@ -15,7 +15,7 @@ namespace Velstand.Utilities
         /// <param name="appendClass">css class</param>
         /// <param name="loadingImg">loading時の画像パス</param>
         /// <returns>HtmlString</returns>
-        public static IHtmlString ToLazyLoad(this IHtmlString self, string appendClass = "img-responsive", string loadingImg = "/Content/velstand/loading.gif")
+        public static IHtmlString ToLazyLoad(this IHtmlString self, string appendClass = "responsive-img", string loadingImg = "/Content/velstand/loading.gif")
         {
             try
             {

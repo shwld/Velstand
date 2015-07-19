@@ -39,35 +39,25 @@ body .Body {
     padding-left:1em;
 }
 .Post-Body p{
-    font-size:0.9em;
+    font-size:1.2em;
 	line-height: 170%;}
 .Post-Body h2 {
     font-weight:bold;
     color: #313698;
-    margin-top: 20px;
-    font-size:1.3em;
-    padding:3px;
+    margin-top: 40px;
+    padding: 5px;
     border-bottom: solid 1px #313698;}
-.Post-Body h2:before {
-    font-family: 'Glyphicons Halflings';
-    padding-right: 10px;
-    content:"\e067";}
 .Post-Body h3 {
     font-weight:bold;
     color: #5a6c94;
-    font-size:1.2em;
-    padding:15px 5px 5px 5px;
-    border-bottom: solid 2px #5a6c94;}
-.Post-Body h3:before {
-    font-family: 'Glyphicons Halflings';
-    padding-right: 10px;
-    content: "\e146";}
-.Post-Body h4 {
-    font-weight:bold;
-    color: #5a6c94;
-    margin-top: 10px;
-    padding-left: 15px;
+    padding:2px 5px 2px 15px;
     border-left: solid 6px #5a6c94;}
+.Post-Body h4 {
+    font-weight: bold;
+    color: #5a6c94;
+    margin-top: 30px;
+    margin-left: 15px;
+}
 .Post-Body ul{
 	padding-left: 40px !important;
 	font-weight: bold;
@@ -81,6 +71,19 @@ body .Body {
 }
 .Post-Body blockquote {
   background-color: #f5f5f5;
+}
+.Post-Body code {
+    background-color: gainsboro;
+    padding: 3px 6px;
+    border-radius:6px;
+}
+.Post-Body pre {
+    background-color: gainsboro;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: pre-wrap;
+    border-radius:6px;
+    padding:6px 6px 18px 6px;
 }
 .Single-Post h1 {
     color: #313698;}

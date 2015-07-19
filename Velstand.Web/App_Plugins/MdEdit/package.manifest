@@ -1,0 +1,38 @@
+﻿{
+    propertyEditors: [
+        {
+			alias: "MdEdit",
+			name: "MdEdit",
+			editor: {
+				view: "~/App_Plugins/MdEdit/view.html",
+				hideLabel: true,
+				valueType: "TEXT",
+			},
+			prevalues: {
+				fields: [
+					{
+						label: "Height",
+						description: "Editor Height",
+						key: "editor_height",
+						view: "number",
+					},
+				]
+			},
+			defaultConfig: {
+				editor_height: "500",
+			},
+        }
+    ],
+    javascript: [
+		'~/App_Plugins/MdEdit/assets/ace.js',
+		'~/App_Plugins/MdEdit/assets/ui-ace.min.js',
+		'~/App_Plugins/MdEdit/assets/marked.js',
+		'~/App_Plugins/MdEdit/assets/reMarked.js',
+		'~/App_Plugins/MdEdit/assets/markedOptions.js',
+        '~/App_Plugins/MdEdit/controller.js',
+        '~/App_Plugins/MdEdit/dialogs/controller.js',
+    ],
+	css: [
+		'~/App_Plugins/MdEdit/style.css',
+	]
+}

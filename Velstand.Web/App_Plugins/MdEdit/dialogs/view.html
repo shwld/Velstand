@@ -1,0 +1,25 @@
+﻿<div class="umb-panel" ng-controller="MdEdit.PreviewController">
+    <div class="umb-panel-header">
+    </div>
+    <div class="umb-panel-body with-footer">
+        <article class="Single-Post Post panel panel-default">
+            <div class="panel-body">
+                <div class="Post-Body">
+                    <div ng-bind-html-unsafe="dialogData"></div>
+                </div>
+            </div>
+            <div class="panel-footer">
+            </div>
+        </article>
+    </div>
+    <div class="umb-panel-footer">
+        <div class="umb-el-wrap umb-panel-buttons">
+            <div class="btn-toolbar umb-btn-toolbar pull-right">
+                <button class="btn btn-primary"
+                        ng-click="submit(dialogData)">
+                    <localize key="general_close">Close</localize>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿{
+    "gridEditors": [
+        {
+            "name": "Card",
+            "alias": "VelstandGridCard",
+            "view": "/App_Plugins/VelstandGridCard/editor.html",
+            "render": "/App_Plugins/VelstandGridCard/editor.cshtml",
+            "icon": "icon-vcard"
+        }
+    ],
+    "javascript":[
+        "/App_Plugins/VelstandGridCard/editor.controller.js"
+    ],
+	"css": [
+        "/App_Plugins/VelstandGridCard/editor.css"
+	]
+}

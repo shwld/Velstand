@@ -1,0 +1,27 @@
+﻿.slider .center {
+    text-align: center;
+}
+.slide-image {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.slider .usky-cell-media {
+    position: relative;
+}
+
+.slider .title {
+    font-size:2em;
+    position: absolute;
+    top: 25px;
+    width:98%;
+    height:40px;
+    text-align:center;
+}
+
+.slider .description {
+    position: absolute;
+    top: 85px;
+    width:98%;
+    text-align:center;
+}
