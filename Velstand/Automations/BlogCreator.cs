@@ -88,8 +88,22 @@ namespace Velstand.Automations
                 this.node.ParentId = parentNode.Id;
             }
 
+            return;
+        }
+
+        public void SaveImages()
+        {
+            if (this.node.HasProperty(VelstandProperty.Body))
+            {
+                string body = this.node.GetValue<string>(VelstandProperty.Body);
+                this.node.SetValue(VelstandProperty.Body, ContentCreator.ConvertBase64ImageAndGet(body));
+            }
+        }
+
+        public void SaveOrPublish()
+        {
             // ドキュメントを公開する
-            if (node.Published)
+            if (this.node.Published)
             {
                 contentService.SaveAndPublishWithStatus(this.node, this.node.WriterId, false);
             }
@@ -97,8 +111,6 @@ namespace Velstand.Automations
             {
                 contentService.Save(this.node, this.node.WriterId, false);
             }
-
-            return;
         }
 
         /// <summary>

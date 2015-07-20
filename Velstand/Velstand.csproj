@@ -237,6 +237,7 @@
     <Compile Include="Plugins\Models\ImageFileModel.cs" />
     <Compile Include="Utilities\DocumentUtil.cs" />
     <Compile Include="Utilities\Generator.cs" />
+    <Compile Include="Utilities\MediaUtil.cs" />
     <Compile Include="Utilities\UrlUtil.cs" />
     <Compile Include="Utilities\StringExtension.cs" />
     <Compile Include="Constants\Alias.cs" />

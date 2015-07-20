@@ -27,6 +27,8 @@ namespace Velstand.Automations
             // ブログのフォルダを自動作成する
             var blogCreator = new BlogCreator(node);
             blogCreator.CreateHolder();
+            blogCreator.SaveImages();
+            blogCreator.SaveOrPublish();
         }
 
         /// <summary>
