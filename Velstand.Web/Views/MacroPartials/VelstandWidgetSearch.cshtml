@@ -1,4 +1,4 @@
-@using Velstand.Models
+﻿@using Velstand.Models
 @using Velstand.Constants
 @using Velstand.Helpers
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
@@ -6,19 +6,15 @@
     IPublishedContent current = CurrentPage;
     IPublishedContent content = current.VBlogHolderTop();
 }
-<ul class="Widget collection">
-    <li class="collection-item">
-        <form action="@content.Url" method="get">
-            <div class="input-field Search row">
-                <div class="col s2">
-                    <button type="submit" class="btn blue lighten-3 btn-floating waves-effect waves-light">
-                        <i class="mdi-action-search right"></i>
-                    </button>
-                </div>
-                <div class="col s10">
-                    <input id="search" type="text" name="@VelstandRequest.Text" placeholder="@Umbraco.GetDictionaryValue("SearchPlaceHolder")" class="form-control" />
-                </div>
-            </div>
-        </form>
-    </li>
-</ul>
+<form action="@content.Url" method="get">
+	<div class="input-field Search row">
+		<div class="col s2">
+			<button type="submit" class="btn blue lighten-3 btn-floating waves-effect waves-light">
+				<i class="mdi-action-search right"></i>
+			</button>
+		</div>
+		<div class="col s10">
+			<input id="search" type="text" name="@VelstandRequest.Text" placeholder="@Umbraco.GetDictionaryValue("SearchPlaceHolder")" class="form-control" />
+		</div>
+	</div>
+</form>
