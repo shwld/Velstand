@@ -66,10 +66,10 @@ namespace Velstand.Models
                             posts = posts.Where(w => w.HasValue(VelstandProperty.Tag) && Array.IndexOf(w.GetPropertyValue<string>(VelstandProperty.Tag).Split(','), tag) != -1);
                             break;
                         case(VelstandRequest.Text):
-                            // FIXME:2つ目以降のリクエストパラメータで渡された場合、それ以前のパラメータが無効化されてしまう
                             var searchCriteria = ExamineManager.Instance.CreateSearchCriteria();
                             var query = searchCriteria.GroupedOr(new[] { "name", "title", "body" }, this.request[key]).Compile();
-                            posts = this.umbraco.TypedSearch(query).Where(x => x.DocumentTypeAlias.StartsWith(VelstandPrefix.Content));
+                            var searchedPosts = this.umbraco.TypedSearch(query);
+                            posts = posts.Where(x => searchedPosts.Select(y => y.Id).ToList().Contains(x.Id));
                             break;
                         default:
                             break;
@@ -120,11 +120,11 @@ namespace Velstand.Models
                 string result;
                 if (this.parent.currentPageNumber > 1)
                 {
-                    result = "<" + tag + "><a href=\"" + this.parent.CurrentPage.VPageUrl(this.parent.currentPageNumber - 1, this.parent.request) + "\">" + wording + "</a><" + tag + ">";
+                    result = "<" + tag + "><a href=\"" + this.parent.CurrentPage.VPageUrl(this.parent.currentPageNumber - 1, this.parent.request) + "\">" + wording + "</a></" + tag + ">";
                 }
                 else
                 {
-                    result = "<" + tag + " class=\"disabled\"><a href=\"#\">" + wording + "</a><" + tag + ">";
+                    result = "<" + tag + " class=\"disabled\"><a href=\"#\">" + wording + "</a></" + tag + ">";
                 }
                 return new HtmlString(result);
             }
@@ -140,11 +140,11 @@ namespace Velstand.Models
                 string result;
                 if (this.parent.currentPageNumber < this.parent.numberOfPage)
                 {
-                    result = "<" + tag + "><a href=\"" + this.parent.CurrentPage.VPageUrl(this.parent.currentPageNumber + 1, this.parent.request) + "\">" + wording + "</a><" + tag + ">";
+                    result = "<" + tag + "><a href=\"" + this.parent.CurrentPage.VPageUrl(this.parent.currentPageNumber + 1, this.parent.request) + "\">" + wording + "</a></" + tag + ">";
                 }
                 else
                 {
-                    result = "<" + tag + " class=\"disabled\"><a href=\"#\">" + wording + "</a><" + tag + ">";
+                    result = "<" + tag + " class=\"disabled\"><a href=\"#\">" + wording + "</a></" + tag + ">";
                 }
                 return new HtmlString(result);
             }

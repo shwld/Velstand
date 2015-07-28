@@ -57,7 +57,7 @@
         		var options = [
             		@for(int i=2; i<=count; i++)
             		{
-                		<text>{ selector: '.grid-wrapper-@(i)', offset: 50, callback: 'animateRow(".grid-landing-@(i)")' },</text>
+                		<text>{ selector: '.grid-wrapper-@(i)', offset: 250, callback: 'animateRow(".grid-landing-@(i)")' },</text>
             		}
 	        	];
     	    	Materialize.scrollFire(options);

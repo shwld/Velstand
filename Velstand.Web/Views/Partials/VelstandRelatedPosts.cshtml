@@ -10,20 +10,20 @@
 {
 
     <article class="collection">
-        <div class="col s3 pull-left">
+        <div class="col hide-on-small-only m3 pull-left">
             <p class="Post-Eyecatch">
                 <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogEyecatch")</a>
             </p>
         </div>
-        <div class="Description col s9">
+        <div class="Description col s12 m9">
             <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
             <hr />
             <p class="Post-Data">
                 <span class="mdi-notification-event-note"> @string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
                 &nbsp;&nbsp;
-                <span class="mdi-action-label"> @Html.CategoryWithLink(post, "category")</span>
+                <span class="Post-Category mdi-action-label"> @Html.CategoryWithLink(post, "category")</span>
             </p>
-            <a class="Link-Btn" href="@post.Url">
+            <a class="Link-Btn hide-on-small-only" href="@post.Url">
                 <span class="glyphicon glyphicon-check"></span> @Umbraco.GetDictionaryValue("HolderpageMoreButton")
             </a>
         </div>

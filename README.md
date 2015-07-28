@@ -9,6 +9,8 @@ Velstand
 
 [Our Umbraco](http://our.umbraco.org//projects/starter-kits/velstand)
 
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+
 Please help us correct English grammar of the document
 
 
@@ -16,9 +18,11 @@ Please help us correct English grammar of the document
 * Building website
 * Bloging
 * Grid layout
+  * Card editor
+  * Slide show editor
 * Rich landing page
 * Materialize
-* Markdown
+* Markdown (MdEdit)
 * Feed
 * 404 Page
 * Sitemap Page

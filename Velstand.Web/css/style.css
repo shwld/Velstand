@@ -13,7 +13,7 @@ h5 { font-size: 1.2em; }
 h6 { font-size: 1em; }
 .fullscreen {
 	margin-top:-64px;
-	padding-top:64px;
+	padding-top:128px;
 	height: 100vh;}
 #Background-Img {
   position:fixed;
@@ -28,18 +28,14 @@ h6 { font-size: 1em; }
   border:none;
   padding-top:20px;
 }
-.Navbar-Design nav{
-    //background-color: rgba(38,50,56,0.5) !important;
-    //background-color: rgba(255,255,255,0.0) !important;
-}
-.Navbar-Design *{
-    color:white;}
 .Header img{
     margin-bottom:-50px;
 }
 .Footer {
 	z-index:10;
     margin-left:30px;}
+.Widget {
+	padding-bottom:20px;}
 .Widget h4{
     padding:10px;}
 .Widget h4 .glyphicon{
@@ -127,6 +123,13 @@ h6 { font-size: 1em; }
     bottom:15px;}
 .Categories {
     padding: 0 10px;}
+.Post-Category a {
+	display: inline-block;
+	padding: 0 4px;
+	border-radius: 3px 0 3px 0;
+	border: solid 1px #dfdfdf;}
+.Post-Category a:hover {
+	background-color: #dfdfdf;}
 .Header {
     position:relative;}
 .Site-Infomations {
@@ -197,5 +200,9 @@ h6 { font-size: 1em; }
 .umb-grid div {
 	background-repeat: no-repeat;
 	background-size:100%;
+}
+
+.umb-grid .row {
+	margin-bottom: 0;
 }
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

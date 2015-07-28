@@ -51,8 +51,14 @@
         @* Related Posts *@
         @Html.Partial("VelstandRelatedPosts")
         @* Prev Next *@
-        <span class="col s12">@paginator.Html.Next(Umbraco.GetDictionaryValue("ContentpageNextButton"))</span>
-        <span class="col s12">@paginator.Html.Previous(Umbraco.GetDictionaryValue("ContentpagePreviousButton"))</span>
+		<div class="row">
+			<div class="col s3">@Umbraco.GetDictionaryValue("ContentpageNextButton")</div>
+			<div class="col s9">@paginator.Html.Next()</div>
+		</div>
+		<div class="row">
+			<div class="col s3">@Umbraco.GetDictionaryValue("ContentpagePreviousButton")</div>
+        	<div class="col s9">@paginator.Html.Previous()</div>
+		</div>
     </section>
     <section class="SubContent col s12 m4">
         @Html.Partial("VelstandSidebar")
