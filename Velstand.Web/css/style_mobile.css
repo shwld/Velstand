@@ -2,10 +2,42 @@
 body .Body {
     background-color: #d3d6e0;
 }
+h1 {
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 2em;
+}
+h2 {
+	font-size: 1.4em;
+	font-weight: bold;
+	line-height:1.9em;
+}
+h3 {
+	font-size: 1.3em;
+	font-weight: bold;
+	line-height: 1.8em;
+}
+h4 {
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.5em;
+}
+h5 {
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+h6 {
+	font-size: 1.1em;
+	line-height: 1.4em;
+}
 .fullscreen {
 	margin-top:-64px;
 	padding-top:64px;
 	height: 100vh;}
+.Navbar-Design {
+	position: fixed !important;
+	top: 0 !important;
+}
 #Background-Img {
     position: absolute;
     z-index: -999;
@@ -15,14 +47,14 @@ body .Body {
 #wrap {margin-top:50px;}
 .Navbar-Design {
     background-color: rgba(30,30,30,0.5);}
-.Navbar-Design *{
-    color:white;}
 .Header img{
     margin-bottom:-50px;
 }
 .Footer {
     margin-left:30px;}
-.Widget h4{
+.Widget {
+	padding-bottom:20px;}
+.Widget h4 {
     padding:10px;}
 .Widget h4 .glyphicon{
     padding-right:10px;}
@@ -39,21 +71,18 @@ body .Body {
     padding-left:1em;
 }
 .Post-Body p{
-    font-size:1.2em;
+    font-size:1em;
 	line-height: 170%;}
 .Post-Body h2 {
-    font-weight:bold;
     color: #313698;
     margin-top: 40px;
     padding: 5px;
     border-bottom: solid 1px #313698;}
 .Post-Body h3 {
-    font-weight:bold;
     color: #5a6c94;
     padding:2px 5px 2px 15px;
     border-left: solid 6px #5a6c94;}
 .Post-Body h4 {
-    font-weight: bold;
     color: #5a6c94;
     margin-top: 30px;
     margin-left: 15px;
@@ -103,6 +132,7 @@ body .Body {
 .List-Post .Post-Eyecatch {
     border-radius:0 0 10px 10px;}
 .Description {
+	padding:7px !important;
     position:relative;}
 .Description .Link-Btn{
     position:absolute;
@@ -114,6 +144,13 @@ body .Body {
     bottom:15px;}
 .Categories {
     padding: 0 10px;}
+.Post-Category a {
+	display: inline-block;
+	padding: 0 4px;
+	border-radius: 3px 0 3px 0;
+	border: solid 1px #dfdfdf;}
+.Post-Category a:hover {
+	background-color: #dfdfdf;}
 .Header {
     position:relative;}
 .Site-Infomations {
@@ -139,10 +176,16 @@ body .Body {
     font-size: 1.3em;
     right: 30px;}
 
-/* override bootstrap */
-.col-xs-12 {
+.umb-grid .row {
+	margin-bottom: 0;
+}
+
+/* override css frameworks */
+.col-xs-12, .col.s12 {
     padding-left:0;
     padding-right:0;
 }
-
+.container {
+	width: 100%;
+}
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
