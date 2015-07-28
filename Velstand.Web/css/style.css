@@ -13,7 +13,7 @@ h5 { font-size: 1.2em; }
 h6 { font-size: 1em; }
 .fullscreen {
 	margin-top:-64px;
-	padding-top:64px;
+	padding-top:128px;
 	height: 100vh;}
 #Background-Img {
   position:fixed;
