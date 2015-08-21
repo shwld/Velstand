@@ -130,6 +130,11 @@ namespace Velstand.Constants
         /// タイトル
         /// </summary>
         public const string Title = "title";
+
+        /// <summary>
+        /// Body
+        /// </summary>
+        public const string Body = "body";
     }
     
     /// <summary>
