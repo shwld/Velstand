@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Linq;
-using System.Web;
-using umbraco.BusinessLogic;
 using umbraco.NodeFactory;
 using Umbraco.Web;
 using Umbraco.Core;
 using Umbraco.Core.Models;
-using Umbraco.Core.Events;
-using Umbraco.Core.Publishing;
 using Umbraco.Core.Services;
 using Umbraco.Core.Logging;
 using Velstand.Constants;
@@ -18,7 +13,6 @@ namespace Velstand.Automations
 {
     public class BlogCreator
     {
-        private ContentService contentService = new ContentService();
         private UmbracoHelper umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
         private DateTime releaseDate;
         private IContent node;
@@ -88,6 +82,7 @@ namespace Velstand.Automations
                 this.node.ParentId = parentNode.Id;
             }
 
+            var contentService = ApplicationContext.Current.Services.ContentService;
             // ドキュメントを公開する
             if (node.Published)
             {
@@ -110,7 +105,7 @@ namespace Velstand.Automations
         /// <returns></returns>
         private IContent BlogHolder(string name, int parentId, int userId)
         {
-            var contentService = new ContentService();
+            var contentService = ApplicationContext.Current.Services.ContentService;
             var target = contentService.CreateContent(
                     name,
                     parentId, 

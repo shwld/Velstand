@@ -21,33 +21,33 @@
                 </div>
             }   
         }else { 
-        <div class="row clearfix">
-            @foreach (var s in Model.sections) {
-            <div class="grid-section">
-                <div class="col-md-@s.grid col-xs-12 column">
-                    @foreach (var row in s.rows) {
-                    @renderRow(row, false);
+            <div class="container">
+                <div class="row clearfix">
+                    @foreach (var s in Model.sections) {
+                        <div class="grid-section">
+                            <div class="col-md-@s.grid column">
+                                @foreach (var row in s.rows) {
+                                    @renderRow(row, false);
+                                }
+                            </div>
+                        </div>
                     }
                 </div>
-            </div>
-            }
-        </div>   
+            </div>   
         }
     </div>
 }
 
 @helper renderRow(dynamic row, bool singleColumn){
     <div @RenderElementAttributes(row)>
-        @*Umbraco.If(singleColumn, "<div class='container'>")*@
+        @Umbraco.If(singleColumn, "<div class='container'>")
         <div class="row clearfix">
             @foreach ( var area in row.areas ) {
             <div class="col-md-@area.grid column">
                 <div @RenderElementAttributes(area)>
                     @foreach (var control in area.controls) {
                         if (control !=null && control.editor != null && control.editor.view != null ) {
-							<div class="col-xs-12">
-                            	<text>@Html.Partial("grid/editors/base", (object)control)</text>
-							</div>
+                            <text>@Html.Partial("grid/editors/base", (object)control)</text>
                         }
                     }
                 </div>

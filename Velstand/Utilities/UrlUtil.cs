@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using umbraco.NodeFactory;
+using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Core.Services;
 
@@ -45,7 +43,7 @@ namespace Velstand.Utilities
             }
 
             // コンテンツを保存する
-            var contentService = new ContentService();
+            var contentService = ApplicationContext.Current.Services.ContentService;
             contentService.SaveAndPublishWithStatus(target, target.WriterId, false);
             return new Node(target.Id);
         }
