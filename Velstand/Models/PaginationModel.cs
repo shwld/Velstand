@@ -15,6 +15,8 @@ namespace Velstand.Models
         private IEnumerable<IPublishedContent> contents;
         private HtmlDecorator _Html { get; set; }
         public HtmlDecorator Html { get { return _Html; } }
+        public IPublishedContent Next;
+        public IPublishedContent Previous;
 
         public PaginationModel(IPublishedContent content) :this(
             content, 
@@ -24,6 +26,8 @@ namespace Velstand.Models
         {
             this.content = content;
             this.contents = contents;
+            this.Next = this.content.VGetNext(this.contents);
+            this.Previous = this.content.VGetPrevious(this.contents);
             this._Html = new HtmlDecorator(this);
         }
 
@@ -38,7 +42,7 @@ namespace Velstand.Models
 
             public IHtmlString Next(string format = "{0}", string alias = "title")
             {
-                var next = this.parent.content.VGetNext(this.parent.contents);
+                var next = this.parent.Next;
                 if (next == null) { return new HtmlString(string.Empty); }
                 return new HtmlString(
                                         string.Format(
@@ -50,7 +54,7 @@ namespace Velstand.Models
 
             public IHtmlString Previous(string format = "{0}", string alias = "title")
             {
-                var previous = this.parent.content.VGetPrevious(this.parent.contents);
+                var previous = this.parent.Previous;
                 if (previous == null) { return new HtmlString(string.Empty); }
                 return new HtmlString(
                                         string.Format(

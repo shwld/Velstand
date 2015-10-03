@@ -52,12 +52,40 @@
         @Html.Partial("VelstandRelatedPosts")
         @* Prev Next *@
 		<div class="row">
-			<div class="col s3">@Umbraco.GetDictionaryValue("ContentpageNextButton")</div>
-			<div class="col s9">@paginator.Html.Next()</div>
-		</div>
-		<div class="row">
-			<div class="col s3">@Umbraco.GetDictionaryValue("ContentpagePreviousButton")</div>
-        	<div class="col s9">@paginator.Html.Previous()</div>
+            <div class="col s6">
+                <div class="center">
+                    <strong>@Umbraco.GetDictionaryValue("ContentpagePreviousButton")</strong>
+                </div>
+                @if (@paginator.Previous != null) {
+                    <div class="card small">
+                        <div class="card-image">
+                            <a href="@paginator.Previous.Url">
+                                <img src="@paginator.Previous.GetCropUrl("eyecatch", "blogThumbnail" )" class="activator" />
+                            </a>
+                        </div>
+                        <div class="card-content match-height">
+                            <h2 class="card-title activator black-text Text-Light"><a href="@paginator.Previous.Url">@Umbraco.Field(paginator.Previous, "title")</a></h2>
+                        </div>
+                    </div>
+                }
+            </div>
+			<div class="col s6">
+                <div class="center">
+                    <strong>@Umbraco.GetDictionaryValue("ContentpageNextButton")</strong>
+                </div>
+                @if (@paginator.Next != null) {
+                    <div class="card small">
+                        <div class="card-image">
+                            <a href="@paginator.Next.Url">
+                                <img src="@paginator.Next.GetCropUrl("eyecatch", "blogThumbnail" )" class="activator" />
+                            </a>
+                        </div>
+                        <div class="card-content match-height">
+                            <h2 class="card-title activator black-text Text-Light"><a href="@paginator.Next.Url">@Umbraco.Field(paginator.Next, "title")</a></h2>
+                        </div>
+                    </div>
+                }
+            </div>
 		</div>
     </section>
     <section class="SubContent col s12 m4">
