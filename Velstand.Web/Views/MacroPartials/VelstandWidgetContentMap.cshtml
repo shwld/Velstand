@@ -8,7 +8,7 @@
 
 <ul class="Widget collection white">
     <li class="collection-header"><h4><span class="mdi-file-folder-open"></span> @Umbraco.GetDictionaryValue("ContentMap")</h4></li>
-    <li class="collection-item Level-List">
+    <li class="Level-List">
         @Traverse(holder)
     </li>
 </ul>
@@ -20,28 +20,28 @@
     var items = node.Children.Where(x => !x.DocumentTypeAlias.StartsWith(VelstandPrefix.PrivateItem)
                                                           && !x.DocumentTypeAlias.StartsWith(VelstandPrefix.Error));
 
-                                                        @* If any items are returned, render a list *@
+    @* If any items are returned, render a list *@
     if (items.Any())
     {
         foreach (var item in items)
         {
-            <ul class="Level-@(item.Level) collapsible popout" data-collapsible="accordion">
+            <ul class="Level-@(item.Level) collapsible-level-list" data-collapsible="accordion">
                 <li>
                     @if (item.DocumentTypeAlias.StartsWith(VelstandPrefix.Content))
                     {
-                        <div class="collection-item">
-                            <a href="@item.Url" title="@item.GetPropertyValue("title")">
-                                <i class="mdi-editor-insert-drive-file"></i>
-                                @Umbraco.Field(item, "title", altText: item.Name)
-                            </a>
-                        </div>
+                        <a href="@item.Url" title="@item.GetPropertyValue(" title")" class="Level-Item truncate col s12">
+                            <i class="mdi-editor-insert-drive-file"></i>
+                            @Umbraco.Field(item, "title", altText: item.Name)
+                        </a>
                     }
                     else if (item.Children.Count() != 0)
                     {
                         <div class="collapsible-header">
-                            <i class="mdi-file-folder-open"></i>
-                            @Umbraco.Field(item, "title", altText: item.Name)
-                            <a href="#" class="right"><i class="mdi-content-send"></i></a>
+                            <div class="truncate col s10">
+                                <i class="mdi-file-folder-open"></i>
+                                @Umbraco.Field(item, "title", altText: item.Name)
+                            </div>
+                            <a href="#" class="col s2"><i class="mdi-content-send"></i></a>
                         </div>
                     }
                     <div class="collapsible-body">

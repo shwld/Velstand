@@ -23,17 +23,16 @@
 			<div class="row">
 				@foreach (var post in search.Contents())
 				{
-					<div class="col s12 m6">
+					<div class="col s12 m4">
 						<div class="card small">
-							<div class="card-content">
-								<a href="@post.Url">
-									<img src="@post.GetCropUrl("eyecatch", "blogThumbnail")" class="activator" />
-									<h2 class="card-title activator black-text Text-Light">@Umbraco.Field(post, "title")</h2>
-								</a>
-							</div>
-							<div class="card-action">
-								<a href="@post.Url">@Umbraco.GetDictionaryValue("HolderpageMoreButton")</a>
-							</div>
+                            <div class="card-image">
+                                <a href="@post.Url">
+                                    <img src="@post.GetCropUrl("eyecatch", "blogThumbnail" )" class="activator" />
+                                </a>
+                            </div>
+							<div class="card-content match-height">
+                                <h2 class="card-title activator black-text Text-Light"><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
+                            </div>
 						</div>
 					</div>
 				}

@@ -1,20 +1,18 @@
 *{ font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; }
-/*.container {
-    width: auto;
-}*/
-html,
-body .Body {
-  height: 100%;}
-h1 { font-size: 2.5em; }
-h2 { font-size: 2em; }
-h3 { font-size: 1.5em; }
-h4 { font-size: 1.3em; }
-h5 { font-size: 1.2em; }
-h6 { font-size: 1em; }
 .fullscreen {
 	margin-top:-64px;
 	padding-top:128px;
 	height: 100vh;}
+
+
+
+
+
+
+html,
+body .Body {
+  height: 100%;}
+
 #Background-Img {
   position:fixed;
   z-index:-999;
@@ -42,6 +40,12 @@ h6 { font-size: 1em; }
     padding-right:10px;}
 .Widget .Search{
     padding: 5px 20px 30px;}
+.Widget .NewPosts .Post-Title {
+	display:table-cell;
+	vertical-align: middle;
+	height: 40px;
+}
+
 
 .Font-Big {
     font-size: 30px;}
@@ -71,6 +75,11 @@ h6 { font-size: 1em; }
     color: #5a6c94;
     margin-top: 30px;
     margin-left: 15px;
+}
+.Post-Icon {
+	width:40px;
+	height:40px;
+	margin-right:20px;
 }
 .Post-Body ul{
 	padding-left: 40px !important;
@@ -111,8 +120,9 @@ h6 { font-size: 1em; }
     min-height:100px;}
 .List-Post .Post-Eyecatch {
     border-radius:0 0 10px 10px;}
-.Description {
-    position:relative;}
+.Eyecatch {
+    margin-right:20px;
+}
 .Description .Link-Btn{
     position:absolute;
     background-color:white;
@@ -157,12 +167,16 @@ h6 { font-size: 1em; }
 
 /* Level List */
 .Level-List .Level-1 { padding-left: 5px; }
-.Level-List .Level-2 { padding-left: 15px; }
-.Level-List .Level-3 { padding-left: 25px; }
-.Level-List .Level-4 { padding-left: 35px; }
-.Level-List .Level-5 { padding-left: 45px; }
-.Level-List .Level-6 { padding-left: 55px; }
-.Level-List .Level-7 { padding-left: 65px; }
+.Level-List .Level-2 { padding-left: 10px; }
+.Level-List .Level-3 { padding-left: 15px; }
+.Level-List .Level-4 { padding-left: 20px; }
+.Level-List .Level-5 { padding-left: 25px; }
+.Level-List .Level-6 { padding-left: 30px; }
+.Level-List .Level-7 { padding-left: 35px; }
+.Level-List .collapsible-header,
+.Level-List .collapsible-body
+ { border: none; }
+.Level-Item { margin-left: 15px;}
 
 /* toggle */
 .collapsed:before {
@@ -205,4 +219,7 @@ h6 { font-size: 1em; }
 .umb-grid .row {
 	margin-bottom: 0;
 }
+
+
+
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

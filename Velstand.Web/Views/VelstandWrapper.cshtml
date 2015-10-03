@@ -19,13 +19,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
     @*<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/css/style.css" rel="stylesheet" />
     @if (Request.Browser.IsMobileDevice)
     {
         <link href="~/css/style_mobile.css" rel="stylesheet" />
     }
     else
     {
-        <link href="~/css/style.css" rel="stylesheet" />
+        <link href="~/css/style_pc.css" rel="stylesheet" />
     }
     @* highlight style *@
     <link href="~/css/github.css" rel="stylesheet" />

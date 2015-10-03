@@ -6,15 +6,19 @@
     IPublishedContent current = CurrentPage;
     IPublishedContent content = current.VBlogHolderTop();
 }
-<form action="@content.Url" method="get">
-	<div class="input-field Search row">
-		<div class="col s2">
-			<button type="submit" class="btn blue lighten-3 btn-floating waves-effect waves-light">
-				<i class="mdi-action-search right"></i>
-			</button>
-		</div>
-		<div class="col s10">
-			<input id="search" type="text" name="@VelstandRequest.Text" placeholder="@Umbraco.GetDictionaryValue("SearchPlaceHolder")" class="form-control" />
-		</div>
+<form id="searchForm" action="@content.Url" method="get">
+	<div class="Search row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">search</i>
+            <input id="search" type="text" name="@VelstandRequest.Text" placeholder="@Umbraco.GetDictionaryValue(" SearchPlaceHolder")" class="validate" />
+            <label for="search">@Umbraco.GetDictionaryValue("SearchPlaceHolder")</label>
+            <script>
+                $(function () {
+                    $('#search').change(function () {
+                        $('#searchForm').submit();
+                    });
+                });
+            </script>
+        </div>
 	</div>
 </form>
