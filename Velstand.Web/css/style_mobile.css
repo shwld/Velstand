@@ -32,12 +32,4 @@ h6 {
 }
 .Level-Item { margin-left: 15px !important;}
 
-/* override css frameworks */
-.col-xs-12, .col.s12 {
-    padding-left:0;
-    padding-right:0;
-}
-.container {
-	width: 100%;
-}
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

@@ -335,6 +335,7 @@
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="Content\dummy.txt" />
     <Content Include="css\github.css" />
+    <Content Include="css\rrssb.css" />
     <Content Include="css\style_mobile.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style_pc.css" />
@@ -519,6 +520,7 @@
     <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
+    <Content Include="Views\MacroPartials\VelstandWidgetSocialButtons.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
