@@ -7,42 +7,10 @@
 <script src="~/scripts/jquery.matchHeight-min.js"></script>
 <script type="text/javascript">
     $(function () {
-        var showFlag = false;
-        var btns = $('#Btns');
-        btns.css('bottom', '-100px');
-        var showFlag = false;
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 400) {
-                if (showFlag == false) {
-                    showFlag = true;
-                    btns.stop().animate({ 'bottom': '10px' }, 200);
-                }
-            } else {
-                if (showFlag) {
-                    showFlag = false;
-                    btns.stop().animate({ 'bottom': '-100px' }, 200);
-                }
-            }
-        });
         $('#Top-Btn').click(function () {
             $('body,html').animate({
                 scrollTop: 0
             }, 500);
-            return false;
-        });
-
-        var navBtn = $('#Nav-Btn');
-        var snsBar = $('#Sns-Bar');
-        var showNavFlag = false;
-        snsBar.css('bottom', '-100px');
-        navBtn.click(function () {
-            if (showNavFlag == false) {
-                showNavFlag = true;
-                snsBar.stop().animate({ 'bottom': '50px' }, 200);
-            } else {
-                showNavFlag = false;
-                snsBar.stop().animate({ 'bottom': '-100px' }, 200);
-            }
             return false;
         });
 

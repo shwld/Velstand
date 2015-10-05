@@ -149,6 +149,8 @@ body .Body {
     }
 .Site-Infomations .Site-Description {
     }
+.Nav-Icon {
+	font-size:1.8em;}
 
 #Fixed-Toolbar {
     position: fixed;

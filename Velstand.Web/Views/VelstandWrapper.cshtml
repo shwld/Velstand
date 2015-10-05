@@ -50,13 +50,18 @@
         <nav class="white">
             <div class="nav-wrapper container">
                 <a href="@current.VRoot().Url" class="brand-logo"><span class="Text-Shadow">@Umbraco.Field(setting, "siteTitle")</span></a>
+                <ul class="right">
+                    <li>
+                        <a id="Top-Btn"><span class="mdi-navigation-arrow-drop-up black-text Nav-Icon"></span></a>
+                    </li>
+                </ul>
                 <ul class="right hide-on-med-and-down">
                     @foreach (var nav in setting.VMultiNodes("navigations"))
                     {
                         <li><a href="@nav.Url" class="grey-text">@Umbraco.Field(nav, "title")</a></li>
                     }
                 </ul>
-				<a class="nav-button-collapse black-text hide-on-large-only" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+				<a class="nav-button-collapse black-text hide-on-large-only" href="#" data-activates="nav-mobile"><span class="mdi-navigation-menu Nav-Icon"></span></a>
                 <ul id="nav-mobile" class="side-nav hide-on-large-only">
                     @foreach (var nav in setting.VMultiNodes("navigations"))
                     {
@@ -108,7 +113,6 @@
             </div>
         </div>
     </footer>
-    @Html.Partial("VelstandFixedToolbar")
     @* Script *@
     @*Html.CachedPartial("VelstandBaseScript", null, 86400)*@
     @Html.Partial("VelstandBaseScript")
