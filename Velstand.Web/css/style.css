@@ -1,24 +1,21 @@
 *{ font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; }
+/* helpers */
 .fullscreen {
 	margin-top:-64px;
 	padding-top:128px;
 	height: 100vh;}
+.text-with-shadow {
+	text-shadow: gray 1px 1px 0, gray -1px 1px 0,
+             gray 1px -1px 0, gray -1px -1px 0;}
+.text-with-light {
+    text-shadow: white 1px 1px 0, white -1px 1px 0,
+             white 1px -1px 0, white -1px -1px 0;}
 
 
-
-
-
-
+/* layout */
 html,
-body .Body {
+body {
   height: 100%;}
-
-#Background-Img {
-  position:fixed;
-  z-index:-999;
-  background-position:top center;
-  background-repeat:no-repeat;
-}
 #wrap {
   min-height: 100%;
   height: auto !important;
@@ -26,81 +23,71 @@ body .Body {
   border:none;
   padding-top:20px;
 }
-.Header img{
-    margin-bottom:-50px;
-}
-.Footer {
-	z-index:10;
-    margin-left:30px;}
-.Widget {
+#footer {
+	background-color:#666;}
+.v-site-title {
+	text-shadow: gray 1px 1px 0, gray -1px 1px 0,
+		gray 1px -1px 0, gray -1px -1px 0;}
+
+
+
+/* widget */
+.v-widget {
 	padding-bottom:20px;}
-.Widget h4{
+.v-widget h4{
     padding:10px;}
-.Widget h4 .glyphicon{
+.v-widget h4 .glyphicon{
     padding-right:10px;}
-.Widget .Search{
+.v-widget .Search{
     padding: 5px 20px 30px;}
-.Widget .NewPosts .Post-Title {
+.v-widget .NewPosts .v-post-title {
 	display:table-cell;
 	vertical-align: middle;
 	height: 40px;
 }
 
 
-.Font-Big {
-    font-size: 30px;}
-
-.Text-Shadow {
-    text-shadow: gray 1px 1px 0, gray -1px 1px 0,
-             gray 1px -1px 0, gray -1px -1px 0;}
-.Text-Light {
-    text-shadow: white 1px 1px 0, white -1px 1px 0,
-             white 1px -1px 0, white -1px -1px 0;}
-.Post-Body p{
+/* post body */
+.v-post-body p{
     font-size:1.2em;
 	line-height: 170%;}
-.Post-Body h2 {
+.v-post-body h2 {
     font-weight:bold;
     color: #313698;
     margin-top: 40px;
     padding: 5px;
     border-bottom: solid 1px #313698;}
-.Post-Body h3 {
+.v-post-body h3 {
     font-weight:bold;
     color: #5a6c94;
     padding:2px 5px 2px 15px;
     border-left: solid 6px #5a6c94;}
-.Post-Body h4 {
+.v-post-body h4 {
     font-weight: bold;
     color: #5a6c94;
     margin-top: 30px;
     margin-left: 15px;
 }
-.Post-Icon {
-	width:40px;
-	height:40px;
-	margin-right:20px;
-}
-.Post-Body ul{
+.v-post-body ul{
 	padding-left: 40px !important;
 	font-weight: bold;
 }
-.Post-Body ul li{
+.v-post-body ul li{
 	list-style-type: circle !important;
 }
-.Post-Body ol{
+.v-post-body ol{
 	list-style-type: decimal !important;
 	font-weight: bold;
 }
-.Post-Body blockquote {
+.v-post-body blockquote {
   background-color: #f5f5f5;
 }
-.Post-Body code {
+.v-post-body code {
     background-color: gainsboro;
     padding: 3px 6px;
     border-radius:6px;
 }
-.Post-Body pre {
+.v-post-body pre {
     background-color: gainsboro;
     overflow-y: hidden;
     overflow-x: scroll;
@@ -108,22 +95,34 @@ body .Body {
     border-radius:6px;
     padding:6px 6px 18px 6px;
 }
-.Single-Post h1{
-    color: #313698;}
+
+
+/* post list */
 .List-Post h2{
     font-size:1.7em;}
-.List-Post .Post-Title {
+.List-Post .v-post-title {
     height:150px;
     min-height:150px;}
 .List-Post .Post-Data {
     height:100px;
     min-height:100px;}
-.List-Post .Post-Eyecatch {
-    border-radius:0 0 10px 10px;}
-.Eyecatch {
+
+
+/* single post */
+.v-single-post h1{
+    color: #313698;}
+
+
+/* post */
+.v-post-icon {
+	width:40px;
+	height:40px;
+	margin-right:20px;
+}
+.v-post-eyecatch {
     margin-right:20px;
 }
-.Description .Link-Btn{
+.v-post-description .v-link-button{
     position:absolute;
     background-color:white;
     border:solid 1px #bbcee9;
@@ -131,66 +130,42 @@ body .Body {
     padding:5px 10px;
     right:15px;
     bottom:15px;}
-.Categories {
-    padding: 0 10px;}
-.Post-Category a {
+.v-post-category a {
 	display: inline-block;
 	padding: 0 4px;
 	border-radius: 3px 0 3px 0;
 	border: solid 1px #dfdfdf;}
-.Post-Category a:hover {
+.v-post-category a:hover {
 	background-color: #dfdfdf;}
-.Header {
-    position:relative;}
-.Site-Infomations {
-    padding:25px 35px}
-.Site-Infomations .Site-Title {
-    font-size:2em;
-    }
-.Site-Infomations .Site-Description {
-    }
-.Nav-Icon {
+
+
+/* navigation */
+.v-nav-icon {
 	font-size:1.8em;}
 
-#Fixed-Toolbar {
-    position: fixed;
-    bottom: 10px;
-    right: 50px;}
-#Fixed-Toolbar #Sns-Bar {
-    position: fixed;
-    right:53px;}
-#Fixed-Toolbar #Sns-Bar table td{
-    vertical-align:top;
-	padding: 5px;}
-#Fixed-Toolbar #Btns {
-    position: fixed;
-    font-size: 1.3em;
-    right: 30px;}
 
 /* Level List */
-.Level-List .Level-1 { padding-left: 5px; }
-.Level-List .Level-2 { padding-left: 10px; }
-.Level-List .Level-3 { padding-left: 15px; }
-.Level-List .Level-4 { padding-left: 20px; }
-.Level-List .Level-5 { padding-left: 25px; }
-.Level-List .Level-6 { padding-left: 30px; }
-.Level-List .Level-7 { padding-left: 35px; }
-.Level-List .collapsible-header,
-.Level-List .collapsible-body
+.v-level-list .v-level-1 { padding-left: 5px; }
+.v-level-list .v-level-2 { padding-left: 10px; }
+.v-level-list .v-level-3 { padding-left: 15px; }
+.v-level-list .v-level-4 { padding-left: 20px; }
+.v-level-list .v-level-5 { padding-left: 25px; }
+.v-level-list .v-level-6 { padding-left: 30px; }
+.v-level-list .v-level-7 { padding-left: 35px; }
+.v-level-list .collapsible-header,
+.v-level-list .collapsible-body
  { border: none; }
-.Level-Item { margin-left: 15px;}
+.v-level-list { margin-left: 15px;}
 
-/* toggle */
+/* collapse */
 .collapsed:before {
     content:"\e080" !important;
     font-family: "Glyphicons Halflings";
 }
-    
 .accordion-toggle {
     display:inline-block;
     cursor: pointer;
-}
-    
+}   
 .accordion-toggle:before {
     content:"\e114";
     font-family: "Glyphicons Halflings";
@@ -202,23 +177,23 @@ body .Body {
     display:inline-block;
 }
 
-.Blog-Sidebar .pinned {
+/* sidebar */
+.v-blog-sidebar .pinned {
     /* HACK:Off by */
     width:21.5%;
 }
 .pinned {
-		top:64px !important;}
+	top:64px !important;}
+
 
 /* grid */
 .umb-grid img {
 	width:100%;
 }
-
 .umb-grid div {
 	background-repeat: no-repeat;
 	background-size:100%;
 }
-
 .umb-grid .row {
 	margin-bottom: 0;
 }

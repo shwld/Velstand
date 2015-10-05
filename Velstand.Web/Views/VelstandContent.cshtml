@@ -15,26 +15,22 @@
     <div class="col s12">
 		@Html.Partial("VelstandBreadCrumb")
 	</div>
-    <section class="MainContent col s12 m8">
-        <article class="Single-Post Post">
+    <section class="v-main-content col s12 m8">
+        <article class="v-single-post v-post">
             <div class="collection">
                 <div class="collection-item">
-                    <h1 class="Post-Title">@Umbraco.Field("title")</h1>
-                    <span class="Post-Date mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>&nbsp;&nbsp;
-                    <span class="Post-Category mdi-action-label">@Html.CategoryWithLink(current, "category")</span>
+                    <h1 class="v-post-title">@Umbraco.Field("title")</h1>
+                    <span class="v-post-date mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>&nbsp;&nbsp;
+                    <span class="v-post-category mdi-action-label">@Html.CategoryWithLink(current, "category")</span>
                 </div>
                 @Html.Crop(current, "eyecatch", "blogContentHead")
                 <div class="collection-item">
-                    <div class="Post-Body">
+                    <div class="v-post-body">
                         @current.VMarkUp("body").ToLazyLoad()
                     </div>
                     @* disqus *@
                     @Html.Partial("VelstandDisqus")
                 </div>
-
-                <div class="panel-footer">
-                </div>
-
             </div>
         </article>
 
@@ -64,7 +60,7 @@
                             </a>
                         </div>
                         <div class="card-content match-height">
-                            <h2 class="card-title activator black-text Text-Light"><a href="@paginator.Previous.Url">@Umbraco.Field(paginator.Previous, "title")</a></h2>
+                            <h2 class="card-title activator black-text text-with-light"><a href="@paginator.Previous.Url">@Umbraco.Field(paginator.Previous, "title")</a></h2>
                         </div>
                     </div>
                 }
@@ -81,14 +77,14 @@
                             </a>
                         </div>
                         <div class="card-content match-height">
-                            <h2 class="card-title activator black-text Text-Light"><a href="@paginator.Next.Url">@Umbraco.Field(paginator.Next, "title")</a></h2>
+                            <h2 class="card-title activator black-text text-with-light"><a href="@paginator.Next.Url">@Umbraco.Field(paginator.Next, "title")</a></h2>
                         </div>
                     </div>
                 }
             </div>
 		</div>
     </section>
-    <section class="SubContent col s12 m4">
+    <section class="v-sub-content col s12 m4">
         @Html.Partial("VelstandSidebar")
     </section>
 

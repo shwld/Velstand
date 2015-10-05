@@ -7,7 +7,7 @@
 <script src="~/scripts/jquery.matchHeight-min.js"></script>
 <script type="text/javascript">
     $(function () {
-        $('#Top-Btn').click(function () {
+        $('#to-top-btn').click(function () {
             $('body,html').animate({
                 scrollTop: 0
             }, 500);
@@ -28,16 +28,29 @@
         $(".nav-button-collapse").sideNav();
         $(".match-height").matchHeight();
     });
-    //$('.Post-Body img').addClass('img-responsive');
 </script>
 
 @if (!Request.Browser.IsMobileDevice)
 {
     <script type="text/javascript">
-            $(function () {
-				if ($('#Fixed-Sidebar').offset()) {
-					$('#Fixed-Sidebar .Fixed-Wrapper').pushpin({ top: $('#Fixed-Sidebar').offset().top - 64 });
-				}
-            });
+        $(function () {
+			if ($('#fixed-sidebar').offset()) {
+				$('#fixed-sidebar .v-fixed-wrapper').pushpin({ top: $('#Fixed-Sidebar').offset().top - 64 });
+			}
+		});
     </script>
+} else {
+	<script type="text/javascript">
+		$(function () {
+			var navU = navigator.userAgent;
+			var isAndroidMobile = navU.indexOf('Android') > -1 && navU.indexOf('Mozilla/5.0') > -1 && navU.indexOf('AppleWebKit') > -1;
+			var regExAppleWebKit = new RegExp(/AppleWebKit\/([\d.]+)/);
+			var resultAppleWebKitRegEx = regExAppleWebKit.exec(navU);
+			var appleWebKitVersion = (resultAppleWebKitRegEx === null ? null : parseFloat(regExAppleWebKit.exec(navU)[1]));
+			var isAndroidStockBrowser = isAndroidMobile && (appleWebKitVersion !== null && appleWebKitVersion < 535);
+			if (isAndroidStockBrowser) {
+				$("#navbar").removeClass("navbar-fixed");
+			}
+		});
+	</script>
 }

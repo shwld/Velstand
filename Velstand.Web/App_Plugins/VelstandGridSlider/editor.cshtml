@@ -7,8 +7,8 @@
             <li>
                 <img src="@media.url" alt="@media.caption"> <!-- random image -->
                 <div class="caption center-align">
-                    <h2 class="Text-Shadow white-text">@media.title</h2>
-                    <h3 class="Text-Shadow white-text">
+                    <h2 class="text-with-shadow white-text">@media.title</h2>
+                    <h3 class="text-with-shadow white-text">
                         @if (!string.IsNullOrEmpty(media.description.ToString())) {
                             @(new HtmlString(media.description.ToString().Replace("\r\n", "<br />").Replace("\r", "<br />").Replace("\n", "<br />")))
                         }

@@ -19,26 +19,26 @@
 		<div class="col s12">
 			@Html.Partial("VelstandBreadCrumb")
 		</div>
-		<section class="MainContent col s12">
+		<section class="v-main-content col s12">
 			<div class="row">
 				@foreach (var post in search.Contents())
 				{
 					<div class="col s12 m4">
-						<div class="card small">
+						<div class="v-card card small">
                             <div class="card-image">
                                 <a href="@post.Url">
                                     <img src="@post.GetCropUrl("eyecatch", "blogThumbnail" )" class="activator" />
                                 </a>
                             </div>
 							<div class="card-content match-height">
-                                <h2 class="card-title activator black-text Text-Light"><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
+                                <h2 class="card-title activator black-text v-post-title text-with-light"><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
                             </div>
 						</div>
 					</div>
 				}
 			</div>
 
-			<a class="Link-Btn" href="@current.VHolder().Url">
+			<a class="v-link-button" href="@current.VHolder().Url">
 				<span class="mdi-navigation-check blue btn col s12 text-center"> @Umbraco.GetDictionaryValue("ToppageMoreButton")</span>
 			</a>
 		</section>

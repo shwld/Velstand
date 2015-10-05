@@ -1,7 +1,4 @@
 *{ font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; }
-body .Body {
-    background-color: #d3d6e0;
-}
 h1 {
 	font-size: 1.5em;
 	font-weight: bold;
@@ -30,6 +27,6 @@ h6 {
 	font-size: 1.1em;
 	line-height: 1.4em;
 }
-.Level-Item { margin-left: 15px !important;}
+.v-level-item { margin-left: 15px !important;}
 
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

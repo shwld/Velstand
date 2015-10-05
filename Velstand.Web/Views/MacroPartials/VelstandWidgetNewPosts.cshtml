@@ -6,14 +6,14 @@
     IPublishedContent holder = current.VBlogHolderTop();
 }
 
-<ul class="Widget collection white">
+<ul class="v-widget collection white">
     <li class="collection-header"><h4><span class="mdi-action-autorenew"></span> @Umbraco.GetDictionaryValue("NewPosts")</h4></li>
     @foreach (var post in holder.VHasContents().Take(10))
     {
         <li class="NewPosts clearfix">
             <a href="@post.Url" class="collection-item valign-wrapper">
-                @Html.Crop(post, "eyecatch", "blogIcon", isLazyLoad: false, classValue: "img-responsive circle Post-Icon left")
-				<div class="Post-Title">@Umbraco.Field(post, "title")</div>
+                @Html.Crop(post, "eyecatch", "blogIcon", isLazyLoad: false, classValue: "img-responsive circle v-post-icon left")
+				<div class="v-post-title">@Umbraco.Field(post, "title")</div>
 			</a>
         </li>
     }

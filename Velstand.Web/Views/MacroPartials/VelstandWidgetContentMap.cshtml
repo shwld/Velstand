@@ -6,9 +6,9 @@
     IPublishedContent holder = current.VBlogHolderTop();
 }
 
-<ul class="Widget collection white">
+<ul class="v-widget collection white">
     <li class="collection-header"><h4><span class="mdi-file-folder-open"></span> @Umbraco.GetDictionaryValue("ContentMap")</h4></li>
-    <li class="Level-List">
+    <li class="v-level-list">
         @Traverse(holder)
     </li>
 </ul>
@@ -25,11 +25,11 @@
     {
         foreach (var item in items)
         {
-            <ul class="Level-@(item.Level) collapsible-level-list" data-collapsible="accordion">
+            <ul class="v-level-@(item.Level) collapsible-level-list" data-collapsible="accordion">
                 <li>
                     @if (item.DocumentTypeAlias.StartsWith(VelstandPrefix.Content))
                     {
-                        <a href="@item.Url" title="@item.GetPropertyValue(" title")" class="Level-Item truncate col s12">
+                        <a href="@item.Url" title="@item.GetPropertyValue(" title")" class="v-level-item truncate col s12">
                             <i class="mdi-editor-insert-drive-file"></i>
                             @Umbraco.Field(item, "title", altText: item.Name)
                         </a>
