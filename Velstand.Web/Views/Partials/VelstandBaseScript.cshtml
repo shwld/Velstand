@@ -35,7 +35,9 @@
 {
     <script type="text/javascript">
             $(function () {
-				$('#Fixed-Sidebar .Fixed-Wrapper').pushpin({ top: $('#Fixed-Sidebar').offset().top - 64 });
+				if ($('#Fixed-Sidebar').offset()) {
+					$('#Fixed-Sidebar .Fixed-Wrapper').pushpin({ top: $('#Fixed-Sidebar').offset().top - 64 });
+				}
             });
     </script>
 }
