@@ -511,7 +511,6 @@
     <Content Include="Views\Partials\VelstandRedirect.cshtml" />
     <Content Include="Views\VelstandHolderPages.cshtml" />
     <Content Include="Views\VelstandContentPages.cshtml" />
-    <Content Include="Views\Partials\VelstandFixedToolbar.cshtml" />
     <Content Include="Views\VelstandContentLanding.cshtml" />
     <Content Include="Views\Partials\Grid\VelstandGridLanding.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
