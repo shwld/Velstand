@@ -6,7 +6,7 @@
     IPublishedContent holder = current.VBlogHolderTop();
 }
 
-<ul class="v-widget collection white">
+<ul class="v-widget collection">
     <li class="collection-header"><h4><span class="mdi-action-autorenew"></span> @Umbraco.GetDictionaryValue("NewPosts")</h4></li>
     @foreach (var post in holder.VHasContents().Take(10))
     {

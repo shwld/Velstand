@@ -8,7 +8,7 @@
     var categories = ((IPublishedContent)CurrentPage).VCategories();
 }
 
-<ul class="v-widget collection white">
+<ul class="v-widget collection">
     <li class="collection-header"><h4><span class="mdi-action-label"></span> @Umbraco.GetDictionaryValue("Category")</h4></li>
     @foreach (var category in categories)
     {
