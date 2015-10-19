@@ -8,7 +8,7 @@
 
 <ul class="v-widget collection">
     <li class="collection-header"><h4><span class="mdi-action-autorenew"></span> @Umbraco.GetDictionaryValue("NewPosts")</h4></li>
-    @foreach (var post in holder.VHasContents().Take(10))
+    @foreach (var post in holder.VHasContents().VOrderByRelease().Take(10))
     {
         <li class="NewPosts clearfix">
             <a href="@post.Url" class="collection-item valign-wrapper">

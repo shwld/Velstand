@@ -3,7 +3,7 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     IPublishedContent current = CurrentPage;
-    var contents = CurrentPage.VRoot().VHasContents().VWhereCategory(CurrentPage.GetPropertyValue<string>("category"), CurrentPage.Id).Take(4);
+    var contents = CurrentPage.VRoot().VHasContents().VOrderByRelease().VWhereCategory(CurrentPage.GetPropertyValue<string>("category"), CurrentPage.Id).Take(4);
 }
 
 @foreach (IPublishedContent post in contents)

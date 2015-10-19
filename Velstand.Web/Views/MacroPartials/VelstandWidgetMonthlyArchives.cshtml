@@ -4,7 +4,7 @@
 @{
     IPublishedContent current = CurrentPage;
     IPublishedContent content = current.VBlogHolderTop();
-    var contents = content.VHasContents();
+    var contents = content.VHasContents().VOrderByRelease();
     var startdate = DateTime.Now;
     if (contents.Count() != 0)
     {

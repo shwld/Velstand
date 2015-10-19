@@ -4,7 +4,7 @@
 @{
     IPublishedContent current = CurrentPage;
     IPublishedContent holder = current.VBlogHolderTop();
-    var contents = holder.VHasContents();
+    var contents = holder.VHasContents().VOrderByRelease();
     var categories = ((IPublishedContent)CurrentPage).VCategories();
 }
 
