@@ -11,50 +11,32 @@
 }
 @section VelstandLanding
 {
-    <section class="container">
-        <nav class="white">
-            <div class="nav-wrapper">
-                <span class="right brand-logo grey-text">@Umbraco.Field(current.VHolder(), "title")</span>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    @foreach (var nav in current.VHolder().Children())
-                    {
-                        <li><a href="@nav.Url" class="grey-text">@Umbraco.Field(nav, "title")</a></li>
-                    }
-                </ul>
-            </div>
-        </nav>
-    </section>
 }
 @section VelstandBody
 {
     <div class="col s12">
 		@Html.Partial("VelstandBreadCrumb")
 	</div>
-    <section class="MainContent col s12">
-        <article class="Single-Post Post collection">
-            <div class="collection-item">
-                <div class="Post-Body">
-                    @CurrentPage.GetGridHtml("grid", "velstandgrid")
-                </div>
-                @* disqus *@
-                @Html.Partial("VelstandDisqus")
-            </div>
+		
+    <article class="v-single-post v-post">
+        <div class="v-post-body">
+            @CurrentPage.GetGridHtml("grid", "velstandgrid")
+        </div>
+        @* disqus *@
+		@Html.Partial("VelstandDisqus")
 
-            <div class="collection-item">
-                <span class="Post-Title">@Umbraco.Field("title")</span>&nbsp;&nbsp;
-                <span class="Post-Date mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>&nbsp;&nbsp;
-                <span class="Post-Category mdi-action-label">@Html.CategoryWithLink(current, "category")</span>
-            </div>
-        </article>
+        <span class="v-post-title">@Umbraco.Field("title")</span>&nbsp;&nbsp;
+		<span class="v-post-date mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>&nbsp;&nbsp;
+		<span class="v-post-category mdi-action-label">@Html.CategoryWithLink(current, "category")</span>
+    </article>
 
-        @* Google Adsense x 2 *@
-		<div class="row">
-			<div class="col s12 m6 left-align">
-        		@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
-			</div>
-			<div class="col s12 m6 right-align">
-        		@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
-			</div>
+    @* Google Adsense x 2 *@
+	<div class="row">
+		<div class="col s12 m6 left-align">
+        	@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
 		</div>
-    </section>
+		<div class="col s12 m6 right-align">
+        	@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
+		</div>
+	</div>
 }

@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+	var title = Model.MacroParameters["title"].ToString();
+	var linkKeys = new string[] {"link1", "link2", "link3", "link4", "link5", "link6", "link7", "link8", "link9", "link10"};
+	var links = new List<IPublishedContent>();
+	foreach(var linkKey in linkKeys) {
+	    var id = Model.MacroParameters[linkKey].ToString();
+	    var link = Umbraco.TypedContent(id);
+        if (link != null) {
+            links.Add(link);
+        }
+	}
+}
+<ul class="v-widget collection">
+    <li class="collection-header"><h4><i class="material-icons">&#xE157;</i> @title</h4></li>
+    @foreach (var link in links)
+    {
+        <li>
+            <a href="@link.Url" class="collection-item">
+				@Umbraco.Field(link, "title", altText: link.Name)
+            </a>
+        </li>
+    }
+</ul>

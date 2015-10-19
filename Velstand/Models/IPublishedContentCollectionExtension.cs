@@ -13,6 +13,23 @@ namespace Velstand.Models
     public static class IPublishedContentCollectionExtension
     {
         /// <summary>
+        /// order by releaseDate(descending)
+        /// </summary>
+        /// <param name="contents">Contents</param>
+        /// <returns>Contents</returns>
+        public static IEnumerable<IPublishedContent> VOrderByRelease(this IEnumerable<IPublishedContent> contents)
+        {
+            try
+            {
+                return contents.OrderByDescending(y => y.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate));
+            }
+            catch
+            {
+                return contents;
+            }
+        }
+
+        /// <summary>
         /// カテゴリーに一致するコンテンツを取得する
         /// （検索したいカテゴリーIDをカンマ区切りの文字列で入力し、一致するカテゴリーを多く保有するコンテントを優先して取得する）
         /// </summary>

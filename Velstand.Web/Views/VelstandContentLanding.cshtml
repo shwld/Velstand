@@ -14,16 +14,16 @@
 {
     @CurrentPage.GetGridHtml("grid", "velstandgridlanding")
 		
-	<article class="Single-Post Post collection">
+	<article class="v-single-post v-post collection">
 		<div class="collection-item">
 			@* disqus *@
 			@Html.Partial("VelstandDisqus")
 		</div>
 			
 		<div class="collection-item">
-			<span class="Post-Title">@Umbraco.Field("title")</span>&nbsp;&nbsp;
-			<span class="Post-Date mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>&nbsp;&nbsp;
-			<span class="Post-Category mdi-action-label">@Html.CategoryWithLink(current, "category")</span>
+			<span class="v-post-title">@Umbraco.Field("title")</span>&nbsp;&nbsp;
+			<span class="v-post-date mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>&nbsp;&nbsp;
+			<span class="v-post-category mdi-action-label">@Html.CategoryWithLink(current, "category")</span>
 		</div>
 	</article>
 }

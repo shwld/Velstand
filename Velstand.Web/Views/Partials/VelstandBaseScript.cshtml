@@ -4,47 +4,17 @@
 
 <script src="~/scripts/jquery.lazyload.min.js"></script>
 <script src="~/scripts/highlight.pack.js"></script>
+<script src="~/scripts/jquery.matchHeight-min.js"></script>
 <script type="text/javascript">
     $(function () {
-        var showFlag = false;
-        var btns = $('#Btns');
-        btns.css('bottom', '-100px');
-        var showFlag = false;
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 400) {
-                if (showFlag == false) {
-                    showFlag = true;
-                    btns.stop().animate({ 'bottom': '10px' }, 200);
-                }
-            } else {
-                if (showFlag) {
-                    showFlag = false;
-                    btns.stop().animate({ 'bottom': '-100px' }, 200);
-                }
-            }
-        });
-        $('#Top-Btn').click(function () {
+        $('#to-top-btn').click(function () {
             $('body,html').animate({
                 scrollTop: 0
             }, 500);
             return false;
         });
 
-        var navBtn = $('#Nav-Btn');
-        var snsBar = $('#Sns-Bar');
-        var showNavFlag = false;
-        snsBar.css('bottom', '-100px');
-        navBtn.click(function () {
-            if (showNavFlag == false) {
-                showNavFlag = true;
-                snsBar.stop().animate({ 'bottom': '50px' }, 200);
-            } else {
-                showNavFlag = false;
-                snsBar.stop().animate({ 'bottom': '-100px' }, 200);
-            }
-            return false;
-        });
-
+        $('.collapsible-level-list').collapsible();
         $('.lazy-load').lazyload({
             effect: 'fadeIn',
             effectspeed: 1000
@@ -55,16 +25,32 @@
             full_width: false,
             height: 500,
         });
-		$(".nav-button-collapse").sideNav();
+        $(".nav-button-collapse").sideNav();
+        $(".match-height").matchHeight();
     });
-    //$('.Post-Body img').addClass('img-responsive');
 </script>
 
 @if (!Request.Browser.IsMobileDevice)
 {
     <script type="text/javascript">
-            $(function () {
-				$('#Fixed-Sidebar .Fixed-Wrapper').pushpin({ top: $('#Fixed-Sidebar').offset().top - 64 });
-            });
+        $(function () {
+			if ($('#fixed-sidebar').offset()) {
+				$('#fixed-sidebar .v-fixed-wrapper').pushpin({ top: $('#fixed-sidebar').offset().top - 64 });
+			}
+		});
     </script>
+} else {
+	<script type="text/javascript">
+		$(function () {
+			var navU = navigator.userAgent;
+			var isAndroidMobile = navU.indexOf('Android') > -1 && navU.indexOf('Mozilla/5.0') > -1 && navU.indexOf('AppleWebKit') > -1;
+			var regExAppleWebKit = new RegExp(/AppleWebKit\/([\d.]+)/);
+			var resultAppleWebKitRegEx = regExAppleWebKit.exec(navU);
+			var appleWebKitVersion = (resultAppleWebKitRegEx === null ? null : parseFloat(regExAppleWebKit.exec(navU)[1]));
+			var isAndroidStockBrowser = isAndroidMobile && (appleWebKitVersion !== null && appleWebKitVersion < 535);
+			if (isAndroidStockBrowser) {
+				$("#navbar").removeClass("navbar-fixed");
+			}
+		});
+	</script>
 }

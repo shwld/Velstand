@@ -3,27 +3,25 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     IPublishedContent current = CurrentPage;
-    var contents = CurrentPage.VRoot().VHasContents().VWhereCategory(CurrentPage.GetPropertyValue<string>("category"), CurrentPage.Id).Take(4);
+    var contents = CurrentPage.VRoot().VHasContents().VOrderByRelease().VWhereCategory(CurrentPage.GetPropertyValue<string>("category"), CurrentPage.Id).Take(4);
 }
 
 @foreach (IPublishedContent post in contents)
 {
 
     <article class="collection">
-        <div class="col hide-on-small-only m3 pull-left">
-            <p class="Post-Eyecatch">
-                <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogEyecatch")</a>
-            </p>
+        <div class="v-post-eyecatch left">
+            <a href="@post.Url">@Html.Crop(post, "eyecatch", "blogEyecatch")</a>
         </div>
-        <div class="Description col s12 m9">
+        <div class="v-post-description">
             <h2><a href="@post.Url">@Umbraco.Field(post, "title")</a></h2>
             <hr />
-            <p class="Post-Data">
+            <p class="v-post-info">
                 <span class="mdi-notification-event-note"> @string.Format(Umbraco.GetDictionaryValue("DateFormat"), post.GetPropertyValue<DateTime>("releaseDate"))</span>
                 &nbsp;&nbsp;
-                <span class="Post-Category mdi-action-label"> @Html.CategoryWithLink(post, "category")</span>
+                <span class="v-post-category mdi-action-label"> @Html.CategoryWithLink(post, "category")</span>
             </p>
-            <a class="Link-Btn hide-on-small-only" href="@post.Url">
+            <a class="v-link-button hide-on-small-only" href="@post.Url">
                 <span class="glyphicon glyphicon-check"></span> @Umbraco.GetDictionaryValue("HolderpageMoreButton")
             </a>
         </div>

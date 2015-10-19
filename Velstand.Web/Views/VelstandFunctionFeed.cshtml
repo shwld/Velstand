@@ -1,4 +1,4 @@
-﻿@using Velstand.Constants
+﻿﻿@using Velstand.Constants
 @using Velstand.Models
 @using Velstand.Utilities
 @using System.Xml
@@ -9,7 +9,7 @@
     IPublishedContent current = CurrentPage;
     var setting = current.VRoot().Descendant("VelstandPrivateSettings");
     IPublishedContent selected = Umbraco.TypedContent(CurrentPage.GetPropertyValue<int>("selectContent"));
-    if (selected == null) { selected = current.VRoot(); }
+    if (selected == null) { return; }
 
     var baseUrl = UrlUtil.SchemeAndAuthority();
     }
@@ -21,7 +21,7 @@
         new Uri(baseUrl)
     );
 
-    feed.Items = selected.VHasContents().Select(x => new SyndicationItem(
+    feed.Items = selected.VHasContents().VOrderByRelease().Select(x => new SyndicationItem(
         x.GetPropertyValue<string>("title"),
         x.GetPropertyValue<string>("description"),
         new Uri(baseUrl + x.Url)
