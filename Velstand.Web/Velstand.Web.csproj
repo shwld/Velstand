@@ -335,8 +335,10 @@
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="Content\dummy.txt" />
     <Content Include="css\github.css" />
+    <Content Include="css\rrssb.css" />
     <Content Include="css\style_mobile.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\style_pc.css" />
     <Content Include="default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="font\material-design-icons\LICENSE.txt" />
@@ -370,6 +372,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\highlight.pack.js" />
     <Content Include="scripts\jquery.lazyload.min.js" />
+    <Content Include="scripts\jquery.matchHeight-min.js" />
     <Content Include="scripts\script.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -508,7 +511,6 @@
     <Content Include="Views\Partials\VelstandRedirect.cshtml" />
     <Content Include="Views\VelstandHolderPages.cshtml" />
     <Content Include="Views\VelstandContentPages.cshtml" />
-    <Content Include="Views\Partials\VelstandFixedToolbar.cshtml" />
     <Content Include="Views\VelstandContentLanding.cshtml" />
     <Content Include="Views\Partials\Grid\VelstandGridLanding.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -517,6 +519,8 @@
     <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
+    <Content Include="Views\MacroPartials\VelstandWidgetSocialButtons.cshtml" />
+    <Content Include="Views\MacroPartials\VelstandWidgetLinks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

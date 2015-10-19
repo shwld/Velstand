@@ -25,9 +25,7 @@ namespace Velstand.Models
         {
             try
             {
-                return content.DescendantsOrSelf()
-                                     .Where(x => x.DocumentTypeAlias.StartsWith(VelstandPrefix.Content))
-                                     .OrderByDescending(y => y.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate));
+                return content.DescendantsOrSelf().Where(x => x.DocumentTypeAlias.StartsWith(VelstandPrefix.Content));
             }
             catch
             {

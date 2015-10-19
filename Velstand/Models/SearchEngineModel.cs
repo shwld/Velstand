@@ -36,7 +36,7 @@ namespace Velstand.Models
         /// <returns></returns>
         public IEnumerable<IPublishedContent> Contents()
         {
-            IEnumerable<IPublishedContent> posts = this.CurrentPage.VHasContents();
+            IEnumerable<IPublishedContent> posts = this.CurrentPage.VHasContents().VOrderByRelease();
             try
             {
                 int pageNumber = 1;
@@ -185,22 +185,22 @@ namespace Velstand.Models
                 int dateInt;
                 if (!int.TryParse(date, out dateInt))
                 {
-                    return this.CurrentPage.VHasContents();
+                    return this.CurrentPage.VHasContents().VOrderByRelease();
                 }
                 switch (date.Length)
                 {
                     case (4):
-                        return this.CurrentPage.VHasContents().Where(w => w.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate).ToString("yyyy") == date);
+                        return this.CurrentPage.VHasContents().VOrderByRelease().Where(w => w.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate).ToString("yyyy") == date);
                     case (6):
-                        return this.CurrentPage.VHasContents().Where(w => w.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate).ToString("yyyyMM") == date);
+                        return this.CurrentPage.VHasContents().VOrderByRelease().Where(w => w.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate).ToString("yyyyMM") == date);
                     case (8):
-                        return this.CurrentPage.VHasContents().Where(w => w.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate).ToString("yyyyMMdd") == date);
+                        return this.CurrentPage.VHasContents().VOrderByRelease().Where(w => w.GetPropertyValue<DateTime>(VelstandProperty.ReleaseDate).ToString("yyyyMMdd") == date);
                 }
-                return this.CurrentPage.VHasContents();
+                return this.CurrentPage.VHasContents().VOrderByRelease();
             }
             catch
             {
-                return this.CurrentPage.VHasContents();
+                return this.CurrentPage.VHasContents().VOrderByRelease();
             }
         }
         #endregion

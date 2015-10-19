@@ -8,8 +8,8 @@
 
 @Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectWidgets"), CurrentPage.Id))
 
-<div id="Fixed-Sidebar" class="Blog-Sidebar">
-	<div class="Fixed-Wrapper">
+<div id="fixed-sidebar" class="v-blog-sidebar">
+	<div class="v-fixed-wrapper">
     	@Html.Raw(umbraco.library.RenderMacroContent(content.GetPropertyValue<string>("selectFixedWidgets"), CurrentPage.Id))
 	</div>
 </div>

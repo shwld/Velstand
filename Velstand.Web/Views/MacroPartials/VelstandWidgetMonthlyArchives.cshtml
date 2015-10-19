@@ -4,7 +4,7 @@
 @{
     IPublishedContent current = CurrentPage;
     IPublishedContent content = current.VBlogHolderTop();
-    var contents = content.VHasContents();
+    var contents = content.VHasContents().VOrderByRelease();
     var startdate = DateTime.Now;
     if (contents.Count() != 0)
     {
@@ -14,7 +14,7 @@
     }
     var idate = DateTime.Now;
 
-    <ul class="Widget collection white">
+    <ul class="v-widget collection">
         <li class="collection-header"><h4><span class="mdi-notification-event-note"></span> @Umbraco.GetDictionaryValue("MonthlyArchives")</h4></li>
         @while (new DateTime(startdate.Year, startdate.Month, 1) <= new DateTime(idate.Year, idate.Month, 1))
         {

@@ -1,4 +1,59 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Velstand.Helpers
+@using Velstand.Models
+@using Velstand.Utilities
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-    Layout = "VelstandMaster.cshtml";
+    Layout = "VelstandWrapper.cshtml";
+    IPublishedContent current = CurrentPage;
+}
+@section VelstandHead
+{
+}
+@section VelstandBody
+{
+    <div class="col s12">
+		@Html.Partial("VelstandBreadCrumb")
+	</div>
+    <section class="v-sub-content col hide-on-small-only m3">
+		<div id="fixed-sidebar"><div class="v-fixed-wrapper">
+	        <ul class="section table-of-contents">
+				@foreach (var nav in current.VHolder().Children())
+				{
+					<li><a href="@nav.Url" class="grey-text @(current.Id == nav.Id ? "active" : "")">@Umbraco.Field(nav, "title")</a></li>
+				}
+			</ul>
+		</div></div>
+		<br />
+    </section>
+
+
+
+    <section class="v-main-content col s12 m9">
+        <article class="v-single-post v-post collection">
+            <div class="collection-item">
+                <h1 class="v-post-title">@Umbraco.Field("title")</h1>
+                <span class="v-post-date mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>&nbsp;&nbsp;
+                <span class="v-post-category mdi-action-label">@Html.CategoryWithLink(current, "category")</span>
+            </div>
+            @Html.Crop(current, "eyecatch", "blogContentHead")
+            <div class="collection-item">
+                <div class="v-post-body">
+                    @current.VMarkUp("body")@*.ToLazyLoad()*@
+                </div>
+                @* disqus *@
+                @Html.Partial("VelstandDisqus")
+            </div>
+
+        </article>
+
+        @* Google Adsense x 2 *@
+		<div class="row">
+			<div class="col s12 m6 left-align">
+        		@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
+			</div>
+			<div class="col s12 m6 right-align">
+        		@Umbraco.RenderMacro("VelstandWidgetGoogleAdsense")
+			</div>
+		</div>
+    </section>
 }
